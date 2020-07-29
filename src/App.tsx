@@ -1,23 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { Router } from "@reach/router"
-import { HomePage } from './routes/home/HomePage';
-import { StockPage } from './routes/stock/StockPage';
+import { HomePage } from './routes/Home/HomePage';
+import { StockPage } from './routes/Stock/StockPage';
+
+import './App.scss';
+import ErrorBoundary from './components/behavior/ErrorBoundary/ErrorBoundary';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <HomePage default />
-        <HomePage path="/" />
-        <StockPage path="stock" />
-      </Router>
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />  
-      </header>
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Router>
+          <HomePage default />
+          <HomePage path="/" />
+          <StockPage path="stock" />
+        </Router>
+      </div>
+    </ErrorBoundary>
   );
 }
 
