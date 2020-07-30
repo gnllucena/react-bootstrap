@@ -6,19 +6,22 @@ import { MePage } from './routes/Me/MePage';
 import { LoginPage } from './routes/Login/LoginPage';
 import { ErrorBoundary } from './components/behavior/ErrorBoundary/ErrorBoundary';
 import { ProtectedRoute } from './components/behavior/ProtectedRoute/ProtectedRoute';
+import { HttpErrorHandling } from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 
 import './App.scss';
 
-function App() {
+function App() {  
   return (
     <ErrorBoundary>
+      <HttpErrorHandling></HttpErrorHandling>
+
       <div className="App">
         <Router>
           <HomePage default />
           <HomePage path="/" />
           <StockPage path="stock" />
           <LoginPage path="login" />
-          <ProtectedRoute path="me" as={MePage} />
+          <ProtectedRoute path="me" for={MePage} />
         </Router>
       </div>
     </ErrorBoundary>

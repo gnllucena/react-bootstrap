@@ -1,8 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
+import axios from 'axios';
 import { RouteComponentProps } from '@reach/router';
 
 export const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  React.useEffect(() => {
+  useEffect(() => {
+    axios.get('foo')
+
     return () => { };
   }, []);
 

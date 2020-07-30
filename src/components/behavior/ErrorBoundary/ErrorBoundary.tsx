@@ -1,7 +1,7 @@
-import React, { ErrorInfo } from "react";
+import React, { ErrorInfo, Component } from "react";
 import { Link } from "@reach/router";
 
-export class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends Component {
   public state = {
     hasError: false
   };

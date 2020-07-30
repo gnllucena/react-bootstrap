@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { Redirect, RouteComponentProps } from '@reach/router';
  
 type Props = RouteComponentProps & { 
-  as: FunctionComponent;
+  for: FunctionComponent;
 };
 
 export const ProtectedRoute: FunctionComponent<Props> = ({ 
-  as: Component 
+  for: Component 
 }) => {
   if (false) {
     return <Component />;
