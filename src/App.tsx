@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Router } from "@reach/router"
+import { HomePage } from './routes/Home/HomePage';
+import { StockPage } from './routes/Stock/StockPage';
+import { MePage } from './routes/Me/MePage';
+import { LoginPage } from './routes/Login/LoginPage';
+import { ErrorBoundary } from './components/behavior/ErrorBoundary/ErrorBoundary';
+import { ProtectedRoute } from './components/behavior/ProtectedRoute/ProtectedRoute';
+import { HttpErrorHandling } from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 
-function App() {
+import './App.scss';
+
+function App() {  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>
+      <HttpErrorHandling></HttpErrorHandling>
+
+      <div className="App">
+        <Router>
+          <HomePage default />
+          <HomePage path="/" />
+          <StockPage path="stock" />
+          <LoginPage path="login" />
+          <ProtectedRoute path="me" for={MePage} />
+        </Router>
+      </div>
+    </ErrorBoundary>
   );
 }
 

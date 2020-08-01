@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "semnome017",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,19 +24,24 @@
     ]
   },
   "dependencies": {
+    "@reach/router": "^1.3.4",
+    "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.1",
+    "recoil": "0.0.10"
   },
   "devDependencies": {
-    "@types/recoil": "0.0.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.50",
-    "@types/react": "^16.9.43",
-    "@types/react-dom": "^16.9.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.50",
+    "@types/react": "^16.9.43",
+    "@types/recoil": "0.0.1",
+    "@types/react-dom": "^16.9.8",
+    "@types/reach__router": "^1.3.5",
+    "node-sass": "^4.14.1",
     "typescript": "^3.7.5"
   }
 }
