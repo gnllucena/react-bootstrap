@@ -1,0 +1,157 @@
+.header-wrapper {
+    width: 100%;
+
+  @media only screen and (max-width: 991px) {
+    .transparent {
+      .navbar_search {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 667px) {
+    nav {
+      &:not(.transparent) {
+        a {
+          > h3 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .sticky-outer-wrapper {
+    nav {
+      &.is_transparent {
+        > div > div {
+          > svg {
+            width: 20px;
+            position: absolute;
+          }
+
+          a {
+            img {
+              opacity: 0;
+            }
+
+            h3 {
+              color: #ffffff;
+            }
+          }
+        }
+
+        .ant-menu:not(.active) {
+          li {
+            a {
+              &.active {
+                color: #ffffff;
+              }
+              &:hover {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+
+      &.transparent {
+        > div > div {
+          > svg {
+            width: 20px;
+            position: absolute;
+          }
+
+          a {
+            img {
+              opacity: 0;
+            }
+
+            h3 {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    &.sticky-header {
+      nav {
+        &.is_transparent {
+          background-color: #ffffff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+          > div > div {
+            > svg {
+              display: none;
+            }
+
+            a {
+              img {
+                opacity: 1;
+              }
+
+              h3 {
+                color: #008489;
+              }
+            }
+          }
+
+          .ant-menu {
+            li {
+              a {
+                color: #2C2C2C;
+                &:hover {
+                  color: #008489;
+                }
+                &.active {
+                  color: #008489;
+                  border-bottom: 3px solid #008489;
+                }
+              }
+            }
+          }
+
+          .auth_menu {
+            .ant-menu {
+              li {
+                &:last-child {
+                  a {
+                    color: #ffffff;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.transparent {
+          background-color: #ffffff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+          > div > div {
+            > svg {
+              display: none;
+            }
+
+            a {
+              img {
+                opacity: 1;
+              }
+
+              h3 {
+                color: #008489;
+              }
+            }
+          }
+
+          .hamburg-btn {
+            > span {
+              background-color: #2C2C2C;
+            }
+          }
+        }
+      }
+    }
+  }
+}
