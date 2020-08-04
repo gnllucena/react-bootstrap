@@ -12,6 +12,14 @@
     display: flex;
   }
 
+  .ant-menu-item:hover, .ant-menu-item-selected {
+    border-bottom: 2px solid transparent !important;
+  }
+  
+  .ant-menu-item {
+    top: 2px !important;
+  }
+
   &.is_transparent {
     background: transparent;
     position: fixed;
@@ -131,53 +139,53 @@
             }
           }
         }
+      }
 
-        .auth-wrapper {
-          margin-left: 74px;
-        
-          ul, .ant-menu, ul.ant-menu {
-            display: flex;
-            align-items: center;
-            border: 0;
-            background-color: transparent;
-        
-            li {
-              margin: 0;
-              padding: 0;
-              height: auto;
-              margin-bottom: 0 !important;
+      .auth-wrapper {
+        margin-left: 74px;
+      
+        ul, .ant-menu, ul.ant-menu {
+          display: flex;
+          align-items: center;
+          border: 0;
+          background-color: transparent;
+      
+          li {
+            margin: 0;
+            padding: 0;
+            height: auto;
+            margin-bottom: 0 !important;
+            color: #2C2C2C;
+            font-size: 15px;
+            line-height: 18px;
+            font-weight: 400;
+            transition: color 0.2s ease-in-out;
+            &.ant-menu-item-selected {
+              background-color: transparent;
+            }
+      
+            a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 78px;
+              min-height: 38px;
+              border-radius: 3px;
               color: #2C2C2C;
-              font-size: 15px;
-              line-height: 18px;
-              font-weight: 400;
               transition: color 0.2s ease-in-out;
-              &.ant-menu-item-selected {
-                background-color: transparent;
+              &:hover {
+                color: #008489;
               }
-        
+            }
+      
+            &:last-child {
               a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 78px;
-                min-height: 38px;
-                border-radius: 3px;
-                color: #2C2C2C;
-                transition: color 0.2s ease-in-out;
+                color: #ffffff;
+                background-color: #008489;
+                transition: opacity 0.2s ease;
+      
                 &:hover {
-                  color: #008489;
-                }
-              }
-        
-              &:last-child {
-                a {
-                  color: #ffffff;
-                  background-color: #008489;
-                  transition: opacity 0.2s ease;
-        
-                  &:hover {
-                    opacity: 0.9;
-                  }
+                  opacity: 0.9;
                 }
               }
             }

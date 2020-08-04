@@ -8,7 +8,7 @@ import { HeaderMobile } from '../HeaderMobile/HeaderMobile';
 export const Header: FunctionComponent = () => {
   return (
     <div className="header-wrapper">
-      <Sticky top={-1} innerZ={10001} activeClass="sticky-header">
+      <Sticky top={-1} innerZ={10} activeClass="sticky-header">
         <HeaderFullscreen />
 
         <HeaderMobile />

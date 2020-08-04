@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { Menu } from 'antd';
 import { Link } from '@reach/router';
+import { Menu } from '../Menu/Menu';
+import { MenuAuthentication } from '../MenuAuthentication/MenuAuthentication';
 
 import './HeaderFullscreen.scss';
 import logo from '../../../assets/images/logo-alt.svg';
@@ -17,27 +18,10 @@ export const HeaderFullscreen: FunctionComponent = () => {
         </div>
         <div className="menu-wrapper">
           <div className="links-wrapper">
-            <Menu mode="horizontal">
-              <Menu.Item key="0">
-                <Link to="/" >Search</Link>
-              </Menu.Item>
-              <Menu.Item key="1">
-                <Link to="/stocks">Stocks</Link>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Link to="/sectors">Sectors</Link>
-              </Menu.Item>
-            </Menu>
+            <Menu align="horizontal" />
           </div>
           <div className="auth-wrapper">
-            <Menu>
-              <Menu.Item key="0">
-                <Link to="/login">Sign in</Link>
-              </Menu.Item>
-              <Menu.Item key="1">
-                <Link to="/register">Sign up</Link>
-              </Menu.Item>
-            </Menu>
+            <MenuAuthentication />
           </div>
         </div>
       </div>
