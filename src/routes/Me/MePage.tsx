@@ -12,3 +12,5 @@ export const MePage: FunctionComponent<RouteComponentProps> = (props: RouteCompo
     </div>
   );
 }
+
+export default MePage;

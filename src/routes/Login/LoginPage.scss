@@ -1,0 +1,162 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .form-wrapper {
+    width: 43%;
+    padding: 81px;
+
+    @media only screen and (min-width: 1441px) {
+      padding: 130px;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 991px) {
+      padding: 56px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 480px) {
+      padding: 30px;
+    }
+
+    .signin-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      height: 57px;
+      font-size: 17px;
+      font-weight: 700;
+      border-color: $primary0;
+      background-color: $primary0;
+      svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 2px;
+      }
+      &::after {
+        content: none;
+      }
+      &:hover,
+      &:focus {
+        border-color: #008489d1;
+        background-color: #008489d1;
+      }
+    }
+
+    .ant-divider {
+      margin: 41px 0 !important;
+      .ant-divider-inner-text {
+        font-size: 15px;
+        font-weight: 700;
+        color: $text2;
+      }
+    }
+
+    .ant-btn {
+      &.facebook-btn,
+      &.github-btn,
+      &.firebase-btn,
+      &.google-btn {
+        height: 57px;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: 700;
+        &::after {
+          content: none;
+        }
+      }
+      &.facebook-btn {
+        border-color: $color7;
+        background-color: $color7;
+      }
+      &.github-btn {
+        border-color: $color14;
+        background-color: $color14;
+      }
+      &.firebase-btn {
+        border-color: $color;
+        background-color: $color;
+      }
+      &.google-btn {
+        border-color: $color10;
+        background-color: $color10;
+      }
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+    
+      a {
+        display: flex;
+        align-items: center;
+      }
+    
+      img {
+        width: 20px;
+      }
+    
+      h3 {
+        color: #008489;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .title-wrapper {
+      color: $text0;
+      font-size: 45px;
+      line-height: 54px;
+      font-weight: 700;
+      margin-bottom: 0;
+      margin-top: 58px;
+
+      @media only screen and (max-width: 1600px) {
+        font-size: 38px;
+        line-height: 48px;
+      }
+
+      @media only screen and (max-width: 1440px) {
+        font-size: 32px;
+        line-height: 42px;
+      }
+
+      @media only screen and (max-width: 1200px) {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+
+    .title-info-wrapper {
+      color: $text2;
+      font-size: 25px;
+      line-height: 30px;
+      margin-bottom: 45px;
+      margin-top: 10px;
+
+      @media only screen and (max-width: 1600px) {
+        font-size: 22px;
+      }
+
+      @media only screen and (max-width: 1440px) {
+        font-size: 20px;
+      }
+
+      @media only screen and (max-width: 1440px) {
+        font-size: 18px;
+      }
+    }
+  }
+}

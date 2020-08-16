@@ -163,3 +163,5 @@ export const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteCom
     </div>
   );
 }
+
+export default HomePage;

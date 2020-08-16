@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Link } from '@reach/router';
 import { IoIosClose } from 'react-icons/io';
-
-import './HeaderMobile.scss';
-import logo from '../../../assets/images/logo-alt.svg';
 import { Button, Drawer } from 'antd';
 import { Menu } from '../Menu/Menu';
 
+import './HeaderMobile.scss';
+
 export const HeaderMobile: FunctionComponent = () => {
+  const logo = require('../../../assets/images/logo-alt.svg') as string;
+
   const [sidebarMenuOpen, setSidebarMenuOpen] = useState<boolean>(false);
 
   return (

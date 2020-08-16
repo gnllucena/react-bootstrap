@@ -12,51 +12,51 @@
     justify-content: space-between;
     min-height: 82px;
     width: 100%;
-  
+
     &.default {
-      border-bottom: 1px solid #E6E6E6;
-      background-color: #ffffff;
+      border-bottom: 1px solid $border3;
+      background-color: $color1;
     }
-  
+
     .hamburg-btn {
       border: 0;
       padding: 0;
       width: auto;
       height: auto;
       background-color: transparent;
-  
+
       > span {
         display: block;
         width: 20px;
         height: 2px;
         margin: 4px 0;
         border-radius: 5px;
-        background-color: #2C2C2C;
+        background-color: $text0;
         transition: all 0.3s ease;
       }
-  
+
       &:hover,
       &.active {
         background-color: transparent;
-  
+
         > span {
           width: 23px;
-          background-color: #008489;
+          background-color: $primary0;
         }
       }
-  
+
       &::after {
         display: none;
       }
     }
-  
+
     &.transparent {
       position: fixed;
       z-index: 9999;
-  
+
       .hamburg-btn {
         > span {
-          background-color: #ffffff;
+          background-color: $color1;
         }
       }
     }
@@ -81,7 +81,7 @@
         margin: 0 0 0 10px;
       }
     }
-  }  
+  }
 }
 
 .header-mobile-drawer-wrapper {
@@ -98,7 +98,7 @@
       margin: 0 0 30px;
       padding: 25px 20px;
       align-items: center;
-      background-color: #F7F7F7;
+      background-color: $color2;
 
       li {
         height: auto;
@@ -118,13 +118,13 @@
           border-radius: 3px;
           font-size: 15px;
           font-weight: 700;
-          color: #2C2C2C;
+          color: $text0;
         }
 
         &:last-child {
           a {
-            color: #ffffff;
-            background-color: #008489;
+            color: $color1;
+            background-color: $primary0;
             transition: opacity 0.2s ease;
             &:hover {
               opacity: 0.9;
@@ -133,7 +133,7 @@
         }
       }
     }
-    
+
     .main-menu {
       border: 0;
       padding-top: 30px;
@@ -149,11 +149,11 @@
           font-size: 15px;
           padding: 0 31px;
           border-left: 4px solid transparent;
-          color: #2C2C2C;
+          color: $text0;
           &.active {
             font-weight: 700;
-            border-color: #008489;
-            color: #008489;
+            border-color: $primary0;
+            color: $primary0;
           }
         }
 
@@ -165,11 +165,14 @@
           padding: 0 32px;
           cursor: pointer;
           background-color: transparent;
-          color: #2C2C2C;
+          color: $text0;
           transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
           &:hover {
-            color: #008489;
+            color: $primary0;
           }
+
+
           &focus {
             outline: 0;
           }
@@ -177,7 +180,7 @@
 
         &:hover {
           a {
-            color: #008489;
+            color: $primary0;
           }
         }
       }
@@ -188,7 +191,7 @@
     display: flex;
     justify-content: flex-end;
     padding: 20px 15px 12px;
-  
+
     > button {
       border: 0;
       padding: 0;
@@ -199,13 +202,13 @@
       display: inline-flex;
       align-items: center;
       cursor: pointer;
-      color: #909090;
+      color: $text1;
       transition: all 0.3s ease;
-  
+
       &:hover,
       &:focus {
         outline: 0;
-        color: #2C2C2C;
+        color: $text0;
       }
     }
   }

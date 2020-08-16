@@ -1,5 +1,5 @@
 .header-wrapper {
-    width: 100%;
+  width: 100%;
 
   @media only screen and (max-width: 991px) {
     .transparent {
@@ -36,7 +36,7 @@
             }
 
             h3 {
-              color: #ffffff;
+              color: $color1;
             }
           }
         }
@@ -45,10 +45,10 @@
           li {
             a {
               &.active {
-                color: #ffffff;
+                color: $color1;
               }
               &:hover {
-                color: #ffffff;
+                color: $color1;
               }
             }
           }
@@ -68,7 +68,7 @@
             }
 
             h3 {
-              color: #ffffff;
+              color: $color1;
             }
           }
         }
@@ -78,7 +78,7 @@
     &.sticky-header {
       nav {
         &.is_transparent {
-          background-color: #ffffff;
+          background-color: $color1;
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
           > div > div {
@@ -92,7 +92,7 @@
               }
 
               h3 {
-                color: #008489;
+                color: $primary0;
               }
             }
           }
@@ -100,13 +100,13 @@
           .ant-menu {
             li {
               a {
-                color: #2C2C2C;
+                color: $text0;
                 &:hover {
-                  color: #008489;
+                  color: $primary0;
                 }
                 &.active {
-                  color: #008489;
-                  border-bottom: 3px solid #008489;
+                  color: $primary0;
+                  border-bottom: 3px solid $primary0;
                 }
               }
             }
@@ -117,7 +117,7 @@
               li {
                 &:last-child {
                   a {
-                    color: #ffffff;
+                    color: $color1;
                   }
                 }
               }
@@ -126,7 +126,7 @@
         }
 
         &.transparent {
-          background-color: #ffffff;
+          background-color: $color1;
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
           > div > div {
@@ -140,14 +140,14 @@
               }
 
               h3 {
-                color: #008489;
+                color: $primary0;
               }
             }
           }
 
           .hamburg-btn {
             > span {
-              background-color: #2C2C2C;
+              background-color: $text0;
             }
           }
         }

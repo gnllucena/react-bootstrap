@@ -1,18 +1,34 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import Sticky from 'react-stickynode';
-
-import './Header.scss';
+import { Location } from '@reach/router';
 import { HeaderFullscreen } from '../HeaderFullscreen/HeaderFullscreen';
 import { HeaderMobile } from '../HeaderMobile/HeaderMobile';
 
-export const Header: FunctionComponent = () => {
-  return (
-    <div className="header-wrapper">
-      <Sticky top={-1} innerZ={10} activeClass="sticky-header">
-        <HeaderFullscreen />
+import './Header.scss';
 
-        <HeaderMobile />
-      </Sticky>
-    </div>
+export const Header: FunctionComponent = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
+  return (
+    <Location>
+      {({ location }) => {
+        let isLoginRoute = location.pathname.endsWith('login');
+        let isRegisterRoute = location.pathname.endsWith('register');
+        
+        if (!isLoginRoute && !isRegisterRoute) {
+          return (
+            <div className="header-wrapper">
+              <Sticky innerZ={10} activeClass="sticky-header">
+                <HeaderFullscreen />
+        
+                <HeaderMobile />
+              </Sticky>
+            </div>
+          )
+        }
+      }}
+    </Location>
   );
 };

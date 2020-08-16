@@ -21,3 +21,5 @@ export const StockPage: FunctionComponent<RouteComponentProps> = (props: RouteCo
     </div>
   );
 }
+
+export default StockPage;

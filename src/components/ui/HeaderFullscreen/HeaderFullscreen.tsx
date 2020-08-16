@@ -4,9 +4,10 @@ import { Menu } from '../Menu/Menu';
 import { MenuAuthentication } from '../MenuAuthentication/MenuAuthentication';
 
 import './HeaderFullscreen.scss';
-import logo from '../../../assets/images/logo-alt.svg';
 
 export const HeaderFullscreen: FunctionComponent = () => {
+  const logo = require('../../../assets/images/logo-alt.svg') as string;
+
   return (
     <div className="header-fullscreen-wrapper">
       <div className="navbar-wrapper">
