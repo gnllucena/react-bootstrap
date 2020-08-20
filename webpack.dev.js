@@ -17,6 +17,6 @@ module.exports = common({
     contentBase: path.resolve(__dirname, 'public'),
     historyApiFallback: true,
     compress: true,
-    port: 3000,
+    port: 9000,
   }
 }, environement);

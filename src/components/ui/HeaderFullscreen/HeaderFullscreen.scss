@@ -135,6 +135,7 @@
               font-weight: 700;
               color: $primary0;
               border-bottom: 3px solid $primary0;
+              margin-bottom: -3px;
             }
           }
         }
@@ -142,13 +143,12 @@
     }
 
     .auth-wrapper {
-      margin-left: 74px;
-
       ul, .ant-menu, ul.ant-menu {
         display: flex;
         align-items: center;
         border: 0;
         background-color: transparent;
+        margin-left: 74px;
 
         li {
           margin: 0;

@@ -1,0 +1,37 @@
+{
+  "login": {
+    "Id": 1,
+    "Name": "Gabriel Lucena",
+    "Email": "gnllucena@gmail.com",
+    "RememberMe": false,
+    "Bearer": "AbCdEf123456",
+    "Avatar": "http://localhost:3000/assets/images/profilepic.png"
+  },
+  "register": {
+    "Name": "Gabriel Lucena",
+    "Email": "gnllucena@gmail.com",
+    "RememberMe": true,
+    "Bearer": "",
+    "Avatar": "",
+    "Password": "senhabonita",
+    "ConfirmPassword": "senhabonita",
+    "AgreeTermsAndCondition": true
+  },
+  "forgot-password": {
+    "Name": "",
+    "Email": "gnllucena@gmail.com",
+    "RememberMe": true,
+    "Bearer": "",
+    "Avatar": ""
+  },
+  "reset-password": {
+    "Name": "",
+    "Email": "",
+    "RememberMe": true,
+    "Bearer": "",
+    "Avatar": "",
+    "Password": "asdfasdf",
+    "ConfirmPassword": "asdfasdf",
+    "Token": "testedotoken"
+  }
+}

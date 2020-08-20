@@ -25,4 +25,3 @@ export const HttpErrorHandling: FunctionComponent = () => {
 
   return null;
 };
-

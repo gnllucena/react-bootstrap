@@ -1,4 +1,4 @@
-.login-wrapper {
+.authentication-wrapper {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -157,6 +157,35 @@
       @media only screen and (max-width: 1440px) {
         font-size: 18px;
       }
+    }
+  }
+
+  .banner-wrapper {
+    width: 57%;
+
+    @media only screen and (max-width: 1200px) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+    > div {
+      position: fixed;
+      width: 57%;
+      top: 0;
+      right: 0;
+
+      @media only screen and (max-width: 1200px) {
+        width: 50%;
+      }
+    }
+
+    .banner-wrapper-image {
+      background-image: url($urlimage + 'page-bg.jpg');
+      background-position: center center;
+      height: 100vh;
+      background-size: cover;
     }
   }
 }

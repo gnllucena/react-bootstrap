@@ -29,13 +29,13 @@ export const Input: FunctionComponent<InputProps> = ({
   }
 
   return (
-    <div className={triggered() ? "input-wrapper has-error" : "input-wrapper" }>
+    <div className={`input-wrapper ${triggered() ? 'has-error' : '' }`}>
       <div className="label-wrapper">{label}</div>
 
       <InputAntd size="large" 
         name={name} 
         placeholder={placeholder} 
-        value={value} 
+        defaultValue={value} 
         autoComplete={autoComplete} 
         disabled={disabled}
       />

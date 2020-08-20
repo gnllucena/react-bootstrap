@@ -15,9 +15,11 @@ export const Header: FunctionComponent = () => {
     <Location>
       {({ location }) => {
         let isLoginRoute = location.pathname.endsWith('login');
-        let isRegisterRoute = location.pathname.endsWith('register');
+        let isCreateNewAccountRoute = location.pathname.endsWith('create-new-account');
+        let isForgotPasswordRoute = location.pathname.endsWith('forgot-password');
+        let isResetPasswordRoute = location.pathname.endsWith('reset-password');
         
-        if (!isLoginRoute && !isRegisterRoute) {
+        if (!isLoginRoute && !isCreateNewAccountRoute && !isForgotPasswordRoute && !isResetPasswordRoute) {
           return (
             <div className="header-wrapper">
               <Sticky innerZ={10} activeClass="sticky-header">

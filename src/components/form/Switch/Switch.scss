@@ -1,9 +1,9 @@
 @import '~antd/lib/switch/style/index.css';
 
 .switch-wrapper {
-  display: inline;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 
   > a {
     color: $primary0;
@@ -19,7 +19,6 @@
   }
 
   .switch-input-wrapper {
-    margin-bottom: 24px;
     display: flex;
     align-items: center;
 
@@ -61,7 +60,6 @@
     color: $error0;
     margin-top: 2px;
   }
-
   .switch-input-wrapper.has-error {
     .ant-switch {
       background-color: $error0;

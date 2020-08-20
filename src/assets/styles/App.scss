@@ -16,6 +16,14 @@ body::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-thumb {
   background-color: #3f4044;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
 * {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
@@ -102,6 +110,10 @@ img {
 
 .align-left {
   text-align: left;
+}
+
+.align-center {
+  text-align: center;
 }
 
 .align-right {

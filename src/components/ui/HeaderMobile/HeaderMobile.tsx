@@ -3,6 +3,7 @@ import { Link } from '@reach/router';
 import { IoIosClose } from 'react-icons/io';
 import { Button, Drawer } from 'antd';
 import { Menu } from '../Menu/Menu';
+import { MenuAuthentication } from '../MenuAuthentication/MenuAuthentication';
 
 import './HeaderMobile.scss';
 
@@ -41,29 +42,9 @@ export const HeaderMobile: FunctionComponent = () => {
         </div>
         
         <div className="main-menu">
+          <MenuAuthentication />
           <Menu align="vertical" />
         </div>
-        
-
-        {/* {loggedIn ? (
-          <AvatarWrapper>
-            <AvatarImage>
-              <Logo src={avatarImg} />
-            </AvatarImage>
-            <AvatarInfo>
-              <Text as="h3" content="Nova Scotia" />
-              <TextLink
-                link={AGENT_PROFILE_PAGE}
-                content="View Profile"
-              />
-            </AvatarInfo>
-          </AvatarWrapper>
-        ) : (
-          <AuthMenu className="auth-menu" />
-        )}
-        <MobileMenu className="main-menu" /> */}
-
-
       </Drawer>
     </div>
   );
