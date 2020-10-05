@@ -1,15 +1,3 @@
-@media only screen and (min-width: 991px) {
-  .avatar-wrapper-mobile {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .avatar-wrapper-fullscreen {
-    display: none;
-  }
-}
-
 .avatar-wrapper-mobile {
   padding-bottom: 30px;
   
@@ -33,6 +21,8 @@
     }
 
     .avatar-info {
+      margin-top: 8px;
+      
       h3 {
         margin: -7px 0 0 0;
       }
@@ -79,6 +69,8 @@
         overflow: hidden;
         border-radius: 50%;
         cursor: pointer;
+        outline: none;
+        
         img {
           width: 100%;
           height: 100%;
@@ -95,14 +87,17 @@
         border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+
         &.hide {
           opacity: 0;
           visibility: hidden;
         }
+
         &.active {
           opacity: 1;
           visibility: visible;
         }
+
         li {
           color: $text0;
           font-size: 15px;
@@ -111,23 +106,28 @@
           height: auto;
           padding: 0;
           transition: color 0.2s ease-in-out;
+
           &.ant-menu-item-selected,
           &.ant-menu-item-active {
             background-color: transparent;
           }
+
           a {
             display: block;
             padding: 8px 16px;
             color: $text0;
             transition: color 0.2s ease-in-out;
+
             &:hover {
               color: $primary0;
             }
+
             &.active {
               font-weight: 700;
               color: $primary0;
             }
           }
+
           button {
             padding: 0;
             border: 0;
@@ -137,9 +137,11 @@
             text-align: left;
             background-color: transparent;
             transition: color 0.2s ease-in-out;
+
             &:hover {
               color: $primary0;
             }
+            
             &:focus {
               outline: none;
             }

@@ -1,46 +1,55 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Input as InputAntd } from 'formik-antd';
-import { useField } from "formik";
-import { FunctionComponent } from 'react';
+import { useField } from 'formik';
 
 import './Input.scss';
 
 export interface InputProps {
   name: string,
   label: string,
-  placeholder?: string, 
+  placeholder?: string,
   value?: string,
   disabled?: boolean,
   autoComplete?: string
+  onChange?(value: string): void
 }
 
-export const Input: FunctionComponent<InputProps> = ({ 
-  name, 
-  label, 
+const Input: FunctionComponent<InputProps> = ({
+  name,
+  label,
   placeholder,
   value,
   disabled,
-  autoComplete
+  autoComplete,
+  onChange
 }) => {
   const [field, meta, helpers] = useField(name);
 
-  function triggered() {
-    return meta.error && meta.touched;
+  const triggered = () => meta.error && meta.touched;
+
+  const changed = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event.target.defaultValue);
+    }
   }
 
   return (
-    <div className={`input-wrapper ${triggered() ? 'has-error' : '' }`}>
+    <div className={`input-wrapper ${triggered() ? 'has-error' : ''}`}>
       <div className="label-wrapper">{label}</div>
 
-      <InputAntd size="large" 
-        name={name} 
-        placeholder={placeholder} 
-        defaultValue={value} 
-        autoComplete={autoComplete} 
+      <InputAntd
+        size="large"
+        name={name}
+        placeholder={placeholder}
+        defaultValue={value}
+        autoComplete={autoComplete}
         disabled={disabled}
+        onChange={changed}
       />
-      
-      { triggered() && <div className="input-error-wrapper"><span>{meta.error}</span></div> }
+
+      { triggered() && <div className="input-error-wrapper"><span>{meta.error}</span></div>}
     </div>
   );
 };
+
+export default Input;

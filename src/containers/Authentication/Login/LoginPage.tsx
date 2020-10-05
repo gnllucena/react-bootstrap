@@ -1,26 +1,25 @@
-import React, { FunctionComponent, Suspense } from 'react';
+import React, { FunctionComponent } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
-import { navigate } from "@reach/router"
+import { navigate, RouteComponentProps, Link } from '@reach/router';
 import * as Yup from 'yup';
-import { RouteComponentProps, Link } from '@reach/router';
-import { Formik, Form, FormikProps } from 'formik';
+import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilState } from 'recoil';
-import { Input } from '../../../components/form/Input/Input';
-import { Password } from '../../../components/form/Password/Password';
-import { Switch } from '../../../components/form/Switch/Switch';
-import { Button } from '../../../components/form/Button/Button';
-import { UserState } from '../../../domain/atoms/UserState';
-import { User } from '../../../domain/models/User';
+import Input from '../../../components/form/Input/Input';
+import Password from '../../../components/form/Password/Password';
+import Switch from '../../../components/form/Switch/Switch';
+import Button from '../../../components/form/Button/Button';
+import UserState from '../../../store/atoms/domain/UserState';
+import User from '../../../domain/User';
 
-import './../../../assets/styles/Authentication.scss';
+import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
-export const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
+const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const [userState, setUserState] = useRecoilState(UserState);
-    
+
   const schema = Yup.object().shape({
     Email: Yup.string()
       .max(40, 'This field cannot have more then 40 characters')
@@ -31,20 +30,15 @@ export const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteCo
       .required('This field is required')
   });
 
-  const submit = async (user: User) => {
-    // https://github.com/facebookexperimental/Recoil/issues/171#issuecomment-634212164
-    // TODO: trocar para selector
-    // TODO: trocar para POST
-    let response = await axios.get<User>(process.env.URL_API_STOCK + 'login');
+  const submit = async (user: User): Promise<void> => {
+    const response = await axios.get<User>(`${process.env.URL_API_STOCK}login`);
 
-    // TODO: remover
     response.data.RememberMe = user.RememberMe;
 
     setUserState(response.data);
 
-    // TODO: trocar para useEffect quando o POST for para o selector
     navigate('/');
-  }
+  };
 
   return (
     <div className="authentication-wrapper">
@@ -61,57 +55,56 @@ export const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteCo
         <div className="title-info-wrapper">Please log into your account</div>
 
         <Formik
-          initialValues={{ ...userState, Password: '' }}
+          initialValues={{
+            ...userState, Password: ''
+          }}
           validationSchema={schema}
-          onSubmit={submit}>
-          {(props: FormikProps<User>) => (
+          onSubmit={submit}
+        >
+          {(): JSX.Element => (
             <Form>
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Password name="Password" label="Password" autoComplete="current-password" />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={12} className='align-left'>
-                  <Switch name="RememberMe" label="Remember Me" value={userState.RememberMe} />    
+                <Col span={12} className="align-left">
+                  <Switch name="RememberMe" label="Remember Me" value={userState.RememberMe} />
                 </Col>
-                <Col span={12} className='align-right'>
+                <Col span={12} className="align-right">
                   <Link to="/forgot-password">Forgot password?</Link>
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
-                  <Suspense fallback={
-                    <Button text="Foiiiiii" type="submit" style='ghost' />
-                  }>
-                    <Button text="Log In" type="submit" style='primary' />
-                  </Suspense>
+                <Col span={24} className="align-left">
+                  <Button text="Log In" type="submit" design="primary" size="big" />
                 </Col>
               </Row>
             </Form>
           )}
         </Formik>
-        
-        <Divider></Divider>
+
+        <Divider />
 
         <div className="align-center">
           <Link to="/create-new-account">Create a new account</Link>
         </div>
       </div>
-    
+
       <div className="banner-wrapper">
-        <div className="banner-wrapper-image"></div>
+        <div className="banner-wrapper-image" />
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;

@@ -1,35 +1,45 @@
-import React, { Component } from 'react';
-import { FunctionComponent } from 'react';
+import React, { Component, FunctionComponent } from 'react';
+
 import { Button as ButtonAntd } from 'antd';
 
 import './Button.scss';
 
 export interface ButtonProps {
   text: string,
+  size: 'small' | 'big'
   type: 'submit' | 'button' | 'reset',
-  style: 'primary' | 'default' | 'link' | 'ghost' | 'dashed' | 'text',
+  design: 'primary' | 'default' | 'link' | 'ghost' | 'dashed' | 'text',
   icon?: Component
-  disabled?: boolean
+  disabled?: boolean,
+  onClick?(): void
 }
 
-export const Button: FunctionComponent<ButtonProps> = ({ 
+const Button: FunctionComponent<ButtonProps> = ({
   text,
+  size,
   type,
-  style,
+  design,
   icon,
-  disabled
+  disabled,
+  onClick
 }) => {
   return (
     <ButtonAntd
-      className='btn-primary'
-      type={style}
+      className={`btn btn-${size} btn-${design}`}
+      type={design}
       htmlType={type}
       icon={icon}
       loading={false}
       disabled={disabled}
-      onClick={() => {}}
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        }
+      }}
     >
       {text}
     </ButtonAntd>
   );
 };
+
+export default Button;

@@ -1,10 +1,10 @@
-const common = require('./webpack.common.js');
 const path = require('path');
 const DotenvPlugin = require('webpack-dotenv-plugin');
+const common = require('./webpack.common.js');
 
 const environement = new DotenvPlugin({
   sample: './.env',
-  path: './.env',
+  path: './.env'
 });
 
 module.exports = common({
@@ -17,6 +17,6 @@ module.exports = common({
     contentBase: path.resolve(__dirname, 'public'),
     historyApiFallback: true,
     compress: true,
-    port: 9000,
+    port: 9000
   }
 }, environement);

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
 
@@ -8,7 +9,7 @@ module.exports = (args, environment) => merge({
   entry: path.resolve(__dirname, 'src/Index'),
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   resolve: {
     modules: [
@@ -19,15 +20,15 @@ module.exports = (args, environment) => merge({
       '.js',
       '.jsx',
       '.json',
-      '.ts', 
+      '.ts',
       '.tsx'
     ]
   },
   module: {
     rules: [
-      { 
-        test: /\.(t|j)sx?$/, 
-        loader: "ts-loader",
+      {
+        test: /\.(t|j)sx?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/
       },
       {
@@ -36,20 +37,20 @@ module.exports = (args, environment) => merge({
           {
             loader: 'svg-url-loader',
             options: {
-              limit: 10000,
-            },
-          },
-        ],
+              limit: 10000
+            }
+          }
+        ]
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader', 
+          'style-loader',
           'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              additionalData: `$urlimage: "${process.env.URL_IMAGES}";`,
+              additionalData: `$urlimage: "${process.env.URL_IMAGES}";`
             }
           },
           {
@@ -68,13 +69,27 @@ module.exports = (args, environment) => merge({
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
     }),
+    // new ESLintPlugin({
+    //   emitError: true,
+    //   emitWarning: true,
+    //   extensions: ['js', 'tsx'],
+    //   fix: true
+    // }),
     new CopyPlugin({
       patterns: [
-        { from: 'public/manifest.json', to: '' },
-        { from: 'public/robots.txt', to: '' },
-        { from: 'public/logo192.png', to: '' },
-        { from: 'public/logo512.png', to: '' },
-      ],
+        {
+          from: 'public/manifest.json', to: ''
+        },
+        {
+          from: 'public/robots.txt', to: ''
+        },
+        {
+          from: 'public/logo192.png', to: ''
+        },
+        {
+          from: 'public/logo512.png', to: ''
+        }
+      ]
     })
   ],
   devtool: 'source-map'

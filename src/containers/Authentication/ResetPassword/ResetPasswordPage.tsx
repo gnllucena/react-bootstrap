@@ -1,36 +1,34 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import axios from 'axios';
-import Divider from 'antd/lib/divider';
 import * as Yup from 'yup';
 import { RouteComponentProps, Link, navigate } from '@reach/router';
-import { Formik, Form, FormikProps } from 'formik';
+import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
-import { useRecoilState } from 'recoil';
-import { Input } from '../../../components/form/Input/Input';
-import { Button } from '../../../components/form/Button/Button';
-import { UserState } from '../../../domain/atoms/UserState';
-import { User } from '../../../domain/models/User';
+import { useRecoilValue } from 'recoil';
+import Button from '../../../components/form/Button/Button';
+import UserState from '../../../store/atoms/domain/UserState';
+import User from '../../../domain/User';
+import Password from '../../../components/form/Password/Password';
 
-import './../../../assets/styles/Authentication.scss';
-import { Password } from '../../../components/form/Password/Password';
+import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
-export const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const [userState, setUserState] = useRecoilState(UserState);
-  const [token, setToken] = useState<string>('')
+const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
+  const [token, setToken] = useState<string>('');
+  const userState = useRecoilValue(UserState);
 
   useEffect(() => {
     if (!props?.location?.search) {
       return;
     }
 
-    let querystring = props.location.search.substring(1);
+    const querystring = props.location.search.substring(1);
 
-    let params = querystring.split('&');
+    const params = querystring.split('&');
 
-    for (var i=0; i < params.length; i++) {
-      let pair = params[i].split('=');
+    for (let i = 0; i < params.length; i++) {
+      const pair = params[i].split('=');
 
       if (pair[0] === 't') {
         setToken(decodeURIComponent(pair[1]));
@@ -52,14 +50,13 @@ export const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props:
       .min(6, 'This field cannot have less then 6 characters')
   });
 
-  const submit = async (user: User) => {
-    // https://github.com/facebookexperimental/Recoil/issues/171#issuecomment-634212164
-    // TODO: trocar para selector
-    let response = await axios.post<User>(process.env.URL_API_STOCK + 'reset-password',  { ...user, Token: token } );
+  const submit = async (user: User): Promise<void> => {
+    await axios.post<User>(`${process.env.URL_API_STOCK}reset-password`, {
+      ...user, Token: token
+    });
 
-    // TODO: trocar para useEffect quando o POST for para o selector
     navigate('/');
-  }
+  };
 
   return (
     <div className="authentication-wrapper">
@@ -76,38 +73,41 @@ export const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props:
         <div className="title-info-wrapper">Enter your email to recover your account</div>
 
         <Formik
-          initialValues={{ ...userState, Password: '', ConfirmPassword: '' }}
+          initialValues={{
+            ...userState, Password: '', ConfirmPassword: ''
+          }}
           validationSchema={schema}
-          onSubmit={submit}>
-          {(props: FormikProps<User>) => (
+          onSubmit={submit}
+        >
+          {(): JSX.Element => (
             <Form>
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Password name="Password" label="New password" autoComplete="new-password" />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Password name="ConfirmPassword" label="Confirme new password" autoComplete="new-password" />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
-                  <Button text="Reset password" type="submit" style='primary' />
+                <Col span={24} className="align-left">
+                  <Button text="Reset password" type="submit" design="primary" size="big" />
                 </Col>
               </Row>
             </Form>
           )}
         </Formik>
       </div>
-    
+
       <div className="banner-wrapper">
-        <div className="banner-wrapper-image"></div>
+        <div className="banner-wrapper-image" />
       </div>
     </div>
   );
-}
+};
 
 export default ResetPasswordPage;

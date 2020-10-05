@@ -1,85 +1,77 @@
-@media only screen and (min-width: 991px) {
-  .header-mobile-wrapper {
-    display: none;
+.header-mobile-wrapper {
+  display: flex;
+  padding: 0 25px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+  width: 100%;
+
+  &.default {
+    border-bottom: 1px solid $border3;
+    background-color: $color1;
   }
-}
 
-@media only screen and (max-width: 991px) {
-  .header-mobile-wrapper {
-    display: flex;
-    padding: 0 25px;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 82px;
-    width: 100%;
+  .hamburg-btn {
+    border: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
 
-    &.default {
-      border-bottom: 1px solid $border3;
-      background-color: $color1;
+    > span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 4px 0;
+      border-radius: 5px;
+      background-color: $text0;
+      transition: all 0.3s ease;
     }
 
-    .hamburg-btn {
-      border: 0;
-      padding: 0;
-      width: auto;
-      height: auto;
+    &:hover,
+    &.active {
       background-color: transparent;
 
       > span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        margin: 4px 0;
-        border-radius: 5px;
-        background-color: $text0;
-        transition: all 0.3s ease;
-      }
-
-      &:hover,
-      &.active {
-        background-color: transparent;
-
-        > span {
-          width: 23px;
-          background-color: $primary0;
-        }
-      }
-
-      &::after {
-        display: none;
+        width: 23px;
+        background-color: $primary0;
       }
     }
 
-    &.transparent {
-      position: fixed;
-      z-index: 9999;
+    &::after {
+      display: none;
+    }
+  }
 
-      .hamburg-btn {
-        > span {
-          background-color: $color1;
-        }
+  &.transparent {
+    position: fixed;
+    z-index: 9999;
+
+    .hamburg-btn {
+      > span {
+        background-color: $color1;
       }
     }
+  }
 
-    .logo-wrapper {
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    
+    a {
       display: flex;
       align-items: center;
-    
-      a {
-        display: flex;
-        align-items: center;
-      }
-    
-      img {
-        width: 20px;
-      }
-    
-      h3 {
-        color: #008489;
-        font-size: 20px;
-        font-weight: 700;
-        margin: 0 0 0 10px;
-      }
+    }
+  
+    img {
+      width: 20px;
+    }
+  
+    h3 {
+      color: #008489;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 0 10px;
     }
   }
 }

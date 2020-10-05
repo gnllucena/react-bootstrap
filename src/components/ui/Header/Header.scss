@@ -1,26 +1,6 @@
 .header-wrapper {
   width: 100%;
 
-  @media only screen and (max-width: 991px) {
-    .transparent {
-      .navbar_search {
-        display: none;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 667px) {
-    nav {
-      &:not(.transparent) {
-        a {
-          > h3 {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
   .sticky-outer-wrapper {
     nav {
       &.is_transparent {

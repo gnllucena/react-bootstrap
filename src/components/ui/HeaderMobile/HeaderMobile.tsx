@@ -2,15 +2,19 @@ import React, { FunctionComponent, useState } from 'react';
 import { Link } from '@reach/router';
 import { IoIosClose } from 'react-icons/io';
 import { Button, Drawer } from 'antd';
-import { Menu } from '../Menu/Menu';
-import { MenuAuthentication } from '../MenuAuthentication/MenuAuthentication';
+import Menu from '../Menu/Menu';
+import MenuAuthentication from '../MenuAuthentication/MenuAuthentication';
 
 import './HeaderMobile.scss';
 
-export const HeaderMobile: FunctionComponent = () => {
-  const logo = require('../../../assets/images/logo-alt.svg') as string;
+const logo = require('../../../assets/images/logo-alt.svg') as string;
 
+const HeaderMobile: FunctionComponent = () => {
   const [sidebarMenuOpen, setSidebarMenuOpen] = useState<boolean>(false);
+
+  const changeDrawer = () => {
+    setSidebarMenuOpen(!sidebarMenuOpen);
+  }
 
   return (
     <div className="header-mobile-wrapper default">
@@ -21,7 +25,7 @@ export const HeaderMobile: FunctionComponent = () => {
         </Link>
       </div>
 
-      <Button onClick={() => setSidebarMenuOpen(!sidebarMenuOpen)} className={`hamburg-btn ${sidebarMenuOpen ? 'active' : ''}`}>
+      <Button onClick={changeDrawer} className={`hamburg-btn ${sidebarMenuOpen ? 'active' : ''}`}>
         <span />
         <span />
         <span />
@@ -30,22 +34,24 @@ export const HeaderMobile: FunctionComponent = () => {
       <Drawer
         placement="right"
         closable={false}
-        onClose={() => setSidebarMenuOpen(!sidebarMenuOpen)}
+        onClose={changeDrawer}
         width="285px"
         className="header-mobile-drawer-wrapper"
         visible={sidebarMenuOpen}
       >
         <div className="header-mobile-drawer-close">
-          <button onClick={() => setSidebarMenuOpen(!sidebarMenuOpen)}>
+          <button onClick={changeDrawer} type="button">
             <IoIosClose />
           </button>
         </div>
-        
+
         <div className="main-menu">
-          <MenuAuthentication />
-          <Menu align="vertical" />
+          <MenuAuthentication onNavigate={changeDrawer} />
+          <Menu align="vertical" onNavigate={changeDrawer} />
         </div>
       </Drawer>
     </div>
   );
 };
+
+export default HeaderMobile;

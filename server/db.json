@@ -13,8 +13,8 @@
     "RememberMe": true,
     "Bearer": "",
     "Avatar": "",
-    "Password": "senhabonita",
-    "ConfirmPassword": "senhabonita",
+    "Password": "asdfasdf",
+    "ConfirmPassword": "asdfasdf",
     "AgreeTermsAndCondition": true
   },
   "forgot-password": {
@@ -32,6 +32,49 @@
     "Avatar": "",
     "Password": "asdfasdf",
     "ConfirmPassword": "asdfasdf",
-    "Token": "testedotoken"
+    "Token": "asdfasfasdfasfasdfadsf"
+  },
+  "stocks": {
+    "items": [
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      },
+      {
+        "Id": 1,
+        "Ticker": "OIBR3"
+      }
+    ],
+    "offset": 0,
+    "limit": 9,
+    "total": 800
   }
 }

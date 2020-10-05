@@ -1,12 +1,11 @@
-
-const common = require('./webpack.common.js')
-const path = require("path");
+const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const DotenvPlugin = require('webpack-dotenv-plugin')
+const DotenvPlugin = require('webpack-dotenv-plugin');
+const common = require('./webpack.common.js');
 
 const environement = new DotenvPlugin({
   sample: './.env',
-  path: './.env',
+  path: './.env'
 });
 
 module.exports = common({
@@ -15,10 +14,9 @@ module.exports = common({
     minimizer: [
       new UglifyJsPlugin({
         sourceMap: true
-      }
-    )],
+      })],
     splitChunks: {
       chunks: 'all'
-    },
+    }
   }
 }, environement);

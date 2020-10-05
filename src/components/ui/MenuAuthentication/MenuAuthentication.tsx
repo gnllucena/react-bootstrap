@@ -1,60 +1,48 @@
-import React, { FunctionComponent, useRef, useState, Fragment, useEffect, MutableRefObject } from 'react';
+import React, { Fragment, FunctionComponent, useRef, useState } from 'react';
 import { Menu as MenuAntd } from 'antd';
 import { Link } from '@reach/router';
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import { UserState } from '../../../domain/atoms/UserState';
-import { User } from '../../../domain/models/User';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
+import UserState from '../../../store/atoms/domain/UserState';
+import useOnClickOutside from '../../hooks/UseOnClickOutside';
+import useIsFullscreen from '../../hooks/UseIsFullscreen';
 
 import './MenuAuthentication.scss';
 
-export const MenuAuthentication: FunctionComponent = () => {
+export interface MenuAuthenticationProps {
+  onNavigate?(): void
+}
+
+const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
+  onNavigate
+}) => {
   const [hidden, setHidden] = useState<boolean>(true);
+  const ref = useRef<HTMLDivElement>(null);
   const userState = useRecoilValue(UserState);
   const resetUserState = useResetRecoilState(UserState);
   const isAuthenticated = userState.Id !== undefined;
+  const isFullscreen = useIsFullscreen();
 
-  const ref = useRef<HTMLDivElement>(null);
-  const handler = () => closeDropdown();
-
-  useEffect(() => {
-    const listener = (event: Event) => {
-      const el = ref?.current;
-      
-      if (!el || el.contains((event?.target as Node) || null)) {
-        return;
-      }
-
-      handler();
-    };
-
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [ref, handler]);
-  
-  const handleDropdown = () => {
-    setHidden(!hidden)
+  const handleDropdown = (): void => {
+    setHidden(!hidden);
   };
 
-  const closeDropdown = () => {
+  const closeDropdown = (): void => {
     setHidden(true);
   };
 
-  const logout = () => {
+  const logout = (): void => {
     resetUserState();
-  }
+  };
+
+  useOnClickOutside(ref, () => closeDropdown());
 
   return (
     isAuthenticated ? (
-      <>
+      isFullscreen ? (
         <div className="avatar-wrapper-fullscreen">
           <div className="avatar-wrapper">
             <div className="avatar-dropdown" ref={ref}>
-              <div className="dropdown-handler" onClick={handleDropdown}>
+              <div className="dropdown-handler" onClick={handleDropdown} onKeyUp={handleDropdown} tabIndex={0} role="button">
                 <Fragment>
                   <img src={userState.Avatar} alt="Avatar" />
                 </Fragment>
@@ -62,15 +50,16 @@ export const MenuAuthentication: FunctionComponent = () => {
 
               <MenuAntd className={`dropdown-menu ${hidden ? 'hide' : 'active'}`}>
                 <MenuAntd.Item onClick={closeDropdown} key="2">
-                  <Link to='account-settings'>Account Settings</Link>
+                  <Link to="account-settings">Account Settings</Link>
                 </MenuAntd.Item>
                 <MenuAntd.Item key="3">
-                  <button onClick={logout}>Log Out</button>
+                  <button onClick={logout} type="button">Log Out</button>
                 </MenuAntd.Item>
               </MenuAntd>
-            </div>  
+            </div>
           </div>
         </div>
+      ) : (
         <div className="avatar-wrapper-mobile">
           <div className="avatar-wrapper">
             <div className="avatar-image">
@@ -79,21 +68,26 @@ export const MenuAuthentication: FunctionComponent = () => {
               </Fragment>
             </div>
             <div className="avatar-info">
-              <h3>Hi, {userState.Name.split(' ')[0]}</h3>
-              <Link to='account-settings'>Account Settings</Link>
+              <h3>
+                Hi,
+                {userState.Name.split(' ')[0]}
+              </h3>
+              <Link to="account-settings" onClick={onNavigate}>Account Settings</Link>
             </div>
           </div>
         </div>
-      </>
+      )
     ) : (
       <MenuAntd>
         <MenuAntd.Item key="0">
-          <Link to="/login">Sign in</Link>
+          <Link to="/login" onClick={onNavigate}>Sign in</Link>
         </MenuAntd.Item>
         <MenuAntd.Item key="1">
-          <Link to="/create-new-account">Sign up</Link>
+          <Link to="/create-new-account" onClick={onNavigate}>Sign up</Link>
         </MenuAntd.Item>
       </MenuAntd>
     )
   );
 };
+
+export default MenuAuthentication;

@@ -1,0 +1,94 @@
+.toolbar-filter-wrapper {
+  position: relative;
+
+  .ant-checkbox-group {
+    .ant-checkbox-group-item {
+      .ant-checkbox {
+        .ant-checkbox-inner {
+          border-color: $text1;
+        }
+        &.ant-checkbox-checked {
+          .ant-checkbox-inner {
+            border-color: $primary0;
+            background-color: $primary0;
+          }
+          &::after {
+            display: none;
+          }
+        }
+      }
+      span {
+        color: $text0;
+        font-size: 15px;
+      }
+      &:hover {
+        .ant-checkbox {
+          .ant-checkbox-inner {
+            border-color: $primary0;
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    padding-left: 30px;
+    padding-right: 30px;
+    border-bottom: 1px solid $border3;
+    @media only screen and (min-width: 1441px) {
+      min-height: 78px;
+    }
+  }
+
+  .loadmore_wrapper {
+    margin-top: 30px;
+    > button {
+      border: 0;
+      min-width: 115px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 3px;
+      color: $color1;
+      border-color: $primary0;
+      background-color: $primary0;
+      transition: all 0.3s ease;
+      &:hover {
+        outline: none;
+        opacity: 0.8;
+      }
+      &:focus {
+        outline: none;
+      }
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  .toolbar-wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    background: #ffffff;
+
+    .toolbar-container-wrapper {
+      max-width: 1920px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      .filter-items-wrapper {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

@@ -1,16 +1,40 @@
-@import '~antd/lib/button/style/index.css';
-
-.btn-primary {
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  height: 57px;
-  font-size: 17px;
-  font-weight: 700;
-  border-color: $primary0;
-  background-color: $primary0;
-  width: 100%;
+
+  &.btn-small {
+    height: 38px;
+  }
+
+  &.btn-big {
+    border-radius: 3px;
+    height: 57px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  &.btn-primary {
+    width: 100%;
+    border-color: $primary0;
+    background-color: $primary0;
+  
+    &:hover {
+      border-color: $primary0hover;
+      background-color: $primary0hover;
+    }
+  }
+
+  &.btn-default {
+    width: 100%;
+
+    &:hover {
+      color: $text0;
+      background-color: rgb(230, 230, 230);
+      border-color: rgb(230, 230, 230);
+    }
+  }
 
   svg {
     width: 18px;
@@ -20,11 +44,5 @@
 
   &::after {
     content: none;
-  }
-
-  &:hover,
-  &:focus {
-    border-color: $primary0hover;
-    background-color: $primary0hover;
   }
 }

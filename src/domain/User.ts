@@ -1,4 +1,4 @@
-export class User  {
+class User {
   public constructor(params: User = {} as User) {
     this.Id = params.Id;
     this.Name = params.Name;
@@ -7,7 +7,7 @@ export class User  {
     this.Bearer = params.Bearer;
     this.Avatar = params.Avatar;
   }
- 
+
   Id: number | undefined;
   Name: string;
   Email: string;
@@ -15,3 +15,5 @@ export class User  {
   Bearer: string;
   Avatar: string;
 }
+
+export default User;

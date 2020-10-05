@@ -3,22 +3,22 @@ import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import * as Yup from 'yup';
 import { RouteComponentProps, Link, navigate } from '@reach/router';
-import { Formik, Form, FormikProps } from 'formik';
+import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
-import { useRecoilState } from 'recoil';
-import { Input } from '../../../components/form/Input/Input';
-import { Password } from '../../../components/form/Password/Password';
-import { Switch } from '../../../components/form/Switch/Switch';
-import { Button } from '../../../components/form/Button/Button';
-import { UserState } from '../../../domain/atoms/UserState';
-import { User } from '../../../domain/models/User';
+import { useRecoilValue } from 'recoil';
+import Input from '../../../components/form/Input/Input';
+import Password from '../../../components/form/Password/Password';
+import Switch from '../../../components/form/Switch/Switch';
+import Button from '../../../components/form/Button/Button';
+import UserState from '../../../store/atoms/domain/UserState';
+import User from '../../../domain/User';
 
-import './../../../assets/styles/Authentication.scss';
+import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
-export const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const [userState, setUserState] = useRecoilState(UserState);
+const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
+  const userState = useRecoilValue(UserState);
 
   const schema = Yup.object().shape({
     Name: Yup.string()
@@ -42,14 +42,11 @@ export const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (pro
       .oneOf([true], 'This field is required.')
   });
 
-  const submit = async (user: User) => {
-    // https://github.com/facebookexperimental/Recoil/issues/171#issuecomment-634212164
-    // TODO: trocar para selector
-    let response = await axios.post<User>(process.env.URL_API_STOCK + 'register', user);
+  const submit = async (user: User): Promise<void> => {
+    await axios.post<User>(`${process.env.URL_API_STOCK}register`, user);
 
-    // TODO: trocar para useEffect quando o POST for para o selector
     navigate('/');
-  }
+  };
 
   return (
     <div className="authentication-wrapper">
@@ -66,62 +63,65 @@ export const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (pro
         <div className="title-info-wrapper">Please register for your new account</div>
 
         <Formik
-          initialValues={{ ...userState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false }}
+          initialValues={{
+            ...userState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false
+          }}
           validationSchema={schema}
-          onSubmit={submit}>
-          {(props: FormikProps<User>) => (
+          onSubmit={submit}
+        >
+          {(): JSX.Element => (
             <Form>
-               <Row>
-                <Col span={24} className='align-left'>
+              <Row>
+                <Col span={24} className="align-left">
                   <Input name="Name" label="Name" value={userState.Name} />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Password name="Password" label="Password" autoComplete="new-password" />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
+                <Col span={24} className="align-left">
                   <Password name="ConfirmPassword" label="Confirm password" autoComplete="new-password" />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
-                  <Switch name="AgreeTermsAndCondition" label="I agree with terms and conditions" value={false} />    
+                <Col span={24} className="align-left">
+                  <Switch name="AgreeTermsAndCondition" label="I agree with terms and conditions" value={false} />
                 </Col>
               </Row>
 
               <Row>
-                <Col span={24} className='align-left'>
-                  <Button text="Create new account" type="submit" style='primary' />
+                <Col span={24} className="align-left">
+                  <Button text="Create new account" type="submit" design="primary" size="big" />
                 </Col>
               </Row>
             </Form>
           )}
         </Formik>
-        
-        <Divider></Divider>
+
+        <Divider />
 
         <div className="align-center">
           <Link to="/login">Log in with your existing account</Link>
         </div>
       </div>
-    
+
       <div className="banner-wrapper">
-        <div className="banner-wrapper-image"></div>
+        <div className="banner-wrapper-image" />
       </div>
     </div>
   );
-}
+};
 
 export default CreateNewAccountPage;

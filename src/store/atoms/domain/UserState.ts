@@ -1,8 +1,8 @@
 import { atom } from "recoil";
-import { User } from "../models/User";
+import User from "../../../domain/User";
 
-export const UserState = atom<User>({
-  key: 'userState',
+const UserState = atom<User>({
+  key: 'UserState',
   default: new User({
     Id: undefined,
     Name: '',
@@ -12,3 +12,5 @@ export const UserState = atom<User>({
     RememberMe: true
   })
 });
+
+export default UserState;

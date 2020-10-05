@@ -1,16 +1,9 @@
-import React, { useEffect, FunctionComponent } from 'react';
-import { RouteComponentProps } from '@reach/router';
+import React, { FunctionComponent } from 'react';
 
-export const MePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  useEffect(() => {
-    return () => { };
-  }, []);
-
-  return (
-    <div>
-      <p>Me Page</p>
-    </div>
-  );
-}
+const MePage: FunctionComponent = () => (
+  <div>
+    <p>Me Page</p>
+  </div>
+);
 
 export default MePage;

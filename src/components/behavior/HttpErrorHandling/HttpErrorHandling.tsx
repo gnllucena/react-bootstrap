@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
-import axios, {AxiosError} from 'axios';
+import axios, { AxiosError } from 'axios';
 
-export const HttpErrorHandling: FunctionComponent = () => {
-  axios.interceptors.response.use(undefined, function (error: AxiosError) {
+const HttpErrorHandling: FunctionComponent = () => {
+  axios.interceptors.response.use(undefined, (error: AxiosError) => {
     const statusCode = error.response ? error.response.status : null;
 
     let message = '';
@@ -19,9 +19,11 @@ export const HttpErrorHandling: FunctionComponent = () => {
     }
 
     console.error(message);
-  
+
     return Promise.reject(error);
-  })
+  });
 
   return null;
 };
+
+export default HttpErrorHandling;
