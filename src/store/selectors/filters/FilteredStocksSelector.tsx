@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { selector } from 'recoil';
 import Filter from '../../../components/models/Filter';
-import FilterCheckbox from '../../../components/models/FilterCheckbox';
 import FilterGroup from '../../../components/models/FilterGroup';
-import FilterSlider from '../../../components/models/FilterSlider';
 import Pagination from '../../../domain/Pagination';
 import Stock from '../../../domain/Stock';
 import FilterStocksState from '../../atoms/filters/FilterStocksState';

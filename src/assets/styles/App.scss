@@ -1,5 +1,10 @@
 @import '~antd/dist/antd.min.css';
 
+
+.ant-layout {
+  background: #FFF;
+}
+
 body::-webkit-scrollbar-track, body *::-webkit-scrollbar-track {
   background-color: #636363;
 }

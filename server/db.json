@@ -35,7 +35,7 @@
     "Token": "asdfasfasdfasfasdfadsf"
   },
   "stocks": {
-    "items": [
+    "Items": [
       {
         "Id": 1,
         "Ticker": "OIBR3"
@@ -73,8 +73,8 @@
         "Ticker": "OIBR3"
       }
     ],
-    "offset": 0,
-    "limit": 9,
-    "total": 800
+    "Offset": 0,
+    "Limit": 9,
+    "Total": 800
   }
 }
