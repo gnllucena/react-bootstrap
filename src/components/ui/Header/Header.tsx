@@ -21,7 +21,7 @@ const Header: FunctionComponent = () => {
         if (!isLoginRoute && !isCreateNewAccountRoute && !isForgotPasswordRoute && !isResetPasswordRoute) {
           return (
             <div className="header-wrapper" style={{zIndex: 11}}>
-              <Affix offsetTop={1}>
+              <Affix offsetTop={0}>
                 {
                   isFullscreen ? (
                     <HeaderFullscreen />

@@ -38,39 +38,15 @@
     "Items": [
       {
         "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
-      },
-      {
-        "Id": 1,
-        "Ticker": "OIBR3"
+        "Ticker": "ITSA4",
+        "Name": "ITAUSA",
+        "Image": "apple-logo.png",
+        "Sector": "Financeiro",
+        "Price": 10.94,
+        "PE": 13.44,
+        "PB": 5.02,
+        "ROE": 12.56,
+        "ROIC": 12.49
       }
     ],
     "Offset": 0,

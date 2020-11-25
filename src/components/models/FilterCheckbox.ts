@@ -1,6 +1,6 @@
 import Filter from "./Filter";
 
-class FilterCheckbox extends Filter {
+export default class FilterCheckbox extends Filter {
   public constructor(params: Partial<FilterCheckbox>) {
     super(params);
 
@@ -63,5 +63,3 @@ class FilterCheckbox extends Filter {
     this.Value = this.Initial;
   }
 }
-
-export default FilterCheckbox;

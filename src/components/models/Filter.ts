@@ -1,4 +1,4 @@
-abstract class Filter {
+export default abstract class Filter {
   public constructor(params: Partial<Filter>) {
     if (!params.Name) {
       throw new Error('Name must be informed');
@@ -23,5 +23,3 @@ abstract class Filter {
 
   public abstract reset(): void;
 }
-
-export default Filter;

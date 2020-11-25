@@ -3,7 +3,7 @@ import { selector } from 'recoil';
 import Filter from '../../../components/models/Filter';
 import FilterGroup from '../../../components/models/FilterGroup';
 import Pagination from '../../../domain/Pagination';
-import Stock from '../../../domain/Stock';
+import Stock from '../../../domain/StockPartial';
 import FilterStocksState from '../../atoms/filters/FilterStocksState';
 
 const FilteredStocksSelector = selector<Pagination<Stock>>({
