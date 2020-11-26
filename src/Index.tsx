@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot, MutableSnapshot } from 'recoil';
-import { Layout, Spin } from 'antd';
+import { Layout } from 'antd';
 import { Router } from '@reach/router';
 import ProtectedRoute from './components/behavior/ProtectedRoute/ProtectedRoute';
 import HttpErrorHandling from './components/behavior/HttpErrorHandling/HttpErrorHandling';
@@ -18,7 +18,7 @@ const CreateNewAccountPage = lazy(() => import('./containers/Authentication/Crea
 const ForgotPasswordPage = lazy(() => import('./containers/Authentication/ForgotPassword/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('./containers/Authentication/ResetPassword/ResetPasswordPage'));
 const LoginPage = lazy(() => import('./containers/Authentication/Login/LoginPage'));
-const StocksPage = lazy(() => import('./containers/Search/Stocks/StocksPage'));
+const StocksPage = lazy(() => import('./containers/Stocks/StocksPage'));
 const MePage = lazy(() => import('./containers/Me/MePage'));
 
 const initialize = (snapshot: MutableSnapshot): void => {
@@ -36,7 +36,6 @@ ReactDOM.render(
     <ErrorBoundary>
       <HttpErrorHandling />
       <StateManagement />
-
       <Layout>
         <Header />
         <Suspense fallback={<div />}>

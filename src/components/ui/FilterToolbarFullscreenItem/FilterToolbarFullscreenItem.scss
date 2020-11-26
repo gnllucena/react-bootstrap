@@ -70,11 +70,12 @@
         display: block;
         position: fixed;
         left: 0;
-        top: 70px;
+        top: 154px;
         background-color: rgba(255, 255, 255, 0.9);
         width: 100%;
         min-height: 100vh;
         pointer-events: none;
+        z-index: 1;
       }
     }
 

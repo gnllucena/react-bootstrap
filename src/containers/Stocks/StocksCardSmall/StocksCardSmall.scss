@@ -1,0 +1,52 @@
+.stocks-card {
+  margin-bottom: 16px;
+  border: 1px solid $border3;
+
+  .ant-card-cover {
+    img {
+      width: 256px;
+      height: 110px;
+      margin: auto;
+    }
+  }
+
+  .ant-card-body {
+    padding: 15px;
+
+    .stocks-align-left {
+      float: left;
+    }
+
+    .stocks-align-right {
+      float: right;
+    }
+
+    .stocks-card-subtext {
+      color: #909090;
+      font-size: 13px;
+      font-weight: 400;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .stocks-card-name {
+      color: #2C2C2C;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .stocks-card-price {
+      color: #2C2C2C;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 1px;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
