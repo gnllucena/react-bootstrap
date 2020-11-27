@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import { RecoilRoot, MutableSnapshot } from 'recoil';
 import { Layout } from 'antd';
 import { Router } from '@reach/router';
-import ProtectedRoute from './components/behavior/ProtectedRoute/ProtectedRoute';
 import HttpErrorHandling from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 import StateManagement from './components/behavior/StateManagement/StateManagement';
 import ErrorBoundary from './components/behavior/ErrorBoundary/ErrorBoundary';
 import Header from './components/ui/Header/Header';
 import User from './domain/User';
-import UserState from './store/atoms/domain/UserState';
+import { LoginPageState } from './store/LoginPageState';
 
 import './assets/styles/App.scss';
 
@@ -19,7 +18,6 @@ const ForgotPasswordPage = lazy(() => import('./containers/Authentication/Forgot
 const ResetPasswordPage = lazy(() => import('./containers/Authentication/ResetPassword/ResetPasswordPage'));
 const LoginPage = lazy(() => import('./containers/Authentication/Login/LoginPage'));
 const StocksPage = lazy(() => import('./containers/Stocks/StocksPage'));
-const MePage = lazy(() => import('./containers/Me/MePage'));
 
 const initialize = (snapshot: MutableSnapshot): void => {
   const store = localStorage.getItem('user');
@@ -27,7 +25,7 @@ const initialize = (snapshot: MutableSnapshot): void => {
   if (store !== null) {
     const user = JSON.parse(store) as User;
 
-    snapshot.set(UserState, user);
+    snapshot.set(LoginPageState, user);
   }
 };
 
@@ -47,7 +45,6 @@ ReactDOM.render(
             <CreateNewAccountPage path="create-new-account" />
             <ForgotPasswordPage path="forgot-password" />
             <ResetPasswordPage path="reset-password" />
-            <ProtectedRoute path="me" for={MePage} />
           </Router>
         </Suspense>
       </Layout>

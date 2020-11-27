@@ -6,17 +6,17 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
-import Input from '../../../components/form/Input/Input';
 import Button from '../../../components/form/Button/Button';
-import UserState from '../../../store/atoms/domain/UserState';
 import User from '../../../domain/User';
+import { LoginPageState } from '../../../store/LoginPageState';
+import Input from '../../../components/form/Input/Input';
 
 import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const userState = useRecoilValue(UserState);
+  const loginPageState = useRecoilValue(LoginPageState);
 
   const schema = Yup.object().shape({
     Email: Yup.string()
@@ -47,7 +47,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
 
         <Formik
           initialValues={{
-            ...userState
+            ...loginPageState
           }}
           validationSchema={schema}
           onSubmit={submit}
@@ -56,7 +56,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
             <Form>
               <Row>
                 <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
+                  <Input name="Email" label="Email" autoComplete="username" value={loginPageState.Email} />
                 </Col>
               </Row>
 

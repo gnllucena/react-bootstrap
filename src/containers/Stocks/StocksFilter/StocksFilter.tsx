@@ -2,23 +2,23 @@ import React, { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import FilterGroup from '../../../components/models/FilterGroup';
 import ToolbarFilter from '../../../components/ui/FilterToolbar/FilterToolbar';
-import FilterStockState from '../../../store/atoms/filters/FilterStocksState';
+import { StocksPageFilterState } from '../../../store/StocksPageState';
 
 const StocksFilter: FunctionComponent = () => {
-  const [filterStockState, setFilterStockState] = useRecoilState(FilterStockState);
+  const [stocksPageFilterState, setStocksPageFilterState] = useRecoilState(StocksPageFilterState);
 
   return (
     <ToolbarFilter
-      groups={filterStockState}
+      groups={stocksPageFilterState}
       onSearch={(groups: Array<FilterGroup>) => { 
         let newGroups = [...groups];
 
-        setFilterStockState(newGroups);
+        setStocksPageFilterState(newGroups);
       }}
       onReset={(groups: Array<FilterGroup>) => { 
         let newGroups = [...groups];
 
-        setFilterStockState(newGroups);
+        setStocksPageFilterState(newGroups);
       }}
     />
   );

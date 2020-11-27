@@ -1,26 +1,26 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import UserState from '../../../store/atoms/domain/UserState';
+import { LoginPageState } from '../../../store/LoginPageState';
 
 const StateManagement: FunctionComponent = () => {
-  const userState = useRecoilValue(UserState);
+  const loginPageState = useRecoilValue(LoginPageState);
 
   useEffect(() => {
     const key = 'user';
 
-    if (userState.Id === undefined) {
+    if (loginPageState.Id === undefined) {
       localStorage.removeItem(key);
       sessionStorage.removeItem(key);
     } else {
-      const value = JSON.stringify(userState);
+      const value = JSON.stringify(loginPageState);
 
-      if (userState.RememberMe) {
+      if (loginPageState.RememberMe) {
         localStorage.setItem(key, value);
       } else {
         sessionStorage.setItem(key, value);
       }
     }
-  }, [userState]);
+  }, [loginPageState]);
 
   return null;
 };

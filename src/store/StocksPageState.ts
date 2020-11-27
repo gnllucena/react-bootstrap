@@ -1,11 +1,14 @@
-import { atom } from "recoil";
-import Filter from "../../../components/models/Filter";
-import FilterCheckbox from "../../../components/models/FilterCheckbox";
-import FilterGroup from "../../../components/models/FilterGroup";
-import FilterSlider from "../../../components/models/FilterSlider";
+import axios from 'axios';
+import { atom, selector } from "recoil";
+import Filter from "../components/models/Filter";
+import FilterCheckbox from '../components/models/FilterCheckbox';
+import FilterGroup from "../components/models/FilterGroup";
+import FilterSlider from '../components/models/FilterSlider';
+import Pagination from "../domain/Pagination";
+import StockPartial from "../domain/StockPartial";
 
-const FilterStocksState = atom<Array<FilterGroup>>({
-  key: 'FilterStocksState',
+export const StocksPageFilterState = atom<Array<FilterGroup>>({
+  key: 'StocksPageFilterState',
   dangerouslyAllowMutability: true,
   default: new Array<FilterGroup>(
     new FilterGroup({
@@ -461,4 +464,32 @@ const FilterStocksState = atom<Array<FilterGroup>>({
   )
 });
 
-export default FilterStocksState;
+export const StocksPagePaginationState = atom<Pagination<StockPartial>>({
+  key: 'StocksPagePaginationState',
+  default: new Pagination<StockPartial>({
+    Items: new Array<StockPartial>(),
+    Limit: 12,
+    Offset: 0,
+    Total: 0
+  })
+});
+
+export const StocksPageFilteredSelector = selector<Pagination<StockPartial>>({
+  key: 'StocksPageFilteredSelector',
+  get: async ({ get }) => {
+    const filters = get(StocksPageFilterState);
+    const pagination = get(StocksPagePaginationState);
+
+    let query = '';
+
+    filters.forEach((group: FilterGroup) => {
+      group.Filters.forEach((filter: Filter) => {
+        query = query + filter.query();  
+      });
+    })
+
+    const response = await axios.get<Pagination<StockPartial>>(`${process.env.URL_API_STOCK}stocks?${query}`);
+
+    return response.data;
+  }
+});

@@ -2,9 +2,9 @@ import React, { Fragment, FunctionComponent, useRef, useState } from 'react';
 import { Menu as MenuAntd } from 'antd';
 import { Link } from '@reach/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
-import UserState from '../../../store/atoms/domain/UserState';
 import useOnClickOutside from '../../hooks/UseOnClickOutside';
 import useIsFullscreen from '../../hooks/UseIsFullscreen';
+import { LoginPageState } from '../../../store/LoginPageState';
 
 import './MenuAuthentication.scss';
 
@@ -17,9 +17,9 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
   const ref = useRef<HTMLDivElement>(null);
-  const userState = useRecoilValue(UserState);
-  const resetUserState = useResetRecoilState(UserState);
-  const isAuthenticated = userState.Id !== undefined;
+  const loginPageState = useRecoilValue(LoginPageState);
+  const resetLoginPageState = useResetRecoilState(LoginPageState);
+  const isAuthenticated = loginPageState.Id !== undefined;
   const isFullscreen = useIsFullscreen();
 
   const handleDropdown = (): void => {
@@ -31,7 +31,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
   };
 
   const logout = (): void => {
-    resetUserState();
+    resetLoginPageState();
   };
 
   useOnClickOutside(ref, () => closeDropdown());
@@ -44,7 +44,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
             <div className="avatar-dropdown" ref={ref}>
               <div className="dropdown-handler" onClick={handleDropdown} onKeyUp={handleDropdown} tabIndex={0} role="button">
                 <Fragment>
-                  <img src={userState.Avatar} alt="Avatar" />
+                  <img src={loginPageState.Avatar} alt="Avatar" />
                 </Fragment>
               </div>
 
@@ -64,13 +64,13 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
           <div className="avatar-wrapper">
             <div className="avatar-image">
               <Fragment>
-                <img src={userState.Avatar} alt="Avatar" />
+                <img src={loginPageState.Avatar} alt="Avatar" />
               </Fragment>
             </div>
             <div className="avatar-info">
               <h3>
                 Hi,
-                {userState.Name.split(' ')[0]}
+                {loginPageState.Name.split(' ')[0]}
               </h3>
               <Link to="account-settings" onClick={onNavigate}>Account Settings</Link>
             </div>
