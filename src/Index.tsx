@@ -36,7 +36,7 @@ ReactDOM.render(
       <StateManagement />
       <Layout>
         <Header />
-        <Suspense fallback={<div />}>
+        <Suspense fallback={<div>splash screen</div>}>
           <Router>
             <HomePage default />
             <HomePage path="/" />

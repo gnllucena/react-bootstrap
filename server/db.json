@@ -8,8 +8,8 @@
     "Avatar": "http://localhost:3000/assets/images/profilepic.png"
   },
   "register": {
-    "Name": "Gabriel Lucena",
-    "Email": "gnllucena@gmail.com",
+    "Name": "gnllucena@gmail.com",
+    "Email": "asdfasfasfafds@gmail.com",
     "RememberMe": true,
     "Bearer": "",
     "Avatar": "",
@@ -19,7 +19,7 @@
   },
   "forgot-password": {
     "Name": "",
-    "Email": "gnllucena@gmail.com",
+    "Email": "asdf@asdf.com",
     "RememberMe": true,
     "Bearer": "",
     "Avatar": ""
@@ -50,7 +50,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 2,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -63,7 +63,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 3,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -76,7 +76,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 4,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -89,7 +89,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 5,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -102,7 +102,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 6,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -115,7 +115,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 7,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -128,7 +128,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 8,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -141,7 +141,7 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 9,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -154,7 +154,33 @@
         "ROIC": 12.49
       },
       {
-        "Id": 1,
+        "Id": 10,
+        "Ticker": "ITSA4",
+        "Name": "ITAUSA",
+        "Image": "ITAUSA.png",
+        "Sector": "Finance",
+        "Price": 10.94,
+        "Currency": "R$",
+        "PE": 13.44,
+        "PB": 5.02,
+        "ROE": 12.56,
+        "ROIC": 12.49
+      },
+      {
+        "Id": 11,
+        "Ticker": "ITSA4",
+        "Name": "ITAUSA",
+        "Image": "ITAUSA.png",
+        "Sector": "Finance",
+        "Price": 10.94,
+        "Currency": "R$",
+        "PE": 13.44,
+        "PB": 5.02,
+        "ROE": 12.56,
+        "ROIC": 12.49
+      },
+      {
+        "Id": 12,
         "Ticker": "ITSA4",
         "Name": "ITAUSA",
         "Image": "ITAUSA.png",
@@ -168,7 +194,7 @@
       }
     ],
     "Offset": 0,
-    "Limit": 9,
+    "Limit": 12,
     "Total": 800
   }
 }

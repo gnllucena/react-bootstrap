@@ -466,6 +466,7 @@ export const StocksPageFilterState = atom<Array<FilterGroup>>({
 
 export const StocksPagePaginationState = atom<Pagination<StockPartial>>({
   key: 'StocksPagePaginationState',
+  dangerouslyAllowMutability: true,
   default: new Pagination<StockPartial>({
     Items: new Array<StockPartial>(),
     Limit: 12,
