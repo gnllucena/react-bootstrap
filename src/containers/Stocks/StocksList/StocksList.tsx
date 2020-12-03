@@ -6,18 +6,17 @@ import Pagination from '../../../domain/Pagination';
 import StockPartial from '../../../domain/StockPartial';
 import { StocksPageFilteredSelector, StocksPagePaginationState } from '../../../store/StocksPageState';
 import StocksCardSmall from '../StocksCardSmall/StocksCardSmall';
-import StocksListLoading from '../StocksListLoading/StocksListLoading';
 
 const StocksList: FunctionComponent = () => {
   const stocksFiltered = useRecoilValue(StocksPageFilteredSelector);
   const [stocksPagination, setStocksPagination] = useRecoilState(StocksPagePaginationState);
   const [stocks, setStocks] = useState<Array<StockPartial>>([]);
-
+  
   useEffect(() => {
     let newStocks = new Array<StockPartial>();
 
     if (stocksPagination.Offset !== 0) {
-      newStocks = [...stocks];
+      newStocks = [...stocks]; 
     }
 
     newStocks.push(...stocksFiltered.Items);
@@ -39,18 +38,11 @@ const StocksList: FunctionComponent = () => {
     <div className="page-content">
       <Row gutter={24}>
         {stocks.map((stock: StockPartial) => (
-          <StocksCardSmall
-            key={stock.Id}
-            stock={stock}
-          />
+          <StocksCardSmall key={stock.Id} stock={stock} />
         ))}
 
         <Waypoint onEnter={onPageBottom} />
       </Row>
-
-      <Suspense fallback={<div>foi?</div>}>
-        <div>foi sim!</div>
-      </Suspense>
     </div>
   );
 };

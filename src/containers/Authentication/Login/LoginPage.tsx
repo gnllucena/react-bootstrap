@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Suspense } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import { navigate, RouteComponentProps, Link } from '@reach/router';
@@ -14,6 +14,9 @@ import User from '../../../domain/User';
 
 import '../../../assets/styles/Authentication.scss';
 import { LoginPageState } from '../../../store/LoginPageState';
+import StocksListLoading from '../../Stocks/StocksListLoading/StocksListLoading';
+import DelayedFallback from './DelayedFallback/DelayedFallback';
+import { AxiosResponse } from 'axios';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
@@ -86,7 +89,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
               <Row>
                 <Col span={24} className="align-left">
-                  <Button text="Log In" type="submit" design="primary" size="big" />
+                  <Button text="Log In" type="submit" design="primary" size="big" />  
                 </Col>
               </Row>
             </Form>

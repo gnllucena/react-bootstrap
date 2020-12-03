@@ -30,25 +30,27 @@ const initialize = (snapshot: MutableSnapshot): void => {
 };
 
 ReactDOM.render(
-  <RecoilRoot initializeState={initialize}>
-    <ErrorBoundary>
-      <HttpErrorHandling />
-      <StateManagement />
-      <Layout>
-        <Header />
-        <Suspense fallback={<div>splash screen</div>}>
-          <Router>
-            <HomePage default />
-            <HomePage path="/" />
-            <LoginPage path="login" />
-            <StocksPage path="stocks" />
-            <CreateNewAccountPage path="create-new-account" />
-            <ForgotPasswordPage path="forgot-password" />
-            <ResetPasswordPage path="reset-password" />
-          </Router>
-        </Suspense>
-      </Layout>
-    </ErrorBoundary>
-  </RecoilRoot>,
+  <React.StrictMode>
+    <RecoilRoot initializeState={initialize}>
+      <ErrorBoundary>
+        <HttpErrorHandling />
+        <StateManagement />
+        <Layout>
+          <Header />
+          <Suspense fallback={<div>splash screen</div>}>
+            <Router>
+              <HomePage default />
+              <HomePage path="/" />
+              <LoginPage path="login" />
+              <StocksPage path="stocks" />
+              <CreateNewAccountPage path="create-new-account" />
+              <ForgotPasswordPage path="forgot-password" />
+              <ResetPasswordPage path="reset-password" />
+            </Router>
+          </Suspense>
+        </Layout>
+      </ErrorBoundary>
+    </RecoilRoot>
+  </React.StrictMode>,
   document.getElementById('root')
 );
