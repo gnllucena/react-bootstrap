@@ -1,33 +1,24 @@
-import { Row } from 'antd';
-import React, { FunctionComponent, Suspense, useEffect, useState } from 'react';
-import { Waypoint } from 'react-waypoint';
+import { List, Pagination as PaginationAntd } from 'antd';
+import React, { FunctionComponent } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import Pagination from '../../../domain/Pagination';
 import StockPartial from '../../../domain/StockPartial';
+import Pagination from '../../../domain/Pagination';
 import { StocksPageFilteredSelector, StocksPagePaginationState } from '../../../store/StocksPageState';
+import StocksCardBig from '../StocksCardBig/StocksCardBig';
+import useIsFullscreen from '../../../components/hooks/UseIsFullscreen';
 import StocksCardSmall from '../StocksCardSmall/StocksCardSmall';
 
 const StocksList: FunctionComponent = () => {
   const stocksFiltered = useRecoilValue(StocksPageFilteredSelector);
   const [stocksPagination, setStocksPagination] = useRecoilState(StocksPagePaginationState);
-  const [stocks, setStocks] = useState<Array<StockPartial>>([]);
+  const isFullscreen = useIsFullscreen();
   
-  useEffect(() => {
-    let newStocks = new Array<StockPartial>();
-
-    if (stocksPagination.Offset !== 0) {
-      newStocks = [...stocks]; 
-    }
-
-    newStocks.push(...stocksFiltered.Items);
-
-    setStocks(newStocks);
-  }, [stocksFiltered]);
-
-  const onPageBottom = () => {
+  const onPaginationChange = (page: number) => {
+    let goes = stocksPagination.Limit * (page - 1);
+    
     let pagination = new Pagination<StockPartial>({
       Limit: stocksPagination.Limit,
-      Offset: stocksPagination.Offset += stocksPagination.Limit,
+      Offset: goes,
       Total: stocksPagination.Total
     });
 
@@ -36,13 +27,37 @@ const StocksList: FunctionComponent = () => {
 
   return (
     <div className="page-content">
-      <Row gutter={24}>
-        {stocks.map((stock: StockPartial) => (
-          <StocksCardSmall key={stock.Id} stock={stock} />
-        ))}
+      <List
+        itemLayout="horizontal"
+        dataSource={stocksFiltered.Items}
+        split={false}
+        renderItem={item => (
+          <List.Item>
+            {
+              isFullscreen ? (
+                <StocksCardBig 
+                  stock={item}
+                />
+              ) : (
+                <StocksCardSmall 
+                  stock={item}
+                />
+              )
+            }
+          </List.Item>
+        )}
+      />
 
-        <Waypoint onEnter={onPageBottom} />
-      </Row>
+      <PaginationAntd
+        showLessItems
+        onChange={onPaginationChange}
+        hideOnSinglePage={true}
+        defaultCurrent={0} 
+        pageSize={stocksPagination.Limit}
+        showSizeChanger={false}
+        total={stocksPagination.Total}
+        current={Math.ceil(stocksPagination.Offset / stocksPagination.Limit + 1)}
+      />
     </div>
   );
 };

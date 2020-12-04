@@ -12,7 +12,7 @@ const StocksCardSmall: FunctionComponent<StocksCardSmallProps> = ({
   stock
 }) => {
   return (
-    <Col xs={24} sm={24} md={8} lg={8} xl={6}>
+    <Col xs={24} sm={24} md={24} lg={24} xl={24}>
       <Card 
         hoverable
         cover={<img alt={stock.Name + " image"} src={"http://localhost:3000/assets/images/" + stock.Image} />}
@@ -21,7 +21,6 @@ const StocksCardSmall: FunctionComponent<StocksCardSmallProps> = ({
       >
         <div className="stocks-card-subtext">
           <div className="stocks-align-left">{stock.Ticker}</div>
-          {/* <div className="stocks-align-right">{`${stock.Currency} ${stock.Price.toLocaleString()}`}</div> */}
         </div>
         <div className="stocks-card-name">{stock.Name}</div>
         <div className="stocks-card-price">

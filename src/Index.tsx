@@ -30,7 +30,7 @@ const initialize = (snapshot: MutableSnapshot): void => {
 };
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RecoilRoot initializeState={initialize}>
       <ErrorBoundary>
         <HttpErrorHandling />
@@ -51,6 +51,7 @@ ReactDOM.render(
         </Layout>
       </ErrorBoundary>
     </RecoilRoot>
-  </React.StrictMode>,
+  // </React.StrictMode>,
+  ,
   document.getElementById('root')
 );

@@ -11,6 +11,7 @@ export default class StockPartial {
     this.PB = params.PB ?? 0;
     this.ROE = params.ROE ?? 0;
     this.ROIC = params.ROIC ?? 0;
+    this.NETMargin = params.NETMargin ?? 0;
   }
 
   Id: number;
@@ -24,4 +25,5 @@ export default class StockPartial {
   PB: number;
   ROE: number;
   ROIC: number;
+  NETMargin: number;
 }

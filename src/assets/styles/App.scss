@@ -1,12 +1,16 @@
 @import '~antd/dist/antd.min.css';
 
-
 .ant-layout {
   background: #FFF;
 }
 
 .page-content {
   padding: 16px 30px;
+
+  .ant-pagination {
+    margin: 16px 0;
+    float: right;
+  }
 }
 
 body::-webkit-scrollbar-track, body *::-webkit-scrollbar-track {
@@ -99,14 +103,6 @@ ul {
 
 li {
   list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: $primary0;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 img {

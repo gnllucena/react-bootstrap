@@ -4,11 +4,11 @@ class FilterSlider extends Filter {
   public constructor(params: Partial<FilterSlider>) {
     super(params);
 
-    if (!params.MaxValue) {
+    if (!params.MaxValue && params.MaxValue !== 0) {
       throw new Error('MaxValue must be informed');
     }
 
-    if (!params.MinValue) {
+    if (!params.MinValue && params.MinValue !== 0) {
       throw new Error('MinValue must be informed');
     }
 

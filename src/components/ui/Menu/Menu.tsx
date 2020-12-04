@@ -13,7 +13,7 @@ const Menu: FunctionComponent<MenuProps> = ({
   align,
   onNavigate
 }) => (
-  <MenuAntd mode={align}>
+  <MenuAntd mode={align} className="menu-links">
     <MenuAntd.Item key="0">
       <Link
         to="/stocks"
