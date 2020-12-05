@@ -4,9 +4,11 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import StockPartial from '../../../domain/StockPartial';
 import Pagination from '../../../domain/Pagination';
 import { StocksPageFilteredSelector, StocksPagePaginationState } from '../../../store/StocksPageState';
-import StocksCardBig from '../StocksCardBig/StocksCardBig';
+import StocksListCardBig from '../StocksListCardBig/StocksListCardBig';
 import useIsFullscreen from '../../../components/hooks/UseIsFullscreen';
-import StocksCardSmall from '../StocksCardSmall/StocksCardSmall';
+import StocksListCardSmall from '../StocksListCardSmall/StocksListCardSmall';
+
+import './StocksList.scss';
 
 const StocksList: FunctionComponent = () => {
   const stocksFiltered = useRecoilValue(StocksPageFilteredSelector);
@@ -35,13 +37,9 @@ const StocksList: FunctionComponent = () => {
           <List.Item>
             {
               isFullscreen ? (
-                <StocksCardBig 
-                  stock={item}
-                />
+                <StocksListCardBig stock={item} />
               ) : (
-                <StocksCardSmall 
-                  stock={item}
-                />
+                <StocksListCardSmall stock={item} />
               )
             }
           </List.Item>

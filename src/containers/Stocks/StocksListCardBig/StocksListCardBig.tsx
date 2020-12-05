@@ -1,16 +1,14 @@
-import { Avatar, Card, Col, Row, Statistic } from 'antd';
+import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 import StockPartial from '../../../domain/StockPartial';
-import { ArrowUpOutlined, ArrowDownOutlined, UserOutlined  } from '@ant-design/icons';
+import { ArrowUpOutlined, ArrowDownOutlined  } from '@ant-design/icons';
 
-import './StocksCardBig.scss';
-
-export interface StocksCardBigProps {
+export interface StocksListCardBigProps {
   stock: StockPartial
 }
 
-const StocksCardBig: FunctionComponent<StocksCardBigProps> = ({
+const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
   stock
 }) => {
   return (
@@ -18,7 +16,7 @@ const StocksCardBig: FunctionComponent<StocksCardBigProps> = ({
       <Row gutter={24}>
         <Col span={4}>
           <Meta
-            avatar={<Avatar size={64} shape="square" icon={<UserOutlined />} />}
+            avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
             title={stock.Name}
             description={stock.Sector + " sector"}
           />
@@ -78,4 +76,4 @@ const StocksCardBig: FunctionComponent<StocksCardBigProps> = ({
   );
 };
 
-export default StocksCardBig;
+export default StocksListCardBig;

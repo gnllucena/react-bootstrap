@@ -2,13 +2,11 @@ import { Card, Col } from 'antd';
 import React, { FunctionComponent } from 'react';
 import StockPartial from '../../../domain/StockPartial';
 
-import './StocksCardSmall.scss';
-
-export interface StocksCardSmallProps {
+export interface StocksListCardSmallProps {
   stock: StockPartial
 }
 
-const StocksCardSmall: FunctionComponent<StocksCardSmallProps> = ({
+const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
   stock
 }) => {
   return (
@@ -31,4 +29,4 @@ const StocksCardSmall: FunctionComponent<StocksCardSmallProps> = ({
   );
 };
 
-export default StocksCardSmall;
+export default StocksListCardSmall;

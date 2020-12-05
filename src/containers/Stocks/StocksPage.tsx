@@ -10,6 +10,10 @@ const StocksPage: FunctionComponent<RouteComponentProps> = () => {
     <>
       <StocksFilter />
       
+      {/* <Suspense fallback={<StocksList />}>
+        <StocksListLoading />
+      </Suspense> */}
+
       <Suspense fallback={<StocksListLoading />}>
         <StocksList />
       </Suspense>
