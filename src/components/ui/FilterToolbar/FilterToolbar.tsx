@@ -109,8 +109,9 @@ const FilterToolbar: FunctionComponent<FilterToolbarProps> = ({
   }
   
   return (
+    <Affix offsetTop={84}>
     <div className="toolbar-filter-wrapper">
-      <Affix offsetTop={84}>
+      
         <div className="toolbar-wrapper toolbar">
           <div className="toolbar-container-wrapper">
             <div className="left-side">
@@ -143,8 +144,9 @@ const FilterToolbar: FunctionComponent<FilterToolbarProps> = ({
             </div>
           </div>
         </div>
-      </Affix>
+      
     </div>
+    </Affix>
   );
 };
 

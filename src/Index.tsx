@@ -11,6 +11,7 @@ import User from './domain/User';
 import { LoginPageState } from './store/LoginPageState';
 
 import './assets/styles/App.scss';
+import ScrollToTop from './components/behavior/ScrollToTop/ScrollToTop';
 
 const HomePage = lazy(() => import('./containers/Home/HomePage'));
 const CreateNewAccountPage = lazy(() => import('./containers/Authentication/CreateNewAccount/CreateNewAccountPage'));
@@ -38,14 +39,16 @@ ReactDOM.render(
         <Layout>
           <Header />
           <Suspense fallback={<div>splash screen</div>}>
-            <Router>
-              <HomePage default />
-              <HomePage path="/" />
-              <LoginPage path="login" />
-              <StocksPage path="stocks" />
-              <CreateNewAccountPage path="create-new-account" />
-              <ForgotPasswordPage path="forgot-password" />
-              <ResetPasswordPage path="reset-password" />
+            <Router primary={false}>
+              <ScrollToTop path="/">
+                <HomePage default />
+                <HomePage path="/" />
+                <LoginPage path="login" />
+                <StocksPage path="stocks" />
+                <CreateNewAccountPage path="create-new-account" />
+                <ForgotPasswordPage path="forgot-password" />
+                <ResetPasswordPage path="reset-password" />
+              </ScrollToTop>
             </Router>
           </Suspense>
         </Layout>

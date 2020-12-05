@@ -8,7 +8,7 @@ const StocksListLoadingCardBig: FunctionComponent = () => {
   return (
     <Card hoverable className="stocks-card-big stocks-card-loading-big">
       <Row gutter={24}>
-        <Col span={4}>
+        <Col span={6}>
           <Meta
             avatar={<Skeleton.Avatar active={true} size={'large'} shape={'square'} />}
             title={
@@ -23,31 +23,37 @@ const StocksListLoadingCardBig: FunctionComponent = () => {
             }
           />
         </Col>
-        <Col span={4} className="stocks-card-loading-column">
+        <Col span={3} className="stocks-card-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={4} className="stocks-card-loading-column">
+        <Col span={3} className="stocks-card-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={4} className="stocks-card-loading-column">
+        <Col span={3} className="stocks-card-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={4} className="stocks-card-loading-column">
+        <Col span={3} className="stocks-card-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={4} className="stocks-card-loading-column">
+        <Col span={3} className="stocks-card-loading-column">
+          <Space>
+            <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
+            <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
+          </Space>
+        </Col>
+        <Col span={3} className="stocks-card-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />

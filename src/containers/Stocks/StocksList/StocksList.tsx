@@ -25,6 +25,8 @@ const StocksList: FunctionComponent = () => {
     });
 
     setStocksPagination(pagination);
+
+    window.scrollTo(0, 0);
   }
 
   return (

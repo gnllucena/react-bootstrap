@@ -14,14 +14,14 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
   return (
     <Card hoverable className="stocks-card-big">
       <Row gutter={24}>
-        <Col span={4}>
+        <Col span={6}>
           <Meta
             avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
             title={stock.Name}
             description={stock.Sector + " sector"}
           />
         </Col>
-        <Col span={4}>
+        <Col span={3}>
           <Statistic
             title="PE"
             value={stock.PE}
@@ -31,7 +31,7 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             suffix="%"
           />
         </Col>
-        <Col span={4}>
+        <Col span={3}>
           <Statistic
             title="PB"
             value={stock.PB}
@@ -41,7 +41,7 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             suffix="%"
           />
         </Col>
-        <Col span={4}>
+        <Col span={3}>
           <Statistic
             title="ROE"
             value={stock.ROE}
@@ -51,7 +51,7 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             suffix="%"
           />
         </Col>
-        <Col span={4}>
+        <Col span={3}>
           <Statistic
             title="ROIC"
             value={stock.ROIC}
@@ -61,10 +61,20 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             suffix="%"
           />
         </Col>
-        <Col span={4}>
+        <Col span={3}>
           <Statistic
             title="NET Margin"
             value={stock.NETMargin}
+            precision={2}
+            valueStyle={{ color: '#3f8600' }}
+            prefix={<ArrowUpOutlined />}
+            suffix="%"
+          />
+        </Col>
+        <Col span={3}>
+          <Statistic
+            title="EV/EBITDA"
+            value={stock.EVEBITDA}
             precision={2}
             valueStyle={{ color: '#3f8600' }}
             prefix={<ArrowUpOutlined />}
