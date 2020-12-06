@@ -9,6 +9,7 @@ import useIsFullscreen from '../../../components/hooks/UseIsFullscreen';
 import StocksListCardSmall from '../StocksListCardSmall/StocksListCardSmall';
 
 import './StocksList.scss';
+import NoData from '../../../components/ui/NoData/NoData';
 
 const StocksList: FunctionComponent = () => {
   const [stocksPagination, setStocksPagination] = useRecoilState(StocksPagePaginationState);
@@ -30,7 +31,7 @@ const StocksList: FunctionComponent = () => {
   return (
     <div className="page-content">
       {
-        stocksFiltered.Items[12313123].EVEBITDA > 0 ? (
+        stocksFiltered.Items.length > 0 ? (
           <List
             itemLayout="horizontal"
             dataSource={stocksFiltered.Items}
@@ -50,10 +51,7 @@ const StocksList: FunctionComponent = () => {
             )}
           />
         ) : (
-          <Empty 
-            className="no-data"
-            description={"No data for the selected filters"}
-          />
+          <NoData text="No data for the selected filters" />
         )
       }
       

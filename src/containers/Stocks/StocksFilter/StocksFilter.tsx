@@ -9,21 +9,20 @@ const StocksFilter: FunctionComponent = () => {
   const resetPaginationState = useResetRecoilState(StocksPagePaginationState);
   const [stocksPageFilterState, setStocksPageFilterState] = useRecoilState(StocksPageFilterState);
 
+  const action = (groups: Array<FilterGroup>) => {
+    let newGroups = [...groups];
+
+    resetPaginationState();
+    setStocksPageFilterState(newGroups);
+
+    window.scrollTo(0, 0);
+  }
+
   return (
     <ToolbarFilter
       groups={stocksPageFilterState}
-      onSearch={(groups: Array<FilterGroup>) => { 
-        let newGroups = [...groups];
-
-        resetPaginationState();
-        setStocksPageFilterState(newGroups);
-      }}
-      onReset={(groups: Array<FilterGroup>) => { 
-        let newGroups = [...groups];
-
-        resetPaginationState();
-        setStocksPageFilterState(newGroups);
-      }}
+      onSearch={action}
+      onReset={action}
     />
   );
 };
