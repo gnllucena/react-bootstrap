@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { CSSProperties, FunctionComponent } from 'react';
 import { Checkbox as CheckboxAntd } from 'formik-antd';
 import { useField } from 'formik';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
@@ -9,7 +9,8 @@ export interface CheckboxProps {
   name: string,
   label: string,
   value: boolean
-  disabled?: boolean
+  disabled?: boolean,
+  style?: CSSProperties,
   onChange?(value: boolean): void
 }
 
@@ -18,6 +19,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
   label,
   value,
   disabled,
+  style,
   onChange
 }) => {
   const [field, meta, helpers] = useField(name);
@@ -38,6 +40,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
         defaultChecked={value}
         checked={value}
         disabled={disabled}
+        style={style}
       >
         {label}
       </CheckboxAntd>

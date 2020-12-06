@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { CSSProperties, FunctionComponent } from 'react';
 import { Slider as SliderAntd } from 'formik-antd';
 import { useField } from 'formik';
 
@@ -12,6 +12,7 @@ export interface SliderProps {
   range: boolean,
   value: number | [number, number]
   disabled?: boolean
+  style?: CSSProperties,
   onChange?(value: number | [number, number]): void
 }
 
@@ -23,6 +24,7 @@ const Slider: FunctionComponent<SliderProps> = ({
   range,
   value,
   disabled,
+  style,
   onChange
 }) => {
   const [field, meta, helpers] = useField(name);
@@ -53,6 +55,7 @@ const Slider: FunctionComponent<SliderProps> = ({
         defaultValue={value}
         disabled={disabled}
         onChange={changed}
+        style={style}
       />
 
       { triggered() && <div className="slider-error-wrapper"><span>{meta.error}</span></div>}

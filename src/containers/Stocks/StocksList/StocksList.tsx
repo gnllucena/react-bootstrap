@@ -1,4 +1,4 @@
-import { List, Pagination as PaginationAntd } from 'antd';
+import { Empty, List, Pagination as PaginationAntd } from 'antd';
 import React, { FunctionComponent } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import StockPartial from '../../../domain/StockPartial';
@@ -11,16 +11,14 @@ import StocksListCardSmall from '../StocksListCardSmall/StocksListCardSmall';
 import './StocksList.scss';
 
 const StocksList: FunctionComponent = () => {
-  const stocksFiltered = useRecoilValue(StocksPageFilteredSelector);
   const [stocksPagination, setStocksPagination] = useRecoilState(StocksPagePaginationState);
+  const stocksFiltered = useRecoilValue(StocksPageFilteredSelector);
   const isFullscreen = useIsFullscreen();
   
   const onPaginationChange = (page: number) => {
-    let goes = stocksPagination.Limit * (page - 1);
-    
     let pagination = new Pagination<StockPartial>({
       Limit: stocksPagination.Limit,
-      Offset: goes,
+      Offset: stocksPagination.Limit * (page - 1),
       Total: stocksPagination.Total
     });
 
@@ -31,32 +29,43 @@ const StocksList: FunctionComponent = () => {
 
   return (
     <div className="page-content">
-      <List
-        itemLayout="horizontal"
-        dataSource={stocksFiltered.Items}
-        split={false}
-        renderItem={item => (
-          <List.Item>
-            {
-              isFullscreen ? (
-                <StocksListCardBig stock={item} />
-              ) : (
-                <StocksListCardSmall stock={item} />
-              )
-            }
-          </List.Item>
-        )}
-      />
-
+      {
+        stocksFiltered.Items[12313123].EVEBITDA > 0 ? (
+          <List
+            itemLayout="horizontal"
+            dataSource={stocksFiltered.Items}
+            split={false}
+            renderItem={item => (
+              <a href="">
+                <List.Item>
+                  {
+                    isFullscreen ? (
+                      <StocksListCardBig stock={item} />
+                    ) : (
+                      <StocksListCardSmall stock={item} />
+                    )
+                  }
+                </List.Item>
+              </a>
+            )}
+          />
+        ) : (
+          <Empty 
+            className="no-data"
+            description={"No data for the selected filters"}
+          />
+        )
+      }
+      
       <PaginationAntd
         showLessItems
         onChange={onPaginationChange}
         hideOnSinglePage={true}
         defaultCurrent={0} 
-        pageSize={stocksPagination.Limit}
+        pageSize={stocksFiltered.Limit}
         showSizeChanger={false}
-        total={stocksPagination.Total}
-        current={Math.ceil(stocksPagination.Offset / stocksPagination.Limit + 1)}
+        total={stocksFiltered.Total}
+        current={Math.ceil(stocksFiltered.Offset / stocksFiltered.Limit + 1)}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { CSSProperties, FunctionComponent } from 'react';
 import { Input as InputAntd } from 'formik-antd';
 import { useField } from 'formik';
 
@@ -10,7 +10,8 @@ export interface InputProps {
   placeholder?: string,
   value?: string,
   disabled?: boolean,
-  autoComplete?: string
+  autoComplete?: string,
+  style?: CSSProperties,
   onChange?(value: string): void
 }
 
@@ -21,6 +22,7 @@ const Input: FunctionComponent<InputProps> = ({
   value,
   disabled,
   autoComplete,
+  style,
   onChange
 }) => {
   const [field, meta, helpers] = useField(name);
@@ -45,6 +47,7 @@ const Input: FunctionComponent<InputProps> = ({
         autoComplete={autoComplete}
         disabled={disabled}
         onChange={changed}
+        style={style}
       />
 
       { triggered() && <div className="input-error-wrapper"><span>{meta.error}</span></div>}

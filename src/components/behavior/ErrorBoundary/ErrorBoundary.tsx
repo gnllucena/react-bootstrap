@@ -1,5 +1,7 @@
 import React, { ErrorInfo, Component } from 'react';
 import { Link } from '@reach/router';
+import { Result } from 'antd';
+import Button from '../../form/Button/Button';
 
 class ErrorBoundary extends Component {
   public state = {
@@ -19,22 +21,21 @@ class ErrorBoundary extends Component {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="container">
-          <h1>Something terrible happened...</h1>
-
-          <p>You asked for something and... you found a bug, congratulations! We know about this and we are fixing it.</p>
-          <p>
-            Meanwhile, why don&apos;t you look for another
+        <Result
+          status="500"
+          title="Sorry, something went wrong."
+          subTitle="You asked for something and... you found a bug, congratulations! We know about this and we are fixing it."
+          extra={
             <Link
               to="/"
               onClick={() => this.setState({
                 hasError: false
               })}
             >
-              stock?
-            </Link>
-          </p>
-        </div>
+              <Button text="Go to home" type="button" design="primary" size="small" style={{width: "200px"}} />
+            </Link>            
+          }
+        />
       );
     }
 
