@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useMemo } from "react";
 import useWindowSize from "./UseWindowSize";
 
 function useIsFullscreen(): boolean {
   const windowSize = useWindowSize();
 
-  return windowSize.width > 991;
+  const isFullScreen = useMemo(() => windowSize.width < 991, [true]);
+
+  return isFullScreen;
 }
 
 export default useIsFullscreen;

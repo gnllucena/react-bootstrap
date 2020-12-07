@@ -13,6 +13,12 @@ export default class StockPartial {
     this.ROIC = params.ROIC ?? 0;
     this.NETMargin = params.NETMargin ?? 0;
     this.EVEBITDA = params.EVEBITDA ?? 0;
+    this.PESituation = params.PESituation ?? 'Side';
+    this.PBSituation = params.PBSituation ?? 'Side';
+    this.ROESituation = params.ROESituation ?? 'Side';
+    this.ROICSituation = params.ROICSituation ?? 'Side';
+    this.NETMarginSituation = params.NETMarginSituation ?? 'Side';
+    this.EVEBITDASituation = params.EVEBITDASituation ?? 'Side';
   }
 
   Id: number;
@@ -28,4 +34,10 @@ export default class StockPartial {
   ROIC: number;
   NETMargin: number;
   EVEBITDA: number;
+  PESituation: 'Up' | 'Side' | 'Down';
+  PBSituation: 'Up' | 'Side' | 'Down';
+  ROESituation: 'Up' | 'Side' | 'Down';
+  ROICSituation: 'Up' | 'Side' | 'Down';
+  NETMarginSituation: 'Up' | 'Side' | 'Down';
+  EVEBITDASituation: 'Up' | 'Side' | 'Down';
 }

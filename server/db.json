@@ -45,11 +45,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Side",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 2,
@@ -60,11 +66,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 3,
@@ -75,11 +87,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 4,
@@ -90,11 +108,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 5,
@@ -105,11 +129,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 6,
@@ -120,11 +150,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 7,
@@ -135,11 +171,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 8,
@@ -150,11 +192,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 9,
@@ -165,11 +213,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 10,
@@ -180,11 +234,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 11,
@@ -195,11 +255,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       },
       {
         "Id": 12,
@@ -210,11 +276,17 @@
         "Price": 10.94,
         "Currency": "R$",
         "PE": 13.44,
+        "PESituation": "Up",
         "PB": 5.02,
+        "PBSituation": "Down",
         "ROE": 12.56,
+        "ROESituation": "Down",
         "ROIC": 12.49,
+        "ROICSituation": "Up",
         "NETMargin": 124.49,
-        "EVEBITDA": 6.32
+        "NETMarginSituation": "Up",
+        "EVEBITDA": 6.32,
+        "EVEBITDASituation": "Down"
       }
     ],
     "Offset": 0,

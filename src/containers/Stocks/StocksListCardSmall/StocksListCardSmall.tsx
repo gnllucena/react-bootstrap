@@ -2,7 +2,6 @@ import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 import StockPartial from '../../../domain/StockPartial';
-import { ArrowUpOutlined, ArrowDownOutlined  } from '@ant-design/icons';
 
 export interface StocksListCardSmallProps {
   stock: StockPartial
@@ -11,6 +10,21 @@ export interface StocksListCardSmallProps {
 const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
   stock
 }) => {
+  const color = (situation: 'Up' | 'Side' | 'Down') => {
+    let color = {};
+
+    switch (situation) {
+      case 'Up':
+        color = { color: '#3f8600', float: "right" };
+        break;
+      case 'Down':
+        color = { color: '#cf1322', float: "right" };
+        break;
+    }
+
+    return color;
+  }
+
   return (
     <Card hoverable className="stocks-card-small">
       <Row gutter={24}>
@@ -29,7 +43,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="PE"
             value={stock.PE}
             precision={2}
-            valueStyle={{ color: '#3f8600', float: "right" }}
+            valueStyle={color(stock.PESituation)}
             suffix="%"
           />
         </Col>
@@ -38,7 +52,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="PB"
             value={stock.PB}
             precision={2}
-            valueStyle={{ color: '#cf1322', float: "right" }}
+            valueStyle={color(stock.PBSituation)}
             suffix="%"
           />
         </Col>
@@ -50,7 +64,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="ROE"
             value={stock.ROE}
             precision={2}
-            valueStyle={{ color: '#cf1322', float: "right" }}
+            valueStyle={color(stock.ROESituation)}
             suffix="%"
           />
         </Col>
@@ -59,7 +73,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="ROIC"
             value={stock.ROIC}
             precision={2}
-            valueStyle={{ color: '#cf1322', float: "right" }}
+            valueStyle={color(stock.ROICSituation)}
             suffix="%"
           />
         </Col>
@@ -71,7 +85,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="NET Margin"
             value={stock.NETMargin}
             precision={2}
-            valueStyle={{ color: '#3f8600', float: "right" }}
+            valueStyle={color(stock.NETMarginSituation)}
             suffix="%"
           />
         </Col>
@@ -80,7 +94,7 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
             title="EV/EBITDA"
             value={stock.EVEBITDA}
             precision={2}
-            valueStyle={{ color: '#3f8600', float: "right" }}
+            valueStyle={color(stock.EVEBITDASituation)}
             suffix="%"
           />
         </Col>

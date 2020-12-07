@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Link } from '@reach/router';
-import { IoIosClose } from 'react-icons/io';
 import { Button, Drawer } from 'antd';
 import Menu from '../Menu/Menu';
 import MenuAuthentication from '../MenuAuthentication/MenuAuthentication';
+import { CloseOutlined  } from '@ant-design/icons';
 
 import './HeaderMobile.scss';
 
@@ -41,7 +41,7 @@ const HeaderMobile: FunctionComponent = () => {
       >
         <div className="header-mobile-drawer-close">
           <button onClick={changeDrawer} type="button">
-            <IoIosClose />
+            <CloseOutlined />
           </button>
         </div>
 

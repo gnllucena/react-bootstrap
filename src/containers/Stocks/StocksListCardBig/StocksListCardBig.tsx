@@ -2,7 +2,7 @@ import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 import StockPartial from '../../../domain/StockPartial';
-import { ArrowUpOutlined, ArrowDownOutlined  } from '@ant-design/icons';
+import { RiseOutlined, FallOutlined  } from '@ant-design/icons';
 
 export interface StocksListCardBigProps {
   stock: StockPartial
@@ -11,6 +11,36 @@ export interface StocksListCardBigProps {
 const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
   stock
 }) => {
+  const color = (situation: 'Up' | 'Side' | 'Down') => {
+    let color = {};
+
+    switch (situation) {
+      case 'Up':
+        color = { color: '#3f8600' };
+        break;
+      case 'Down':
+        color = { color: '#cf1322' };
+        break;
+    }
+
+    return color;
+  }
+
+  const arrow = (situation: 'Up' | 'Side' | 'Down') => {
+    let arrow;
+
+    switch (situation) {
+      case 'Up':
+        arrow = <RiseOutlined />;
+        break;
+      case 'Down':
+        arrow = <FallOutlined />;
+        break;
+    }
+
+    return arrow;
+  }
+
   return (
     <Card hoverable className="stocks-card-big">
       <Row gutter={24}>
@@ -26,8 +56,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="PE"
             value={stock.PE}
             precision={2}
-            valueStyle={{ color: '#3f8600' }}
-            prefix={<ArrowUpOutlined />}
+            valueStyle={color(stock.PESituation)}
+            prefix={arrow(stock.PESituation)}
             suffix="%"
           />
         </Col>
@@ -36,8 +66,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="PB"
             value={stock.PB}
             precision={2}
-            valueStyle={{ color: '#cf1322' }}
-            prefix={<ArrowDownOutlined />}
+            valueStyle={color(stock.PBSituation)}
+            prefix={arrow(stock.PBSituation)}
             suffix="%"
           />
         </Col>
@@ -46,8 +76,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="ROE"
             value={stock.ROE}
             precision={2}
-            valueStyle={{ color: '#cf1322' }}
-            prefix={<ArrowDownOutlined />}
+            valueStyle={color(stock.ROESituation)}
+            prefix={arrow(stock.ROESituation)}
             suffix="%"
           />
         </Col>
@@ -56,8 +86,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="ROIC"
             value={stock.ROIC}
             precision={2}
-            valueStyle={{ color: '#cf1322' }}
-            prefix={<ArrowDownOutlined />}
+            valueStyle={color(stock.ROICSituation)}
+            prefix={arrow(stock.ROICSituation)}
             suffix="%"
           />
         </Col>
@@ -66,8 +96,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="NET Margin"
             value={stock.NETMargin}
             precision={2}
-            valueStyle={{ color: '#3f8600' }}
-            prefix={<ArrowUpOutlined />}
+            valueStyle={color(stock.NETMarginSituation)}
+            prefix={arrow(stock.NETMarginSituation)}
             suffix="%"
           />
         </Col>
@@ -76,8 +106,8 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
             title="EV/EBITDA"
             value={stock.EVEBITDA}
             precision={2}
-            valueStyle={{ color: '#3f8600' }}
-            prefix={<ArrowUpOutlined />}
+            valueStyle={color(stock.EVEBITDASituation)}
+            prefix={arrow(stock.EVEBITDASituation)}
             suffix="%"
           />
         </Col>
