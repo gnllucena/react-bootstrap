@@ -17,6 +17,9 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
       case 'Up':
         color = { color: '#3f8600', float: "right" };
         break;
+      case 'Side':
+        color = { float: "right" };
+        break;
       case 'Down':
         color = { color: '#cf1322', float: "right" };
         break;
