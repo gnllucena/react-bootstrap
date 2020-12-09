@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useResetRecoilState } from 'recoil';
 import { useRecoilState } from 'recoil';
-import FilterGroup from '../../../components/models/FilterGroup';
-import ToolbarFilter from '../../../components/ui/FilterToolbar/FilterToolbar';
-import { StocksPageFilterState, StocksPagePaginationState } from '../../../store/StocksPageState';
+import FilterGroup from '../../../../components/models/FilterGroup';
+import ToolbarFilter from '../../../../components/ui/FilterToolbar/FilterToolbar';
+import { StocksPageFilterState, StocksPagePaginationState } from '../../../../store/StocksPageState';
 
 const StocksFilter: FunctionComponent = () => {
   const resetPaginationState = useResetRecoilState(StocksPagePaginationState);

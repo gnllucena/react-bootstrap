@@ -1,15 +1,16 @@
-import { Empty, List, Pagination as PaginationAntd } from 'antd';
+import { List, Pagination as PaginationAntd } from 'antd';
 import React, { FunctionComponent } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import StockPartial from '../../../domain/StockPartial';
-import Pagination from '../../../domain/Pagination';
-import { StocksPageFilteredSelector, StocksPagePaginationState } from '../../../store/StocksPageState';
 import StocksListCardBig from '../StocksListCardBig/StocksListCardBig';
-import useIsFullscreen from '../../../components/hooks/UseIsFullscreen';
 import StocksListCardSmall from '../StocksListCardSmall/StocksListCardSmall';
+import NoData from '../../../../components/ui/NoData/NoData';
+import { StocksPageFilteredSelector, StocksPagePaginationState } from '../../../../store/StocksPageState';
+import useIsFullscreen from '../../../../components/hooks/UseIsFullscreen';
+import Pagination from '../../../../domain/Pagination';
+import StockPartial from '../../../../domain/StockPartial';
 
 import './StocksList.scss';
-import NoData from '../../../components/ui/NoData/NoData';
+import { Link } from '@reach/router';
 
 const StocksList: FunctionComponent = () => {
   const [stocksPagination, setStocksPagination] = useRecoilState(StocksPagePaginationState);
@@ -28,6 +29,16 @@ const StocksList: FunctionComponent = () => {
     window.scrollTo(0, 0);
   }
 
+  // const selecionado(name: string) {
+  //   let querystring = name.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+  //   querystring = querystring.toLocaleLowerCase();
+
+  //   querystring = querystring.replace(new RegExp(' ', 'g'), '-');
+
+  //   return querystring;
+  // }
+
   return (
     <div className="page-content">
       {
@@ -37,7 +48,7 @@ const StocksList: FunctionComponent = () => {
             dataSource={stocksFiltered.Items}
             split={false}
             renderItem={item => (
-              <a href="">
+              <Link to={`${item.Id}`}>
                 <List.Item>
                   {
                     isFullscreen ? (
@@ -47,7 +58,7 @@ const StocksList: FunctionComponent = () => {
                     )
                   }
                 </List.Item>
-              </a>
+              </Link>
             )}
           />
         ) : (

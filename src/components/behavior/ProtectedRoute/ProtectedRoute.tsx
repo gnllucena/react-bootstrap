@@ -1,16 +1,21 @@
 import React, { FunctionComponent } from 'react';
 import { Redirect, RouteComponentProps } from '@reach/router';
+import { navigate } from "@reach/router"
 
 type Props = RouteComponentProps & {
   for: FunctionComponent;
 };
 
-const ProtectedRoute: FunctionComponent<Props> = ({ for: Component }) => {
+const ProtectedRoute: FunctionComponent<Props> = ({ 
+  for: Component 
+}) => {
   if (false) {
     return <Component />;
   }
 
-  return <Redirect from="" to="/login" noThrow />;
+  // redirectTo("/login");
+
+  return <Redirect to="/login" noThrow />;
 };
 
 export default ProtectedRoute;

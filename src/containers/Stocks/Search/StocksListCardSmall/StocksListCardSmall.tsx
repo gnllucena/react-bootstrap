@@ -1,7 +1,7 @@
 import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
-import StockPartial from '../../../domain/StockPartial';
+import StockPartial from '../../../../domain/StockPartial';
 
 export interface StocksListCardSmallProps {
   stock: StockPartial

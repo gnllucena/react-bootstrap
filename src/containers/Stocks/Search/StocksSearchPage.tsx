@@ -4,7 +4,7 @@ import StocksFilter from './StocksFilter/StocksFilter';
 import StocksList from './StocksList/StocksList';
 import StocksListLoading from './StocksListLoading/StocksListLoading';
 
-const StocksPage: FunctionComponent<RouteComponentProps> = () => {
+const StockSearchPage: FunctionComponent<RouteComponentProps> = () => {
   return (
     <>
       <StocksFilter />
@@ -12,12 +12,8 @@ const StocksPage: FunctionComponent<RouteComponentProps> = () => {
       <Suspense fallback={<StocksListLoading />}>
         <StocksList />
       </Suspense>
-
-      {/* <Suspense fallback={<StocksList />}>
-        <StocksListLoading />
-      </Suspense> */}
     </>
   );
 };
 
-export default StocksPage;
+export default StockSearchPage;

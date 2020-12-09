@@ -2,9 +2,9 @@ import React, { FunctionComponent, useCallback, useEffect } from 'react';
 import { RouteComponentProps, useLocation, useNavigate } from '@reach/router';
 
 const ScrollToTop: FunctionComponent<RouteComponentProps> = (props) => {
-  const navigate = useNavigate();
   const { href, state } = useLocation();
-
+  const navigate = useNavigate();
+  
   const updateState = useCallback(() => {
     navigate(href, {
       state: { ...state, scrolled: true },

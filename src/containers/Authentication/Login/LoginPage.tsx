@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Suspense } from 'react';
+import React, { FunctionComponent } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import { navigate, RouteComponentProps, Link } from '@reach/router';
@@ -11,12 +11,9 @@ import Password from '../../../components/form/Password/Password';
 import Switch from '../../../components/form/Switch/Switch';
 import Button from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
+import { LoginPageState } from '../../../store/LoginPageState';
 
 import '../../../assets/styles/Authentication.scss';
-import { LoginPageState } from '../../../store/LoginPageState';
-import StocksListLoading from '../../Stocks/StocksListLoading/StocksListLoading';
-import DelayedFallback from './DelayedFallback/DelayedFallback';
-import { AxiosResponse } from 'axios';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 

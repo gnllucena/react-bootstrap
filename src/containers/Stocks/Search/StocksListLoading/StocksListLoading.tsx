@@ -1,6 +1,6 @@
 import { List } from 'antd';
 import React, { FunctionComponent } from 'react';
-import useIsFullscreen from '../../../components/hooks/UseIsFullscreen';
+import useIsFullscreen from '../../../../components/hooks/UseIsFullscreen';
 import StocksListLoadingCardBig from '../StocksListLoadingCardBig/StocksListLoadingCardBig';
 import StocksListLoadingCardSmall from '../StocksListLoadingCardSmall/StocksListLoadingCardSmall';
 

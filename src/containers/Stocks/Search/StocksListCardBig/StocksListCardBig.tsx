@@ -1,8 +1,8 @@
 import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
-import StockPartial from '../../../domain/StockPartial';
-import { RiseOutlined, FallOutlined  } from '@ant-design/icons';
+import { RiseOutlined, FallOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import StockPartial from '../../../../domain/StockPartial';
 
 export interface StocksListCardBigProps {
   stock: StockPartial
@@ -35,6 +35,9 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
         break;
       case 'Down':
         arrow = <FallOutlined />;
+        break;
+      case 'Side':
+        arrow = <ArrowRightOutlined />
         break;
     }
 
