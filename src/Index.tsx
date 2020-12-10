@@ -49,9 +49,7 @@ ReactDOM.render(
                 <CreateNewAccountPage path="create-new-account" />
                 <ForgotPasswordPage path="forgot-password" />
                 <ResetPasswordPage path="reset-password" />
-                {/* <StocksSearchPage path="stocks" />
-                <StockPage path="/stocks/:banana" /> */}
-                <ProtectedRoute path="stocks" for={StocksSearchPage} />
+                <StocksSearchPage path="stocks" />
                 <ProtectedRoute path="stocks/:id" for={StockPage} />
               </ScrollToTop>
             </Router>
