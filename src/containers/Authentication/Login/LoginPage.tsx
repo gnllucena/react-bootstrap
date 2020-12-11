@@ -37,8 +37,33 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
     setLoginPageState(response.data);
 
-    navigate('/');
+    navigate(url());
   };
+
+  const url = (): string => {
+    let route = '/';
+
+    const url = window.location.href.split('?');
+
+    if (url.length > 1) {
+      const params = url[1].split('&');
+
+      for (let param of params) {
+        const pair = param.split('=');
+  
+        const name = pair[0].toLowerCase();
+        const value = pair[1].toLowerCase();
+  
+        if (name === 'url') {
+          route = value;
+          
+          break;
+        }
+      }
+    }
+
+    return route;
+  }
 
   return (
     <div className="authentication-wrapper">

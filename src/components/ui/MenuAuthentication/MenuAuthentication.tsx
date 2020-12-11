@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent, useRef, useState } from 'react';
 import { Menu as MenuAntd } from 'antd';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import useOnClickOutside from '../../hooks/UseOnClickOutside';
 import useIsFullscreen from '../../hooks/UseIsFullscreen';
@@ -31,7 +31,11 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
   };
 
   const logout = (): void => {
-    resetLoginPageState();
+    navigate('/');
+
+    setTimeout(() => {
+      resetLoginPageState();  
+    }, 1);
   };
 
   useOnClickOutside(ref, () => closeDropdown());
