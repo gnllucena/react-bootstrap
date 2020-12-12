@@ -1,3 +1,60 @@
+## MVP 1 (Usuários são capazes de analisar empresas)
+* refactory do nome dos componentes de stock para company
+* detalhes da company
+* alteração de dados do usuário
+* alteração de senha
+* suspense para botões, ou "if loading"
+* readme com as informações do projeto
+* home
+* aws
+* continuous deployment
+## MVP 2 (017 é capaz de pagar suas proprias despesas)
+
+* paypal 
+
+(https://github.com/paypal/react-paypal-js)
+
+* ADS e SEO
+* quantos estamos gastando
+* monitoria de aplicação e preço gastos
+
+
+## MVP 3 (Usuário podem ver o histórico dos indices)
+
+* graficos com histórico 
+
+(https://g2plot.antv.vision/en/)
+
+* base de histórico
+
+## MVP 3 (Usuários são capazes de comparar empresas)
+
+* componente de companion como pre visualização da comparação
+
+![Companion](/readme/images/companion.jpg "A cute kitten")
+
+* componente para comparação de empresas 
+
+(https://react-dnd.github.io/react-dnd/examples/sortable/simple)
+(https://ant.design/components/carousel/?theme=dark)
+
+![Comparação](/readme/images/comparacao.jpg "A cute kitten")
+* ordenção na pesquisa de companies
+* salvar pesquisa + ordenação na pequisa de companies
+
+## MVP 4 (ou 5, ou 6) Wallet
+
+* eventos corporativos (inplit, split, JCP...)
+* operações (entrada e saida de shares na carteira)
+## MVP 5 (ou 4, ou 6) Valuation
+
+* Valuation
+
+## MVP 6 (ou 4, ou 5) Brasil
+
+
+
+
 https://reactjs.org/docs/concurrent-mode-suspense.html
 https://reactjs.org/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html
 
