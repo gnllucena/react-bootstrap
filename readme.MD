@@ -1,3 +1,8 @@
+https://www.nngroup.com/articles/top-10-application-design-mistakes/
+https://screenlane.com/?ref=uimovement
+https://dribbble.com/
+https://www.awwwards.com/
+
 ## MVP 1 (Usuários são capazes de analisar empresas)
 * refactory do nome dos componentes de stock para company
 * detalhes da company
@@ -28,6 +33,8 @@
 * base de histórico
 
 ## MVP 3 (Usuários são capazes de comparar empresas)
+
+https://uxdesign.cc/drag-and-drop-for-design-systems-8d40502eb26d
 
 * componente de companion como pre visualização da comparação
 
