@@ -8,8 +8,8 @@
     "Avatar": "http://localhost:3000/assets/images/profilepic.png"
   },
   "register": {
-    "Name": "gnllucena@gmail.com",
-    "Email": "asdfasfasfafds@gmail.com",
+    "Name": "Gabriel Lucena",
+    "Email": "gnllucena@gmail.com",
     "RememberMe": true,
     "Bearer": "",
     "Avatar": "",

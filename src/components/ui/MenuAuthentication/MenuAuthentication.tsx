@@ -76,7 +76,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
                 Hi,
                 {loginPageState.Name.split(' ')[0]}
               </h3>
-              <Link to="account-settings" onClick={onNavigate}>Account Settings</Link>
+              <Link to="/account-settings" onClick={onNavigate}>Account Settings</Link>
             </div>
           </div>
         </div>

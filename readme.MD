@@ -16,6 +16,7 @@ https://www.awwwards.com/
 ## MVP 2 (017 é capaz de pagar suas proprias despesas)
 
 * paypal 
+* cancelamento de plano
 
 (https://github.com/paypal/react-paypal-js)
 

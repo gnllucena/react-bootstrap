@@ -3,7 +3,6 @@ import { useResetRecoilState } from 'recoil';
 import { useRecoilState } from 'recoil';
 import FilterGroup from '../../../../components/models/FilterGroup';
 import ToolbarFilter from '../../../../components/ui/FilterToolbar/FilterToolbar';
-import { Content } from '../../../../components/ui/Content/Content';
 import { CompaniesFilterState, CompaniesPaginationState } from '../../../../store/CompanieState';
 
 export const CompaniesFilter: FunctionComponent = () => {
@@ -20,12 +19,10 @@ export const CompaniesFilter: FunctionComponent = () => {
   }
 
   return (
-    <Content>
-      <ToolbarFilter
-        groups={companiesFilterState}
-        onSearch={action}
-        onReset={action}
-      />
-    </Content>
+    <ToolbarFilter
+      groups={companiesFilterState}
+      onSearch={action}
+      onReset={action}
+    />
   );
 };

@@ -7,7 +7,7 @@ import { LoginPageState } from './store/LoginPageState';
 import HttpErrorHandling from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 import StateManagement from './components/behavior/StateManagement/StateManagement';
 import ErrorBoundary from './components/behavior/ErrorBoundary/ErrorBoundary';
-import Header from './components/ui/Header/Header';
+
 import User from './domain/User';
 import ScrollToTop from './components/behavior/ScrollToTop/ScrollToTop';
 import ProtectedRoute from './components/behavior/ProtectedRoute/ProtectedRoute';
@@ -36,7 +36,6 @@ ReactDOM.render(
       <HttpErrorHandling />
       <StateManagement />
       <Layout>
-        <Header />
         <Suspense fallback={<div>splash screen</div>}>
           <Router primary={false}>
             <ScrollToTop path="/">

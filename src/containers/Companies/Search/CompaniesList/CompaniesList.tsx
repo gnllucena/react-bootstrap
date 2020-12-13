@@ -9,7 +9,7 @@ import NoData from '../../../../components/ui/NoData/NoData';
 import useIsFullscreen from '../../../../components/hooks/UseIsFullscreen';
 import Pagination from '../../../../domain/Pagination';
 import StockPartial from '../../../../domain/CompanyPartial';
-import { Content } from 'antd/lib/layout/layout';
+import { Content } from '../../../../components/ui/Content/Content';
 
 export const CompaniesList: FunctionComponent = () => {
   const [companiesPagination, setCompaniesPagination] = useRecoilState(CompaniesPaginationState);

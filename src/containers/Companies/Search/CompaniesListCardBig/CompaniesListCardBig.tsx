@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Meta from 'antd/lib/card/Meta';
-import { Card, Col, Row, Skeleton, Statistic } from 'antd';
+import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import { RiseOutlined, FallOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import CompanyPartial from '../../../../domain/CompanyPartial';
 
@@ -51,7 +51,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
       <Row gutter={24}>
         <Col span={6}>
           <Meta
-            avatar={<Skeleton.Avatar active={true} size={'large'} shape={'square'} />}
+            avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
             title={company.Name}
             description={company.Sector + " sector"}
           />
