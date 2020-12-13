@@ -26,7 +26,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
   });
 
   const submit = async (user: User): Promise<void> => {
-    await axios.post<User>(`${process.env.URL_API_STOCK}forgot-password`, user);
+    await axios.post<User>(`${process.env.URL_API_USER}/forgot-password`, user);
 
     navigate('/');
   };

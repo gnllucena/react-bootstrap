@@ -1,5 +1,5 @@
-.stocks-card-small {
-  &.stocks-card-loading-small {
+.companies-card-small {
+  &.companies-card-loading-small {
     .ant-skeleton-avatar {
       height: 64px;
       width: 64px;
@@ -9,7 +9,7 @@
       margin-top: 4px;
     }
 
-    .stocks-card-loading-column {
+    .companies-card-small-loading-column {
       margin-bottom: 10px;
 
       .ant-space {

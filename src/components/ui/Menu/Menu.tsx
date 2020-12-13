@@ -16,11 +16,11 @@ const Menu: FunctionComponent<MenuProps> = ({
   <MenuAntd mode={align} className="menu-links">
     <MenuAntd.Item key="0">
       <Link
-        to="/stocks"
+        to="/companies"
         getProps={({ isCurrent }): Record<string, unknown> => (isCurrent ? { className: 'active' } : {})}
         onClick={onNavigate}
       >
-        Stocks
+        Companies
       </Link>
     </MenuAntd.Item>
   </MenuAntd>

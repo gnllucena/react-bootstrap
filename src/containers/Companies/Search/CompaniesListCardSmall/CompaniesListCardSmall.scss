@@ -1,0 +1,25 @@
+.companies-card-small {
+  width: 100%;
+  border-color: $border3;
+
+  .ant-card-meta {
+    margin-bottom: 24px;
+  }
+
+  .ant-skeleton-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ant-card-meta-avatar {
+    margin-top: 4px;
+  }
+
+  .ant-card-meta-detail {
+    margin-top: 9px;
+  }
+
+  .companies-card-small-col:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

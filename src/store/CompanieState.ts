@@ -5,10 +5,10 @@ import FilterCheckbox from '../components/models/FilterCheckbox';
 import FilterGroup from "../components/models/FilterGroup";
 import FilterSlider from '../components/models/FilterSlider';
 import Pagination from "../domain/Pagination";
-import StockPartial from "../domain/StockPartial";
+import CompanyPartial from "../domain/CompanyPartial";
 
-export const StocksPageFilterState = atom<Array<FilterGroup>>({
-  key: 'StocksPageFilterState',
+export const CompaniesFilterState = atom<Array<FilterGroup>>({
+  key: 'CompaniesFilterState',
   dangerouslyAllowMutability: true,
   default: new Array<FilterGroup>(
     new FilterGroup({
@@ -464,22 +464,22 @@ export const StocksPageFilterState = atom<Array<FilterGroup>>({
   )
 });
 
-export const StocksPagePaginationState = atom<Pagination<StockPartial>>({
-  key: 'StocksPagePaginationState',
+export const CompaniesPaginationState = atom<Pagination<CompanyPartial>>({
+  key: 'CompaniesPagePaginationState',
   dangerouslyAllowMutability: true,
-  default: new Pagination<StockPartial>({
-    Items: new Array<StockPartial>(),
-    Limit: 12,
+  default: new Pagination<CompanyPartial>({
+    Items: new Array<CompanyPartial>(),
+    Limit: 6,
     Offset: 0,
     Total: 100
   })
 });
 
-export const StocksPageFilteredSelector = selector<Pagination<StockPartial>>({
-  key: 'StocksPageFilteredSelector',
+export const CompaniesFilteredSelector = selector<Pagination<CompanyPartial>>({
+  key: 'CompaniesFilteredSelector',
   get: async ({ get }) => {
-    const filters = get(StocksPageFilterState);
-    const pagination = get(StocksPagePaginationState);
+    const filters = get(CompaniesFilterState);
+    const pagination = get(CompaniesPaginationState);
 
     let query = '';
 
@@ -489,7 +489,7 @@ export const StocksPageFilteredSelector = selector<Pagination<StockPartial>>({
       });
     })
 
-    const response = await axios.get<Pagination<StockPartial>>(`${process.env.URL_API_STOCK}stocks?offset=${pagination.Offset}&limit=${pagination.Limit}&${query}`);
+    const response = await axios.get<Pagination<CompanyPartial>>(`${process.env.URL_API_COMPANIES}/companies?offset=${pagination.Offset}&limit=${pagination.Limit}&${query}`);
 
     return response.data;
   }

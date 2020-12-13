@@ -1,14 +1,16 @@
 import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
-import StockPartial from '../../../../domain/StockPartial';
+import CompanyPartial from '../../../../domain/CompanyPartial';
 
-export interface StocksListCardSmallProps {
-  stock: StockPartial
+import './CompaniesListCardSmall.scss';
+
+export interface CompaniesListCardSmallProps {
+  company: CompanyPartial
 }
 
-const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
-  stock
+export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallProps> = ({
+  company
 }) => {
   const color = (situation: 'Up' | 'Side' | 'Down') => {
     let color = {};
@@ -29,75 +31,75 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
   }
 
   return (
-    <Card hoverable className="stocks-card-small">
+    <Card hoverable className="companies-card-small">
       <Row gutter={24}>
         <Col span={24}>
           <Meta
             avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
-            title={stock.Name}
-            description={stock.Sector + " sector"}
+            title={company.Name}
+            description={company.Sector + " sector"}
           />
         </Col>
       </Row>
 
-      <Row gutter={24} className="stocks-card-small-row">
-        <Col span={12}>
+      <Row gutter={24}>
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="PE"
-            value={stock.PE}
+            value={company.PE}
             precision={2}
-            valueStyle={color(stock.PESituation)}
+            valueStyle={color(company.PESituation)}
             suffix="%"
           />
         </Col>
-        <Col span={12} className="stocks-card-small-row">
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="PB"
-            value={stock.PB}
+            value={company.PB}
             precision={2}
-            valueStyle={color(stock.PBSituation)}
+            valueStyle={color(company.PBSituation)}
             suffix="%"
           />
         </Col>
       </Row>
 
       <Row gutter={24}>
-        <Col span={12} className="stocks-card-small-row">
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="ROE"
-            value={stock.ROE}
+            value={company.ROE}
             precision={2}
-            valueStyle={color(stock.ROESituation)}
+            valueStyle={color(company.ROESituation)}
             suffix="%"
           />
         </Col>
-        <Col span={12} className="stocks-card-small-row">
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="ROIC"
-            value={stock.ROIC}
+            value={company.ROIC}
             precision={2}
-            valueStyle={color(stock.ROICSituation)}
+            valueStyle={color(company.ROICSituation)}
             suffix="%"
           />
         </Col>
       </Row>
 
       <Row gutter={24}>
-        <Col span={12} className="stocks-card-small-row">
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="NET Margin"
-            value={stock.NETMargin}
+            value={company.NETMargin}
             precision={2}
-            valueStyle={color(stock.NETMarginSituation)}
+            valueStyle={color(company.NETMarginSituation)}
             suffix="%"
           />
         </Col>
-        <Col span={12} className="stocks-card-small-row">
+        <Col span={12} className="companies-card-small-col">
           <Statistic
             title="EV/EBITDA"
-            value={stock.EVEBITDA}
+            value={company.EVEBITDA}
             precision={2}
-            valueStyle={color(stock.EVEBITDASituation)}
+            valueStyle={color(company.EVEBITDASituation)}
             suffix="%"
           />
         </Col>
@@ -105,5 +107,3 @@ const StocksListCardSmall: FunctionComponent<StocksListCardSmallProps> = ({
     </Card>
   );
 };
-
-export default StocksListCardSmall;

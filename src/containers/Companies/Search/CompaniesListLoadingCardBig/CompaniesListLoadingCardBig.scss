@@ -1,0 +1,19 @@
+.companies-card-big {
+  width: 100%;
+  border-color: $border3;
+
+  .ant-skeleton-avatar {
+    height: 64px;
+    width: 64px;
+  }
+
+  .ant-card-meta-detail {
+    margin-top: 4px;
+  }
+
+  .companies-card-big-loading-column {
+    .ant-space {
+      display: inline-block;
+    }
+  }
+}

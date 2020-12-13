@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
 
-const StockPage: FunctionComponent<RouteComponentProps> = () => {
+const CompanyPage: FunctionComponent<RouteComponentProps> = () => {
   return (
     <>
       <div>Stock</div>
@@ -9,4 +9,4 @@ const StockPage: FunctionComponent<RouteComponentProps> = () => {
   );
 };
 
-export default StockPage;
+export default CompanyPage;

@@ -1,15 +1,17 @@
-import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
-import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
+import Meta from 'antd/lib/card/Meta';
+import { Card, Col, Row, Skeleton, Statistic } from 'antd';
 import { RiseOutlined, FallOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import StockPartial from '../../../../domain/StockPartial';
+import CompanyPartial from '../../../../domain/CompanyPartial';
 
-export interface StocksListCardBigProps {
-  stock: StockPartial
+import './CompaniesListCardBig.scss';
+
+export interface CompaniesListCardBigProps {
+  company: CompanyPartial
 }
 
-const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
-  stock
+export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> = ({
+  company
 }) => {
   const color = (situation: 'Up' | 'Side' | 'Down') => {
     let color = {};
@@ -45,72 +47,72 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
   }
 
   return (
-    <Card hoverable className="stocks-card-big">
+    <Card hoverable className="companies-card-big">
       <Row gutter={24}>
         <Col span={6}>
           <Meta
-            avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
-            title={stock.Name}
-            description={stock.Sector + " sector"}
+            avatar={<Skeleton.Avatar active={true} size={'large'} shape={'square'} />}
+            title={company.Name}
+            description={company.Sector + " sector"}
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="PE"
-            value={stock.PE}
+            value={company.PE}
             precision={2}
-            valueStyle={color(stock.PESituation)}
-            prefix={arrow(stock.PESituation)}
+            valueStyle={color(company.PESituation)}
+            prefix={arrow(company.PESituation)}
             suffix="%"
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="PB"
-            value={stock.PB}
+            value={company.PB}
             precision={2}
-            valueStyle={color(stock.PBSituation)}
-            prefix={arrow(stock.PBSituation)}
+            valueStyle={color(company.PBSituation)}
+            prefix={arrow(company.PBSituation)}
             suffix="%"
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="ROE"
-            value={stock.ROE}
+            value={company.ROE}
             precision={2}
-            valueStyle={color(stock.ROESituation)}
-            prefix={arrow(stock.ROESituation)}
+            valueStyle={color(company.ROESituation)}
+            prefix={arrow(company.ROESituation)}
             suffix="%"
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="ROIC"
-            value={stock.ROIC}
+            value={company.ROIC}
             precision={2}
-            valueStyle={color(stock.ROICSituation)}
-            prefix={arrow(stock.ROICSituation)}
+            valueStyle={color(company.ROICSituation)}
+            prefix={arrow(company.ROICSituation)}
             suffix="%"
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="NET Margin"
-            value={stock.NETMargin}
+            value={company.NETMargin}
             precision={2}
-            valueStyle={color(stock.NETMarginSituation)}
-            prefix={arrow(stock.NETMarginSituation)}
+            valueStyle={color(company.NETMarginSituation)}
+            prefix={arrow(company.NETMarginSituation)}
             suffix="%"
           />
         </Col>
         <Col span={3}>
           <Statistic
             title="EV/EBITDA"
-            value={stock.EVEBITDA}
+            value={company.EVEBITDA}
             precision={2}
-            valueStyle={color(stock.EVEBITDASituation)}
-            prefix={arrow(stock.EVEBITDASituation)}
+            valueStyle={color(company.EVEBITDASituation)}
+            prefix={arrow(company.EVEBITDASituation)}
             suffix="%"
           />
         </Col>
@@ -118,5 +120,3 @@ const StocksListCardBig: FunctionComponent<StocksListCardBigProps> = ({
     </Card>
   );
 };
-
-export default StocksListCardBig;

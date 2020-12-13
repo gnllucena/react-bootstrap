@@ -43,7 +43,7 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
   });
 
   const submit = async (user: User): Promise<void> => {
-    await axios.post<User>(`${process.env.URL_API_STOCK}register`, user);
+    await axios.post<User>(`${process.env.URL_API_USER}/register`, user);
 
     navigate('/');
   };

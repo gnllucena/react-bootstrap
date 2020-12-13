@@ -1,7 +1,6 @@
-export default class StockPartial {
-  public constructor(params: Partial<StockPartial>) {
+export default class CompanyPartial {
+  public constructor(params: Partial<CompanyPartial>) {
     this.Id = params.Id ?? 0;
-    this.Ticker = params.Ticker ?? "";
     this.Name = params.Name ?? "";
     this.Image = params.Image ?? "";
     this.Sector = params.Sector ?? "";
@@ -22,7 +21,6 @@ export default class StockPartial {
   }
 
   Id: number;
-  Ticker: string;
   Name: string;
   Image: string;
   Sector: string;

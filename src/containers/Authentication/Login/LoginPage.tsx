@@ -31,7 +31,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
   });
 
   const submit = async (user: User): Promise<void> => {
-    const response = await axios.get<User>(`${process.env.URL_API_STOCK}login`);
+    const response = await axios.get<User>(`${process.env.URL_API_USER}/login`);
 
     response.data.RememberMe = user.RememberMe;
 

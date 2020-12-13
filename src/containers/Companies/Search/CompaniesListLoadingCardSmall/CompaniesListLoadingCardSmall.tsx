@@ -1,12 +1,12 @@
-import { Avatar, Card, Col, List, Row, Skeleton, Space } from 'antd';
+import { Card, Col, Row, Skeleton, Space } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 
-import './StocksListLoadingCardSmall.scss';
+import './CompaniesListLoadingCardSmall.scss';
 
-const StocksListLoadingCardSmall: FunctionComponent = () => {
+export const CompaniesListLoadingCardSmall: FunctionComponent = () => {
   return (
-    <Card hoverable className="stocks-card-small stocks-card-loading-small">
+    <Card hoverable className="companies-card-small companies-card-loading-small">
       <Row gutter={24}>
         <Col span={24}>
           <Meta
@@ -25,29 +25,14 @@ const StocksListLoadingCardSmall: FunctionComponent = () => {
         </Col>
       </Row>
 
-      <Row gutter={24} className="stocks-card-small-row">
-        <Col span={12} className="stocks-card-loading-column">
+      <Row gutter={24} className="companies-card-small-row">
+        <Col span={12} className="companies-card-small-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={12} className="stocks-card-loading-column">
-          <Space>
-            <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
-            <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
-          </Space>
-        </Col>
-      </Row>
-
-      <Row gutter={24} className="stocks-card-small-row">
-        <Col span={12} className="stocks-card-loading-column">
-          <Space>
-            <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
-            <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
-          </Space>
-        </Col>
-        <Col span={12} className="stocks-card-loading-column">
+        <Col span={12} className="companies-card-small-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
@@ -55,14 +40,29 @@ const StocksListLoadingCardSmall: FunctionComponent = () => {
         </Col>
       </Row>
 
-      <Row gutter={24} className="stocks-card-small-row">
-        <Col span={12} className="stocks-card-loading-column">
+      <Row gutter={24} className="companies-card-small-row">
+        <Col span={12} className="companies-card-small-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={12} className="stocks-card-loading-column">
+        <Col span={12} className="companies-card-small-loading-column">
+          <Space>
+            <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
+            <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
+          </Space>
+        </Col>
+      </Row>
+
+      <Row gutter={24} className="companies-card-small-row">
+        <Col span={12} className="companies-card-small-loading-column">
+          <Space>
+            <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
+            <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
+          </Space>
+        </Col>
+        <Col span={12} className="companies-card-small-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 120, marginTop: 8 }} active={true} size={'default'} />
@@ -72,5 +72,3 @@ const StocksListLoadingCardSmall: FunctionComponent = () => {
     </Card>
   );
 };
-
-export default StocksListLoadingCardSmall;

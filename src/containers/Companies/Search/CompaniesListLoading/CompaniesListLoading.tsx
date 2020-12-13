@@ -1,16 +1,17 @@
 import { List } from 'antd';
 import React, { FunctionComponent } from 'react';
 import useIsFullscreen from '../../../../components/hooks/UseIsFullscreen';
-import StocksListLoadingCardBig from '../StocksListLoadingCardBig/StocksListLoadingCardBig';
-import StocksListLoadingCardSmall from '../StocksListLoadingCardSmall/StocksListLoadingCardSmall';
+import { Content } from '../../../../components/ui/Content/Content';
+import { CompaniesListLoadingCardBig } from '../CompaniesListLoadingCardBig/CompaniesListLoadingCardBig';
+import { CompaniesListLoadingCardSmall } from '../CompaniesListLoadingCardSmall/CompaniesListLoadingCardSmall';
 
-const StocksListLoading: FunctionComponent = () => {
+export const CompaniesListLoading: FunctionComponent = () => {
   const isFullscreen = useIsFullscreen();
   
   let items = [1, 2, 3, 4, 5, 6];
   
   return (
-    <div className="page-content">
+    <Content>
       <List
         itemLayout="horizontal"
         dataSource={items}
@@ -19,16 +20,14 @@ const StocksListLoading: FunctionComponent = () => {
           <List.Item>
             {
               isFullscreen ? (
-                <StocksListLoadingCardBig />
+                <CompaniesListLoadingCardBig />
               ) : (
-                <StocksListLoadingCardSmall />
+                <CompaniesListLoadingCardSmall />
               )
             }
           </List.Item>
         )}
       />
-    </div>
+    </Content>
   );
 };
-
-export default StocksListLoading;

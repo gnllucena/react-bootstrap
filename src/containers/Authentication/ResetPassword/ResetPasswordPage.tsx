@@ -51,7 +51,7 @@ const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteC
   });
 
   const submit = async (user: User): Promise<void> => {
-    await axios.post<User>(`${process.env.URL_API_STOCK}reset-password`, {
+    await axios.post<User>(`${process.env.URL_API_USER}/reset-password`, {
       ...user, Token: token
     });
 

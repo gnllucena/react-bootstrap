@@ -2,11 +2,11 @@ import { Card, Col, Row, Skeleton, Space } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 
-import './StocksListLoadingCardBig.scss';
+import './CompaniesListLoadingCardBig.scss';
 
-const StocksListLoadingCardBig: FunctionComponent = () => {
+export const CompaniesListLoadingCardBig: FunctionComponent = () => {
   return (
-    <Card hoverable className="stocks-card-big stocks-card-loading-big">
+    <Card hoverable className="companies-card-big">
       <Row gutter={24}>
         <Col span={6}>
           <Meta
@@ -23,37 +23,37 @@ const StocksListLoadingCardBig: FunctionComponent = () => {
             }
           />
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
           </Space>
         </Col>
-        <Col span={3} className="stocks-card-loading-column">
+        <Col span={3} className="companies-card-big-loading-column">
           <Space>
             <Skeleton.Input style={{ width: 40 }} active={true} size={'small'} />
             <Skeleton.Input style={{ width: 140, marginTop: 8 }} active={true} size={'default'} />
@@ -63,5 +63,3 @@ const StocksListLoadingCardBig: FunctionComponent = () => {
     </Card>
   );
 };
-
-export default StocksListLoadingCardBig;
