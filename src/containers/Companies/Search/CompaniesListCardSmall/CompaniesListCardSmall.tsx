@@ -42,7 +42,7 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
         </Col>
       </Row>
 
-      <Row gutter={24}>
+      <Row gutter={24} className="companies-card-small-row">
         <Col span={12} className="companies-card-small-col">
           <Statistic
             title="PE"
@@ -63,7 +63,7 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
         </Col>
       </Row>
 
-      <Row gutter={24}>
+      <Row gutter={24} className="companies-card-small-row">
         <Col span={12} className="companies-card-small-col">
           <Statistic
             title="ROE"
@@ -84,7 +84,7 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
         </Col>
       </Row>
 
-      <Row gutter={24}>
+      <Row gutter={24} className="companies-card-small-row">
         <Col span={12} className="companies-card-small-col">
           <Statistic
             title="NET Margin"

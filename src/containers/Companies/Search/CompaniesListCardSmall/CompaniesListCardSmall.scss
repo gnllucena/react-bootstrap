@@ -19,7 +19,9 @@
     margin-top: 9px;
   }
 
-  .companies-card-small-col:not(:last-child) {
-    margin-bottom: 5px;
+  .companies-card-small-row { 
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
   }
 }

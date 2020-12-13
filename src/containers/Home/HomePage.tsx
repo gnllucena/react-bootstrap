@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import Header from '../../components/ui/Header/Header';
-import { Content } from 'antd/lib/layout/layout';
-
+import { Content } from '../../components/ui/Content/Content';
 
 const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => (
   <>
