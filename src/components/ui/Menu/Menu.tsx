@@ -17,7 +17,7 @@ const Menu: FunctionComponent<MenuProps> = ({
     <MenuAntd.Item key="0">
       <Link
         to="/companies"
-        getProps={({ isCurrent }): Record<string, unknown> => (isCurrent ? { className: 'active' } : {})}
+        getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
         onClick={onNavigate}
       >
         Companies
