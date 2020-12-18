@@ -10,6 +10,21 @@
   .ant-pagination {
     margin: 12px 0 24px;
     float: right;
+
+    .ant-pagination-item-active, .ant-pagination-item:focus, .ant-pagination-item:hover {
+      border-color: $primary0;
+
+      a {
+        color: $primary0;
+      }
+    }
+
+    .ant-pagination-next:hover, .ant-pagination-next:focus, .ant-pagination-prev:hover, .ant-pagination-prev:focus{
+      button {
+        border-color: $primary0;
+        color: $primary0;
+      }
+    }
   }
 }
 

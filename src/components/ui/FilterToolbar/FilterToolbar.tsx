@@ -109,42 +109,42 @@ const FilterToolbar: FunctionComponent<FilterToolbarProps> = ({
   }
   
   return (
-    <Affix offsetTop={84}>
-      <div className="toolbar-filter-wrapper">
-          <div className="toolbar-wrapper toolbar">
-            <div className="toolbar-container-wrapper">
-              <div className="left-side">
-                <div className="filter-items-wrapper">
-                  {
-                    isFullscreen ? (
-                      <FilterToolbarFullscreen
-                        groups={newGroups}
-                        hackDeepUseEffect={hackDeepUseEffect}
-                        onSearch={beforeSearch}
-                      />
-                    ) : (
-                      <FilterToolbarMobile
-                        groups={newGroups}
-                        hackDeepUseEffect={hackDeepUseEffect}
-                        onSearch={beforeSearch}
-                      />
-                    )
-                  }
-                </div>
-              </div>
-              <div className="right-side">
-                <Button
-                  text="Reset"
-                  type="button"
-                  design="default"
-                  size="small"
-                  onClick={beforeReset}
-                />
+    <div className="toolbar-filter-wrapper">
+      <Affix offsetTop={84}>
+        <div className="toolbar-wrapper toolbar">
+          <div className="toolbar-container-wrapper">
+            <div className="left-side">
+              <div className="filter-items-wrapper">
+                {
+                  isFullscreen ? (
+                    <FilterToolbarFullscreen
+                      groups={newGroups}
+                      hackDeepUseEffect={hackDeepUseEffect}
+                      onSearch={beforeSearch}
+                    />
+                  ) : (
+                    <FilterToolbarMobile
+                      groups={newGroups}
+                      hackDeepUseEffect={hackDeepUseEffect}
+                      onSearch={beforeSearch}
+                    />
+                  )
+                }
               </div>
             </div>
+            <div className="right-side">
+              <Button
+                text="Reset"
+                type="button"
+                design="default"
+                size="small"
+                onClick={beforeReset}
+              />
+            </div>
           </div>
-      </div>
-    </Affix>
+        </div>
+        </Affix>
+    </div>
   );
 };
 

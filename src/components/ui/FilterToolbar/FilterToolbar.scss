@@ -1,5 +1,11 @@
 .toolbar-filter-wrapper {
   position: relative;
+  margin-top: -1px;
+
+  .ant-affix {
+    margin-top: -1px;
+    z-index: 1;
+  }
 
   .ant-checkbox-group {
     .ant-checkbox-group-item {

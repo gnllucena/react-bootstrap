@@ -5,9 +5,85 @@ import { Content } from '../../components/ui/Content/Content';
 
 const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => (
   <>
-    <Header />
+    <Header fixed={true} />
 
     <Content>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
+      <p>home page</p>
       <p>home page</p>
     </Content>
   </>

@@ -23,6 +23,24 @@ const Menu: FunctionComponent<MenuProps> = ({
         Companies
       </Link>
     </MenuAntd.Item>
+    <MenuAntd.Item key="1">
+      <Link
+        to="/valuation"
+        getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
+        onClick={onNavigate}
+      >
+        Valuation
+      </Link>
+    </MenuAntd.Item>
+    <MenuAntd.Item key="2">
+      <Link
+        to="/wallet"
+        getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
+        onClick={onNavigate}
+      >
+        My Wallet
+      </Link>
+    </MenuAntd.Item>
   </MenuAntd>
 );
 
