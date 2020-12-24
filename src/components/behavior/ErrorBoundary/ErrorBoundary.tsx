@@ -15,7 +15,7 @@ class ErrorBoundary extends Component {
   }
 
   public componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('ErrorBoundary caught an error', error, info);
+    //todo: send information to server
   }
 
   public render() {
@@ -23,6 +23,14 @@ class ErrorBoundary extends Component {
       return (
         <Result
           status="500"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "100%",
+            transform: "translate(-50%, -50%)",
+            margin: "0"
+          }}
           title="Sorry, something went wrong."
           subTitle="You asked for something and... you found a bug, congratulations! We know about this and we are fixing it."
           extra={

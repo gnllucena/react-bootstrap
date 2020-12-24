@@ -5,7 +5,7 @@ import { Content } from '../../components/ui/Content/Content';
 
 const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => (
   <>
-    <Header fixed={true} />
+    <Header fixed />
 
     <Content>
       <p>home page</p>

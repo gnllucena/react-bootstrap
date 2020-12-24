@@ -53,12 +53,12 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
       <div className="form-wrapper">
         <div className="logo-wrapper">
           <Link to="/">
-            <img src={logo} alt="semnome017" />
-            <h3>semnome017</h3>
+            <img src={logo} alt="zro17" />
+            <h3>zro17</h3>
           </Link>
         </div>
 
-        <div className="title-wrapper">Welcome to semnome017</div>
+        <div className="title-wrapper">Welcome to zro17</div>
 
         <div className="title-info-wrapper">Please register for your new account</div>
 

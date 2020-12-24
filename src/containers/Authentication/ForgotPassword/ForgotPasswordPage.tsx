@@ -36,8 +36,8 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
       <div className="form-wrapper">
         <div className="logo-wrapper">
           <Link to="/">
-            <img src={logo} alt="semnome017" />
-            <h3>semnome017</h3>
+            <img src={logo} alt="zro17" />
+            <h3>zro17</h3>
           </Link>
         </div>
 

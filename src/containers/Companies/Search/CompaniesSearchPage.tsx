@@ -8,7 +8,7 @@ import Header from '../../../components/ui/Header/Header';
 const CompaniesSearchPage: FunctionComponent<RouteComponentProps> = () => {
   return (
     <>
-      <Header fixed={true} />
+      <Header fixed />
       
       <CompaniesFilter />
       

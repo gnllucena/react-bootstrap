@@ -8,22 +8,18 @@ import './HeaderFullscreen.scss';
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const HeaderFullscreen: FunctionComponent = () => (
-  <div className="header-fullscreen-wrapper">
-    <div className="navbar-wrapper">
-      <div className="logo-wrapper">
-        <Link to="/">
-          <img src={logo} alt="semnome017" />
-          <h3>semnome017</h3>
-        </Link>
-      </div>
-      <div className="menu-wrapper">
-        <div className="links-wrapper">
-          <Menu align="horizontal" />
-        </div>
-        <div className="auth-wrapper">
-          <MenuAuthentication />
-        </div>
-      </div>
+  <div className="header-fullscreen">
+    <Link className="logo-wrapper" to="/">
+      <img src={logo} alt="zro17" />
+      <h3>zro17</h3>
+    </Link>
+
+    <div className="links-wrapper">
+      <Menu align="horizontal" />
+    </div>
+
+    <div className="auth-wrapper">
+      <MenuAuthentication />
     </div>
   </div>
 );
