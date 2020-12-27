@@ -1,5 +1,5 @@
 import React, { ErrorInfo, Component } from 'react';
-import { Link } from '@reach/router';
+import { globalHistory, HistoryUnsubscribe, Link } from '@reach/router';
 import { Result } from 'antd';
 import Button from '../../form/Button/Button';
 
@@ -8,6 +8,8 @@ class ErrorBoundary extends Component {
     hasError: false
   };
 
+  public historyUnsubscribe: HistoryUnsubscribe | undefined = undefined;
+
   public static getDerivedStateFromError() {
     return {
       hasError: true
@@ -15,6 +17,15 @@ class ErrorBoundary extends Component {
   }
 
   public componentDidCatch(error: Error, info: ErrorInfo) {
+    this.historyUnsubscribe = globalHistory.listen(({ action }) => {
+
+      this.setState({ hasError: false });
+      
+      if (this.historyUnsubscribe) {
+        this.historyUnsubscribe();
+      }
+    })
+
     //todo: send information to server
   }
 
@@ -34,12 +45,7 @@ class ErrorBoundary extends Component {
           title="Sorry, something went wrong."
           subTitle="You asked for something and... you found a bug, congratulations! We know about this and we are fixing it."
           extra={
-            <Link
-              to="/"
-              onClick={() => this.setState({
-                hasError: false
-              })}
-            >
+            <Link to="/">
               <Button text="Go to home" type="button" design="primary" size="small" style={{width: "200px"}} />
             </Link>            
           }
