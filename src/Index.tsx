@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { RecoilRoot, MutableSnapshot } from 'recoil';
 import { Layout } from 'antd';
 import { Router } from '@reach/router';
-import { LoginPageState } from './store/LoginPageState';
+import { UserState } from './store/LoginPageState';
 import HttpErrorHandling from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 import StateManagement from './components/behavior/StateManagement/StateManagement';
 import ErrorBoundary from './components/behavior/ErrorBoundary/ErrorBoundary';
@@ -29,7 +29,7 @@ ReactDOM.render(
     if (user !== null) {
       const loggedUser = JSON.parse(user) as User;
 
-      snapshot.set(LoginPageState, loggedUser);
+      snapshot.set(UserState, loggedUser);
     }
   }}>
     <ErrorBoundary>

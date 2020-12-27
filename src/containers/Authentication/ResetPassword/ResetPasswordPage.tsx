@@ -7,7 +7,7 @@ import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
 import Button from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 import Password from '../../../components/form/Password/Password';
 
 import '../../../assets/styles/Authentication.scss';
@@ -16,7 +16,7 @@ const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const [token, setToken] = useState<string>('');
-  const userState = useRecoilValue(LoginPageState);
+  const userState = useRecoilValue(UserState);
 
   useEffect(() => {
     if (!props?.location?.search) {

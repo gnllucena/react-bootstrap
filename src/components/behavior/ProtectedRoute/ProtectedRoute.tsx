@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Redirect, RouteComponentProps } from '@reach/router';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 
 type Props = RouteComponentProps & {
   for: FunctionComponent;
@@ -11,9 +11,9 @@ const ProtectedRoute: FunctionComponent<Props> = ({
   for: Component,
   location
 }) => {
-  const loginPageState = useRecoilValue(LoginPageState);
+  const userState = useRecoilValue(UserState);
   
-  if (loginPageState.Id !== undefined) {
+  if (userState.Id !== undefined) {
     return <Component />;
   }
 

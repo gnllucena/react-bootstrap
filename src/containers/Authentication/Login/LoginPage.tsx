@@ -11,14 +11,14 @@ import Password from '../../../components/form/Password/Password';
 import Switch from '../../../components/form/Switch/Switch';
 import Button from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 
 import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const [loginPageState, setLoginPageState] = useRecoilState(LoginPageState);
+  const [userState, setUserState] = useRecoilState(UserState);
 
   const schema = Yup.object().shape({
     Email: Yup.string()
@@ -35,7 +35,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
     response.data.RememberMe = user.RememberMe;
 
-    setLoginPageState(response.data);
+    setUserState(response.data);
 
     navigate(url());
   };
@@ -81,7 +81,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
         <Formik
           initialValues={{
-            ...loginPageState, Password: ''
+            ...userState, Password: ''
           }}
           validationSchema={schema}
           onSubmit={submit}
@@ -90,7 +90,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
             <Form>
               <Row>
                 <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={loginPageState.Email} />
+                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
                 </Col>
               </Row>
 
@@ -102,7 +102,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
               <Row>
                 <Col span={12} className="align-left">
-                  <Switch name="RememberMe" label="Remember Me" value={loginPageState.RememberMe} />
+                  <Switch name="RememberMe" label="Remember Me" value={userState.RememberMe} />
                 </Col>
                 <Col span={12} className="align-right">
                   <Link to="/forgot-password">Forgot password?</Link>

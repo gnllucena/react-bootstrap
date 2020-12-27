@@ -4,7 +4,7 @@ import { Link, navigate } from '@reach/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import useOnClickOutside from '../../hooks/UseOnClickOutside';
 import useIsFullscreen from '../../hooks/UseIsFullscreen';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 
 import './MenuAuthentication.scss';
 
@@ -17,8 +17,8 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
   const ref = useRef<HTMLDivElement>(null);
-  const user = useRecoilValue(LoginPageState);
-  const resetLoginPageState = useResetRecoilState(LoginPageState);
+  const user = useRecoilValue(UserState);
+  const resetLoginPageState = useResetRecoilState(UserState);
   const isAuthenticated = user.Id !== undefined;
   const isFullscreen = useIsFullscreen();
 

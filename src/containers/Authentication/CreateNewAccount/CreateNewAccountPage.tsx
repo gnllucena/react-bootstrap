@@ -11,14 +11,14 @@ import Password from '../../../components/form/Password/Password';
 import Switch from '../../../components/form/Switch/Switch';
 import Button from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 
 import '../../../assets/styles/Authentication.scss';
 
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const loginPageState = useRecoilValue(LoginPageState);
+  const userState = useRecoilValue(UserState);
 
   const schema = Yup.object().shape({
     Name: Yup.string()
@@ -64,7 +64,7 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
 
         <Formik
           initialValues={{
-            ...loginPageState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false
+            ...userState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false
           }}
           validationSchema={schema}
           onSubmit={submit}
@@ -73,13 +73,13 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
             <Form>
               <Row>
                 <Col span={24} className="align-left">
-                  <Input name="Name" label="Name" value={loginPageState.Name} />
+                  <Input name="Name" label="Name" value={userState.Name} />
                 </Col>
               </Row>
 
               <Row>
                 <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={loginPageState.Email} />
+                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
                 </Col>
               </Row>
 

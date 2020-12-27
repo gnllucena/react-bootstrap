@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 import User from "../domain/User";
 
-export const LoginPageState = atom<User>({
-  key: 'LoginPageState',
+export const UserState = atom<User>({
+  key: 'UserState',
   default: new User({
     Id: undefined,
     Name: '',

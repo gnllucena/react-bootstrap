@@ -8,7 +8,7 @@ import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
 import Button from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
-import { LoginPageState } from '../../../store/LoginPageState';
+import { UserState } from '../../../store/LoginPageState';
 import Input from '../../../components/form/Input/Input';
 
 import '../../../assets/styles/Authentication.scss';
@@ -16,7 +16,7 @@ import '../../../assets/styles/Authentication.scss';
 const logo = require('../../../assets/images/logo-alt.svg') as string;
 
 const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
-  const loginPageState = useRecoilValue(LoginPageState);
+  const userState = useRecoilValue(UserState);
 
   const schema = Yup.object().shape({
     Email: Yup.string()
@@ -47,7 +47,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
 
         <Formik
           initialValues={{
-            ...loginPageState
+            ...userState
           }}
           validationSchema={schema}
           onSubmit={submit}
@@ -56,7 +56,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
             <Form>
               <Row>
                 <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={loginPageState.Email} />
+                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
                 </Col>
               </Row>
 
