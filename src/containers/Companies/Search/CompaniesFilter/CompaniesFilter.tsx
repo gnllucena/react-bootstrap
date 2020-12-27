@@ -3,7 +3,7 @@ import { useResetRecoilState } from 'recoil';
 import { useRecoilState } from 'recoil';
 import FilterGroup from '../../../../components/models/FilterGroup';
 import ToolbarFilter from '../../../../components/ui/FilterToolbar/FilterToolbar';
-import { CompaniesFilterState, CompaniesPaginationState } from '../../../../store/CompanieState';
+import { CompaniesFilterState, CompaniesPaginationState } from '../../../../store/CompaniesSearchPageState';
 
 export const CompaniesFilter: FunctionComponent = () => {
   const resetPaginationState = useResetRecoilState(CompaniesPaginationState);

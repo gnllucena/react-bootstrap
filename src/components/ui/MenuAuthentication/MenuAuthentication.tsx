@@ -17,9 +17,9 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
   const ref = useRef<HTMLDivElement>(null);
-  const loginPageState = useRecoilValue(LoginPageState);
+  const user = useRecoilValue(LoginPageState);
   const resetLoginPageState = useResetRecoilState(LoginPageState);
-  const isAuthenticated = loginPageState.Id !== undefined;
+  const isAuthenticated = user.Id !== undefined;
   const isFullscreen = useIsFullscreen();
 
   const handleDropdown = (): void => {
@@ -48,7 +48,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
             <div className="avatar-dropdown" ref={ref}>
               <div className="dropdown-handler" onClick={handleDropdown} onKeyUp={handleDropdown} tabIndex={0} role="button">
                 <Fragment>
-                  <img src={loginPageState.Avatar} alt="Avatar" />
+                  <img src={user.Avatar} alt="Avatar" />
                 </Fragment>
               </div>
 
@@ -65,20 +65,22 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
         </div>
       ) : (
         <div className="avatar-wrapper-mobile">
-          <div className="avatar-wrapper">
-            <div className="avatar-image">
-              <Fragment>
-                <img src={loginPageState.Avatar} alt="Avatar" />
-              </Fragment>
+          <Link to="/account-settings" onClick={onNavigate}>
+            <div className="avatar-wrapper">
+              <div className="avatar-image">
+                <Fragment>
+                  <img src={user.Avatar} alt="Avatar" />
+                </Fragment>
+              </div>
+              <div className="avatar-info">
+              
+                <h3>
+                  Hi, {user.Name.split(' ')[0]}
+                </h3>
+                Account Settings
+              </div>
             </div>
-            <div className="avatar-info">
-              <h3>
-                Hi,
-                {loginPageState.Name.split(' ')[0]}
-              </h3>
-              <Link to="/account-settings" onClick={onNavigate}>Account Settings</Link>
-            </div>
-          </div>
+          </Link>
         </div>
       )
     ) : (

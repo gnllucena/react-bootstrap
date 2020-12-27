@@ -7,7 +7,15 @@
     width: 64px;
   }
 
+  .ant-card-meta-avatar {
+    margin-top: 4px;
+  }
+
   .ant-card-meta-detail {
-    margin-top: 9px;
+    margin-top: 10px;
+
+    .ant-card-meta-description {
+      margin-top: -3px;
+    }
   }
 }

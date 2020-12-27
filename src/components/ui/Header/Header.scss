@@ -2,5 +2,17 @@
   height: 84px;
   border-bottom: 1px solid $border3;
   padding: 0 30px;
-  background: #FFFFFF;
+  
+
+  &.header-default {
+    background-color: $color1;
+  }
+
+  &.header-detail {
+    background-color: #2E2F31;
+
+    .ant-menu {
+      background: #2E2F31;
+    }
+  }
 }

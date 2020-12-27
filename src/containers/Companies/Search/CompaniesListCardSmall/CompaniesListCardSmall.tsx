@@ -2,6 +2,7 @@ import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FunctionComponent } from 'react';
 import CompanyPartial from '../../../../domain/CompanyPartial';
+import { Situation } from '../../../../domain/Situation';
 
 import './CompaniesListCardSmall.scss';
 
@@ -12,17 +13,17 @@ export interface CompaniesListCardSmallProps {
 export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallProps> = ({
   company
 }) => {
-  const color = (situation: 'Up' | 'Side' | 'Down') => {
+  const color = (situation: Situation) => {
     let color = {};
 
     switch (situation) {
-      case 'Up':
+      case Situation.Up:
         color = { color: '#3f8600', float: "right" };
         break;
-      case 'Side':
+      case Situation.Side:
         color = { float: "right" };
         break;
-      case 'Down':
+      case Situation.Down:
         color = { color: '#cf1322', float: "right" };
         break;
     }
@@ -38,27 +39,6 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
             title={company.Name}
             description={company.Sector + " sector"}
-          />
-        </Col>
-      </Row>
-
-      <Row gutter={24} className="companies-card-small-row">
-        <Col span={12} className="companies-card-small-col">
-          <Statistic
-            title="PE"
-            value={company.PE}
-            precision={2}
-            valueStyle={color(company.PESituation)}
-            suffix="%"
-          />
-        </Col>
-        <Col span={12} className="companies-card-small-col">
-          <Statistic
-            title="PB"
-            value={company.PB}
-            precision={2}
-            valueStyle={color(company.PBSituation)}
-            suffix="%"
           />
         </Col>
       </Row>
@@ -87,6 +67,15 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
       <Row gutter={24} className="companies-card-small-row">
         <Col span={12} className="companies-card-small-col">
           <Statistic
+            title="ROA"
+            value={company.ROA}
+            precision={2}
+            valueStyle={color(company.ROASituation)}
+            suffix="%"
+          />
+        </Col>
+        <Col span={12} className="companies-card-small-col">
+          <Statistic
             title="NET Margin"
             value={company.NETMargin}
             precision={2}
@@ -94,12 +83,24 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             suffix="%"
           />
         </Col>
+      </Row>
+
+      <Row gutter={24} className="companies-card-small-row">
         <Col span={12} className="companies-card-small-col">
           <Statistic
-            title="EV/EBITDA"
-            value={company.EVEBITDA}
+            title="NET Debt EBITDA"
+            value={company.NETDebtEBITDA}
             precision={2}
-            valueStyle={color(company.EVEBITDASituation)}
+            valueStyle={color(company.NETDebtEBITDASituation)}
+            suffix="%"
+          />
+        </Col>
+        <Col span={12} className="companies-card-small-col">
+          <Statistic
+            title="CAGR Last Year"
+            value={company.CompondAnnualGrowth1Years}
+            precision={2}
+            valueStyle={color(company.CompondAnnualGrowth1YearsSituation)}
             suffix="%"
           />
         </Col>

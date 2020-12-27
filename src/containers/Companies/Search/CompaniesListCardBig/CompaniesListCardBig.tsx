@@ -5,6 +5,7 @@ import { RiseOutlined, FallOutlined, ArrowRightOutlined } from '@ant-design/icon
 import CompanyPartial from '../../../../domain/CompanyPartial';
 
 import './CompaniesListCardBig.scss';
+import { Situation } from '../../../../domain/Situation';
 
 export interface CompaniesListCardBigProps {
   company: CompanyPartial
@@ -13,14 +14,14 @@ export interface CompaniesListCardBigProps {
 export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> = ({
   company
 }) => {
-  const color = (situation: 'Up' | 'Side' | 'Down') => {
+  const color = (situation: Situation) => {
     let color = {};
 
     switch (situation) {
-      case 'Up':
+      case Situation.Up:
         color = { color: '#3f8600' };
         break;
-      case 'Down':
+      case Situation.Down:
         color = { color: '#cf1322' };
         break;
     }
@@ -28,18 +29,15 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
     return color;
   }
 
-  const arrow = (situation: 'Up' | 'Side' | 'Down') => {
+  const arrow = (situation: Situation) => {
     let arrow;
 
     switch (situation) {
-      case 'Up':
+      case Situation.Up:
         arrow = <RiseOutlined />;
         break;
-      case 'Down':
+      case Situation.Down:
         arrow = <FallOutlined />;
-        break;
-      case 'Side':
-        arrow = <ArrowRightOutlined />
         break;
     }
 
@@ -54,26 +52,6 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             avatar={<Avatar size={64} shape="square" icon={<Skeleton.Image />} />}
             title={company.Name}
             description={company.Sector + " sector"}
-          />
-        </Col>
-        <Col span={3}>
-          <Statistic
-            title="PE"
-            value={company.PE}
-            precision={2}
-            valueStyle={color(company.PESituation)}
-            prefix={arrow(company.PESituation)}
-            suffix="%"
-          />
-        </Col>
-        <Col span={3}>
-          <Statistic
-            title="PB"
-            value={company.PB}
-            precision={2}
-            valueStyle={color(company.PBSituation)}
-            prefix={arrow(company.PBSituation)}
-            suffix="%"
           />
         </Col>
         <Col span={3}>
@@ -98,6 +76,16 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
         </Col>
         <Col span={3}>
           <Statistic
+            title="ROA"
+            value={company.ROA}
+            precision={2}
+            valueStyle={color(company.ROASituation)}
+            prefix={arrow(company.ROASituation)}
+            suffix="%"
+          />
+        </Col>
+        <Col span={3}>
+          <Statistic
             title="NET Margin"
             value={company.NETMargin}
             precision={2}
@@ -108,11 +96,21 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
         </Col>
         <Col span={3}>
           <Statistic
-            title="EV/EBITDA"
-            value={company.EVEBITDA}
+            title="NET Debt EBITDA"
+            value={company.NETDebtEBITDA}
             precision={2}
-            valueStyle={color(company.EVEBITDASituation)}
-            prefix={arrow(company.EVEBITDASituation)}
+            valueStyle={color(company.NETDebtEBITDASituation)}
+            prefix={arrow(company.NETDebtEBITDASituation)}
+            suffix="%"
+          />
+        </Col>
+        <Col span={3}>
+          <Statistic
+            title="CAGR Last Year"
+            value={company.CompondAnnualGrowth1Years}
+            precision={2}
+            valueStyle={color(company.CompondAnnualGrowth1YearsSituation)}
+            prefix={arrow(company.CompondAnnualGrowth1YearsSituation)}
             suffix="%"
           />
         </Col>

@@ -46,7 +46,7 @@ ReactDOM.render(
               <ForgotPasswordPage path="forgot-password" />
               <ResetPasswordPage path="reset-password" />
               <CompaniesSearchPage path="companies" />
-              <ProtectedRoute path="companies/:id/:name" for={CompanyPage} />
+              <ProtectedRoute path="companies/:companyId/:companyName" for={CompanyPage} />
             </ScrollToTop>
           </Router>
         </Suspense>

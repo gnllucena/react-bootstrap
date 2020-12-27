@@ -6,7 +6,7 @@ import './CompaniesListLoadingCardBig.scss';
 
 export const CompaniesListLoadingCardBig: FunctionComponent = () => {
   return (
-    <Card hoverable className="companies-card-big">
+    <Card hoverable className="companies-card-big companies-card-big-loading">
       <Row gutter={24}>
         <Col span={6}>
           <Meta

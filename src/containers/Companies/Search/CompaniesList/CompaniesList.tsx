@@ -2,7 +2,7 @@ import { List, Pagination as PaginationAntd } from 'antd';
 import React, { FunctionComponent } from 'react';
 import { Link } from '@reach/router';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { CompaniesFilteredSelector, CompaniesPaginationState } from '../../../../store/CompanieState';
+import { CompaniesFilteredSelector, CompaniesPaginationState } from '../../../../store/CompaniesSearchPageState';
 import { CompaniesListCardBig } from '../CompaniesListCardBig/CompaniesListCardBig';
 import { CompaniesListCardSmall } from '../CompaniesListCardSmall/CompaniesListCardSmall';
 import NoData from '../../../../components/ui/NoData/NoData';

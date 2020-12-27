@@ -12,121 +12,6 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
   dangerouslyAllowMutability: true,
   default: new Array<FilterGroup>(
     new FilterGroup({
-      Name: 'Valuation',
-      Filters: new Array<Filter>(
-        new FilterSlider({
-          Name: 'PE',
-          Label: 'Price to Earnings Ratio',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'PB',
-          Label: 'Price to Book Ratio',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'PC',
-          Label: 'Price to Cash Flow Ratio',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'PS',
-          Label: 'Price to Sales Ratio',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'ES',
-          Label: 'Earnings per Share',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'EVEBITDA',
-          Label: 'EV/EBITDA',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'EVEBIT',
-          Label: 'EV/EBIT',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'EVFCF',
-          Label: 'EV/FCF',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'EVSales',
-          Label: 'EV/Sales',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'PriceNETWorkingCapital',
-          Label: 'Price to NET Working Capital',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        }),
-        new FilterSlider({
-          Name: 'PriceFreeCashFlow',
-          Label: 'Price to Free Cash Flow',
-          MaxValue: 200,
-          MinValue: 0,
-          Value: [0, 200],
-          Initial: [0, 200],
-          Range: true,
-          Disabled: false
-        })
-      )
-    }),
-    new FilterGroup({
       Name: 'Profitability',
       Filters: new Array<Filter>(
         new FilterSlider({
@@ -230,8 +115,8 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
       Name: 'Indebtedness',
       Filters: new Array<Filter>(
         new FilterSlider({
-          Name: 'NETDebtEBITDARatio',
-          Label: 'NET Debt to EBITDA Ratio',
+          Name: 'NETDebtEBITDA',
+          Label: 'NET Debt to EBITDA',
           MaxValue: 200,
           MinValue: 0,
           Value: [0, 200],
@@ -240,8 +125,8 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
           Disabled: false
         }),
         new FilterSlider({
-          Name: 'NETDebtEBITRatio',
-          Label: 'NET Debt to EBIT Ratio',
+          Name: 'NETDebtEBIT',
+          Label: 'NET Debt to EBIT',
           MaxValue: 200,
           MinValue: 0,
           Value: [0, 200],
@@ -250,8 +135,8 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
           Disabled: false
         }),
         new FilterSlider({
-          Name: 'DebtEquityRatio',
-          Label: 'Debt to Equity Ratio (D/E)',
+          Name: 'DebtEquity',
+          Label: 'Debt to Equity (D/E)',
           MaxValue: 200,
           MinValue: 0,
           Value: [0, 200],
@@ -260,8 +145,8 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
           Disabled: false
         }),
         new FilterSlider({
-          Name: 'ShareholderEquityRatio',
-          Label: 'Shareholder Equity Ratio',
+          Name: 'ShareholderEquity',
+          Label: 'Shareholder Equity',
           MaxValue: 200,
           MinValue: 0,
           Value: [0, 200],
@@ -465,7 +350,7 @@ export const CompaniesFilterState = atom<Array<FilterGroup>>({
 });
 
 export const CompaniesPaginationState = atom<Pagination<CompanyPartial>>({
-  key: 'CompaniesPagePaginationState',
+  key: 'CompaniesPaginationState',
   dangerouslyAllowMutability: true,
   default: new Pagination<CompanyPartial>({
     Items: new Array<CompanyPartial>(),

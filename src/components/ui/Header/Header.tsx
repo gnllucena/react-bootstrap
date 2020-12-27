@@ -8,7 +8,7 @@ import './Header.scss';
 
 export interface HeaderProps {
   fixed: boolean,
-  background?: 'transparent' | 'default'
+  background?: 'detail' | 'default'
 }
 
 const Header: FunctionComponent<HeaderProps> = ({
