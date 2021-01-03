@@ -7,7 +7,6 @@
     float: left;
   
     h3 {
-      color: $primary0;
       font-size: 20px;
       font-weight: 700;
       margin: 0 0 0 10px;
@@ -30,7 +29,6 @@
       }
   
       li {
-        color: $text0;
         font-size: 15px;
         font-weight: 400;
   
@@ -50,17 +48,9 @@
         a {
           display: block;
           padding: 30px 16px;
-          color: $text0;
-          
-          &:hover {
-            color: $primary0;
-  
-          }
   
           &.active {
             font-weight: 700;
-            color: $primary0;
-            border-bottom: 3px solid $primary0;
             margin-bottom: -3px;
           }
         }
@@ -84,11 +74,11 @@
         padding: 0;
         height: auto;
         margin-bottom: 0 !important;
-        color: $text0;
         font-size: 15px;
         line-height: 18px;
         font-weight: 400;
         transition: color 0.2s ease-in-out;
+        
         &.ant-menu-item-selected {
           background-color: transparent;
         }
@@ -100,17 +90,11 @@
           min-width: 78px;
           min-height: 38px;
           border-radius: 3px;
-          color: $text0;
           transition: color 0.2s ease-in-out;
-          &:hover {
-            color: $primary0;
-          }
         }
 
         &:last-child {
           a {
-            color: $color1;
-            background-color: $primary0;
             transition: opacity 0.2s ease;
 
             &:hover {

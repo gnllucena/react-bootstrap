@@ -1,18 +1,111 @@
 .header-wrapper {
   height: 84px;
-  border-bottom: 1px solid $border3;
+  border-bottom: 1px solid $border;
   padding: 0 30px;
   
-
   &.header-default {
-    background-color: $color1;
+    background-color: $header;
+
+    .logo-wrapper {
+      h3 {
+        color: $text-logo;
+      }
+    }
+
+    .links-wrapper {
+      ul.ant-menu {
+        background-color: $header;
+        
+        li {
+          a {
+            color: $text-menu;
+
+            &:hover {
+              color: $text-menu-hover;
+            }
+    
+            &.active {
+              color: $text-menu-active;
+              border-bottom: 3px solid $text-menu-active;
+            }
+          }
+        }
+      }
+    }
+
+    .auth-wrapper {
+      .avatar-dropdown {
+        .ant-avatar {
+          background: $avatar-background;
+        }
+
+        ul.ant-menu {
+          background: $submenu !important;
+
+          li {
+            a, button {
+              color: $text-menu;
+
+              &:hover {
+                color: $text-menu-hover;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &.header-detail {
-    background-color: #2E2F31;
+    background-color: $header;
 
-    .ant-menu {
-      background: #2E2F31;
+    .logo-wrapper {
+      h3 {
+        color: $text-logo;
+      }
+    }
+
+    .links-wrapper {    
+      ul.ant-menu {    
+        background-color: $header;
+
+        li {
+          a {
+            color: $text-menu;
+
+            &:hover {
+              color: $text-menu-hover;
+            }
+    
+            &.active {
+              color: $text-menu-active;
+              border-bottom: 3px solid $text-menu-active;
+            }
+          }
+        }
+      }
+    }
+
+    .auth-wrapper {
+      .avatar-dropdown {
+        .ant-avatar {
+          background: $avatar-background;
+        }
+        
+        ul.ant-menu {
+          background: $submenu !important;
+
+          li {
+            a, button {
+              color: $text-menu;
+
+              &:hover {
+                color: $text-menu-hover;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

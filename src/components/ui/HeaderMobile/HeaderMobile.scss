@@ -6,12 +6,7 @@
   width: 100%;
   margin-top: -1px;
 
-  &.default {
-    border-bottom: 1px solid $border3;
-    background-color: $color1;
-  }
-
-  .hamburg-btn {
+  .hamburger {
     border: 0;
     padding: 0;
     width: auto;
@@ -24,7 +19,7 @@
       height: 2px;
       margin: 4px 0;
       border-radius: 5px;
-      background-color: $text0;
+      background-color: $text;
       transition: all 0.3s ease;
     }
 
@@ -47,7 +42,7 @@
     position: fixed;
     z-index: 9999;
 
-    .hamburg-btn {
+    .hamburger {
       > span {
         background-color: $color1;
       }
@@ -68,7 +63,6 @@
     }
   
     h3 {
-      color: #008489;
       font-size: 20px;
       font-weight: 700;
       margin: 0 0 0 10px;
@@ -97,6 +91,7 @@
         line-height: 1;
         padding: 0;
         margin: 0;
+
         &.ant-menu-item-selected,
         &.ant-menu-item-active {
           background-color: transparent;
@@ -118,6 +113,7 @@
             color: $color1;
             background-color: $primary0;
             transition: opacity 0.2s ease;
+            
             &:hover {
               opacity: 0.9;
             }

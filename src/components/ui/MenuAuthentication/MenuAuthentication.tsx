@@ -1,5 +1,6 @@
 import React, { Fragment, FunctionComponent, useRef, useState } from 'react';
-import { Menu as MenuAntd } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Menu as MenuAntd } from 'antd';
 import { Link, navigate } from '@reach/router';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import useOnClickOutside from '../../hooks/UseOnClickOutside';
@@ -48,7 +49,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
             <div className="avatar-dropdown" ref={ref}>
               <div className="dropdown-handler" onClick={handleDropdown} onKeyUp={handleDropdown} tabIndex={0} role="button">
                 <Fragment>
-                  <img src={user.Avatar} alt="Avatar" />
+                  <Avatar size="large" icon={<UserOutlined />} />
                 </Fragment>
               </div>
 

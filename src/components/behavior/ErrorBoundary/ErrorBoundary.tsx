@@ -17,14 +17,13 @@ class ErrorBoundary extends Component {
   }
 
   public componentDidCatch(error: Error, info: ErrorInfo) {
-    this.historyUnsubscribe = globalHistory.listen(({ action }) => {
-
+    this.historyUnsubscribe = globalHistory.listen(() => {
       this.setState({ hasError: false });
       
       if (this.historyUnsubscribe) {
         this.historyUnsubscribe();
       }
-    })
+    });
 
     //todo: send information to server
   }

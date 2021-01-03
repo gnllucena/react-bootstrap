@@ -7,8 +7,6 @@ import { CloseOutlined  } from '@ant-design/icons';
 
 import './HeaderMobile.scss';
 
-const logo = require('../../../assets/images/logo-alt.svg') as string;
-
 const HeaderMobile: FunctionComponent = () => {
   const [sidebarMenuOpen, setSidebarMenuOpen] = useState<boolean>(false);
 
@@ -20,12 +18,11 @@ const HeaderMobile: FunctionComponent = () => {
     <div className="header-mobile-wrapper default">
       <div className="logo-wrapper">
         <Link to="/">
-          <img src={logo} alt="zro17" />
           <h3>zro17</h3>
         </Link>
       </div>
 
-      <Button onClick={changeDrawer} className={`hamburg-btn ${sidebarMenuOpen ? 'active' : ''}`}>
+      <Button onClick={changeDrawer} className={`hamburger ${sidebarMenuOpen ? 'active' : ''}`}>
         <span />
         <span />
         <span />

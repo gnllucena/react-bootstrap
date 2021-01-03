@@ -70,7 +70,6 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
       <div className="form-wrapper">
         <div className="logo-wrapper">
           <Link to="/">
-            <img src={logo} alt="zro17" />
             <h3>zro17</h3>
           </Link>
         </div>

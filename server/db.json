@@ -208,5 +208,26 @@
     "Offset": 0,
     "Limit": 12,
     "Total": 800
+  },
+  "company": {
+    "Id": 1,
+    "Ticker": "ITSA4",
+    "Name": "Bradesco",
+    "Image": "ITAUSA.png",
+    "Sector": "Finance",
+    "Price": 10.94,
+    "Currency": "R$",
+    "ROE": 12.56,
+    "ROESituation": "Up",
+    "ROIC": 12.49,
+    "ROICSituation": "Up",
+    "ROA": 7.1,
+    "ROASituation": "Down",
+    "NETMargin": 124.49,
+    "NETMarginSituation": "Up",
+    "NETDebtEBITDA": 4.2,
+    "NETDebtEBITDASituation": "Up",
+    "CompondAnnualGrowth1Years": 3.5,
+    "CompondAnnualGrowth1YearsSituation": "Down"
   }
 }
