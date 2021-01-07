@@ -8,6 +8,7 @@ import useIsFullscreen from '../../hooks/UseIsFullscreen';
 import { UserState } from '../../../store/LoginPageState';
 
 import './MenuAuthentication.scss';
+import MenuAvatar from '../MenuAvatar/MenuAvatar';
 
 export interface MenuAuthenticationProps {
   onNavigate?(): void
@@ -49,7 +50,7 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
             <div className="avatar-dropdown" ref={ref}>
               <div className="dropdown-handler" onClick={handleDropdown} onKeyUp={handleDropdown} tabIndex={0} role="button">
                 <Fragment>
-                  <Avatar size="large" icon={<UserOutlined />} />
+                  <MenuAvatar />
                 </Fragment>
               </div>
 
@@ -70,11 +71,10 @@ const MenuAuthentication: FunctionComponent<MenuAuthenticationProps> = ({
             <div className="avatar-wrapper">
               <div className="avatar-image">
                 <Fragment>
-                  <img src={user.Avatar} alt="Avatar" />
+                  <MenuAvatar />
                 </Fragment>
               </div>
               <div className="avatar-info">
-              
                 <h3>
                   Hi, {user.Name.split(' ')[0]}
                 </h3>

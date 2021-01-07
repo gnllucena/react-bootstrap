@@ -1,46 +1,5 @@
 @import '~antd/dist/antd.min.css';
 
-.ant-layout {
-  background: $background;
-}
-
-.content {
-  padding: 12px 30px;
-
-  .ant-pagination {
-    margin: 12px 0 24px;
-    float: right;
-
-    .ant-pagination-item-active, .ant-pagination-item:focus, .ant-pagination-item:hover {
-      border-color: $primary0;
-
-      a {
-        color: $primary0;
-      }
-    }
-
-    .ant-pagination-next:hover, .ant-pagination-next:focus, .ant-pagination-prev:hover, .ant-pagination-prev:focus{
-      button {
-        border-color: $primary0;
-        color: $primary0;
-      }
-    }
-  }
-}
-
-body::-webkit-scrollbar-track, body *::-webkit-scrollbar-track {
-  background-color: $scroll-bar;
-}
-
-body::-webkit-scrollbar, body *::-webkit-scrollbar {
-  width: 8px;
-  background-color: $scroll-bar;
-}
-
-body::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-thumb {
-  background-color: $scroll-thumb;
-}
-
 * {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
@@ -104,6 +63,14 @@ body {
   color: $text;
 }
 
+a {
+  color: $text-anchor;
+}
+
+a:hover {
+  color: $text-anchor-hover;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -128,4 +95,45 @@ img {
 
 .align-right {
   text-align: right;
+}
+
+.ant-layout {
+  background: $background;
+}
+
+.content {
+  padding: 12px 30px;
+
+  .ant-pagination {
+    margin: 12px 0 24px;
+    float: right;
+
+    .ant-pagination-item-active, .ant-pagination-item:focus, .ant-pagination-item:hover {
+      border-color: $primary0;
+
+      a {
+        color: $primary0;
+      }
+    }
+
+    .ant-pagination-next:hover, .ant-pagination-next:focus, .ant-pagination-prev:hover, .ant-pagination-prev:focus{
+      button {
+        border-color: $primary0;
+        color: $primary0;
+      }
+    }
+  }
+}
+
+body::-webkit-scrollbar-track, body *::-webkit-scrollbar-track {
+  background-color: $scroll-bar;
+}
+
+body::-webkit-scrollbar, body *::-webkit-scrollbar {
+  width: 8px;
+  background-color: $scroll-bar;
+}
+
+body::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-thumb {
+  background-color: $scroll-thumb;
 }

@@ -5,7 +5,7 @@
     display: flex;
     padding: 25px 35px;
     align-items: center;
-    background-color: $color2;
+    background-color: $submenu;
 
     .avatar-image {
       flex-shrink: 0;
@@ -24,6 +24,7 @@
       margin-top: 6px;
       
       h3 {
+        color: $text;
         margin: -7px 0 0 0;
       }
 
@@ -47,7 +48,6 @@
       ul, .ant-menu, ul.ant-menu {
         display: block !important;
         align-items: left !important;
-        background-color: white !important;
   
         li {
           a {

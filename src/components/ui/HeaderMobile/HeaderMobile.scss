@@ -29,7 +29,7 @@
 
       > span {
         width: 23px;
-        background-color: $primary0;
+        background-color: $text-logo;
       }
     }
 
@@ -38,30 +38,10 @@
     }
   }
 
-  &.transparent {
-    position: fixed;
-    z-index: 9999;
-
-    .hamburger {
-      > span {
-        background-color: $color1;
-      }
-    }
-  }
-
   .logo-wrapper {
     display: flex;
     align-items: center;
-    
-    a {
-      display: flex;
-      align-items: center;
-    }
-  
-    img {
-      width: 20px;
-    }
-  
+      
     h3 {
       font-size: 20px;
       font-weight: 700;
@@ -76,57 +56,15 @@
   }
 
   .ant-drawer-body {
+    background-color: $header;
     padding: 0;
-
-    .auth-menu {
-      border: 0;
-      display: flex;
-      margin: 0 0 30px;
-      padding: 25px 20px;
-      align-items: center;
-      background-color: $color2;
-
-      li {
-        height: auto;
-        line-height: 1;
-        padding: 0;
-        margin: 0;
-
-        &.ant-menu-item-selected,
-        &.ant-menu-item-active {
-          background-color: transparent;
-        }
-
-        a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 15px;
-          border-radius: 3px;
-          font-size: 15px;
-          font-weight: 700;
-          color: $text0;
-        }
-
-        &:last-child {
-          a {
-            color: $color1;
-            background-color: $primary0;
-            transition: opacity 0.2s ease;
-            
-            &:hover {
-              opacity: 0.9;
-            }
-          }
-        }
-      }
-    }
 
     .main-menu {
       border: 0;
 
       li {
         padding: 0;
+
         &.ant-menu-item-selected,
         &.ant-menu-item-active {
           background-color: transparent;
@@ -136,39 +74,19 @@
           font-size: 15px;
           padding: 0 31px;
           border-left: 4px solid transparent;
-          color: $text0;
+          color: $text-menu;
+
           &.active {
             font-weight: 700;
-            border-color: $primary0;
-            color: $primary0;
+            border-color: $text-menu-active;
+            color: $text-menu-active;
             margin-left: 0;
-          }
-        }
-
-        button {
-          display: block;
-          text-align: left;
-          width: 100%;
-          border: 0;
-          padding: 0 32px;
-          cursor: pointer;
-          background-color: transparent;
-          color: $text0;
-          transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-          &:hover {
-            color: $primary0;
-          }
-
-
-          &focus {
-            outline: 0;
           }
         }
 
         &:hover {
           a {
-            color: $primary0;
+            color: $text-menu-active;
           }
         }
       }
@@ -178,7 +96,7 @@
   .header-mobile-drawer-close {
     display: flex;
     justify-content: flex-end;
-    padding: 20px 15px 12px;
+    padding: 12px 15px 12px;
 
     .anticon {
       svg {
@@ -196,13 +114,13 @@
       display: inline-flex;
       align-items: center;
       cursor: pointer;
-      color: $text1;
+      color: $text;
       transition: all 0.3s ease;
 
       &:hover,
       &:focus {
         outline: 0;
-        color: $text0;
+        color: $text-logo;
       }
     }
   }
