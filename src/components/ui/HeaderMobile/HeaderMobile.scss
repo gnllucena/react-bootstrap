@@ -29,7 +29,7 @@
 
       > span {
         width: 23px;
-        background-color: $text-logo;
+        background-color: $primary;
       }
     }
 
@@ -120,7 +120,7 @@
       &:hover,
       &:focus {
         outline: 0;
-        color: $text-logo;
+        color: $primary;
       }
     }
   }

@@ -1,20 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import { Menu as MenuAntd } from 'antd';
+import { Menu } from 'antd';
 import { Link } from '@reach/router';
 
-import './Menu.scss';
+import './MenuPages.scss';
 
-export interface MenuProps {
+export interface MenuPagesProps {
   align: 'horizontal' | 'vertical',
   onNavigate?(): void
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ 
+const MenuPages: FunctionComponent<MenuPagesProps> = ({ 
   align,
   onNavigate
 }) => (
-  <MenuAntd mode={align} className="menu-links">
-    <MenuAntd.Item key="0">
+  <Menu mode={align} className="menu-links">
+    <Menu.Item key="0">
       <Link
         to="/companies"
         getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
@@ -22,8 +22,8 @@ const Menu: FunctionComponent<MenuProps> = ({
       >
         Companies
       </Link>
-    </MenuAntd.Item>
-    <MenuAntd.Item key="1">
+    </Menu.Item>
+    <Menu.Item key="1">
       <Link
         to="/valuation"
         getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
@@ -31,8 +31,8 @@ const Menu: FunctionComponent<MenuProps> = ({
       >
         Valuation
       </Link>
-    </MenuAntd.Item>
-    <MenuAntd.Item key="2">
+    </Menu.Item>
+    <Menu.Item key="2">
       <Link
         to="/wallet"
         getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
@@ -40,8 +40,8 @@ const Menu: FunctionComponent<MenuProps> = ({
       >
         My Wallet
       </Link>
-    </MenuAntd.Item>
-  </MenuAntd>
+    </Menu.Item>
+  </Menu>
 );
 
-export default Menu;
+export default MenuPages;

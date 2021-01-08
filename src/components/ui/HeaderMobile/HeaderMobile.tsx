@@ -1,14 +1,19 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Link } from '@reach/router';
 import { Button, Drawer } from 'antd';
-import Menu from '../Menu/Menu';
-import MenuAuthentication from '../MenuAuthentication/MenuAuthentication';
-import { CloseOutlined  } from '@ant-design/icons';
+import MenuPages from '../MenuPages/MenuPages';
+import MenuAuthenticated from '../MenuAuthenticated/MenuAuthenticated';
+import { CloseOutlined } from '@ant-design/icons';
 
 import './HeaderMobile.scss';
+import { useRecoilValue } from 'recoil';
+import { UserState } from '../../../store/LoginPageState';
+import MenuUnauthenticated from '../MenuUnauthenticated/MenuUnauthenticated';
 
 const HeaderMobile: FunctionComponent = () => {
   const [sidebarMenuOpen, setSidebarMenuOpen] = useState<boolean>(false);
+  const user = useRecoilValue(UserState);
+  const isAuthenticated = user.Id !== undefined;
 
   const changeDrawer = () => {
     setSidebarMenuOpen(!sidebarMenuOpen);
@@ -43,8 +48,14 @@ const HeaderMobile: FunctionComponent = () => {
         </div>
 
         <div className="main-menu">
-          <MenuAuthentication onNavigate={changeDrawer} />
-          <Menu align="vertical" onNavigate={changeDrawer} />
+          {
+            isAuthenticated ? (
+              <MenuAuthenticated onNavigate={changeDrawer} />
+            ) : (
+              <MenuUnauthenticated onNavigate={changeDrawer} />
+            )
+          }
+          <MenuPages align="vertical" onNavigate={changeDrawer} />
         </div>
       </Drawer>
     </div>

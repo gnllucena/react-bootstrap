@@ -1,3 +1,11 @@
+$primary: #B68B03;
+$primary-hover: #D9AF2A;
+$secondary: #252526;
+$secondary-hover: #FFF;
+$danger: #FFF;
+$succcess: #FFF;
+$warning: #FFF;
+
 $background: #151718; //done
 $header: #242728; //done
 $submenu: #2B2E30; //done
@@ -13,30 +21,25 @@ $button-hover: #575655;
 $border: #373C3E;
 $border-selected: #FFF;
 $border-hover: #FFF;
-$border-positive: #FFF;
-$border-negative: #FFF;
+$border-success: #FFF;
+$border-danger: #FFF;
 
 $card: #FFF;
 $card-selected: #FFF;
 $card-hover: #FFF;
 
 $text: #CACACA; //done
-$text-logo: #B68B03; //done
 $text-anchor: #4B98D7; //done
-$text-anchor-hover: #3B5373; //done
+$text-anchor-hover: #78C2FF; //done
 $text-menu: #CACACA; //done
 $text-menu-active: #B68B03; //done
 $text-menu-hover: #B68B03; //done
 $text-title: #F4F4F4;
 $text-subtitle: #FFF;
 $text-table: #FFF;
-$text-positive: #FFF;
-$text-negative: #FFF;
 
 $scroll-bar: #636363; //done
 $scroll-thumb: #3f4044; //done
-
-
 
 $text0: #2C2C2C;
 $text1: #909090;

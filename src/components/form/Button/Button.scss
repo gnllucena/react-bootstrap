@@ -16,13 +16,18 @@
 
   &.btn-primary {
     width: 100%;
-    border-color: $primary0;
-    background-color: $primary0;
+    color: $text;
+    border-color: $primary;
+    background-color: $primary;
   
     &:hover {
-      border-color: $primary0hover;
-      background-color: $primary0hover;
+      border-color: $primary-hover;
+      background-color: $primary-hover;
     }
+  }
+
+  &.btn-link {
+    color: $primary;
   }
 
   &.btn-default {

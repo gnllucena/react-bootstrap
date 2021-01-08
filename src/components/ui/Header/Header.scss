@@ -8,7 +8,11 @@
 
     .logo-wrapper {
       h3 {
-        color: $text-logo;
+        color: $primary;
+
+        &:hover {
+          color: $primary-hover;
+        }
       }
     }
 
@@ -57,7 +61,7 @@
 
     .logo-wrapper {
       h3 {
-        color: $text-logo;
+        color: $primary;
       }
     }
 
