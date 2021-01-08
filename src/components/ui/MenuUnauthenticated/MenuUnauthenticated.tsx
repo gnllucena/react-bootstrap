@@ -30,7 +30,7 @@ const MenuUnauthenticated: FunctionComponent<MenuUnauthenticatedProps> = ({
         </Col>
       </Row>
     ) : (
-      <Menu>
+      <Menu className="menu-unauthenticated-wrapper">
         <Menu.Item key="0">
           <Link to="/login" onClick={onNavigate}>Sign in</Link>
         </Menu.Item>
