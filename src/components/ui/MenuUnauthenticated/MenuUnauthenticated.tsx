@@ -19,12 +19,12 @@ const MenuUnauthenticated: FunctionComponent<MenuUnauthenticatedProps> = ({
     isFullscreen ? (
       <Row>
         <Col span={12} className="sign-in">
-          <Button text="Sign in" type="button" design="link" size="small" onClick={() => {
+          <Button text="Login" type="button" design="link" size="small" onClick={() => {
             navigate('/login');
           }} />
         </Col>
         <Col span={12}>
-          <Button text="Sign up" type="button" design="primary" size="small" onClick={() => {
+          <Button text="Register" type="button" design="primary" size="small" onClick={() => {
             navigate('/create-new-account');
           }} />
         </Col>
@@ -32,10 +32,10 @@ const MenuUnauthenticated: FunctionComponent<MenuUnauthenticatedProps> = ({
     ) : (
       <Menu className="menu-unauthenticated-wrapper">
         <Menu.Item key="0">
-          <Link to="/login" onClick={onNavigate}>Sign in</Link>
+          <Link to="/login" onClick={onNavigate}>Login</Link>
         </Menu.Item>
         <Menu.Item key="1">
-          <Link to="/create-new-account" onClick={onNavigate}>Sign up</Link>
+          <Link to="/create-new-account" onClick={onNavigate}>Register</Link>
         </Menu.Item>
       </Menu>
     )

@@ -1,38 +1,56 @@
+.ant-btn-primary:focus, 
+.ant-btn-primary:hover, 
+.ant-btn:focus, 
+.ant-btn:hover {
+  color: unset !important;
+  background-image: unset !important;
+  background-color: unset !important;
+  border-color: unset !important;
+  // -webkit-transition: none !important;
+  // transition: none !important;
+
+}
+
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
+  width: 100%;
+  font-weight: 700 !important;
 
   &.btn-small {
     height: 38px;
+    font-size: 15px !important;
   }
 
   &.btn-big {
     height: 57px;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 17px !important;
   }
 
   &.btn-primary {
-    width: 100%;
-    color: $text;
-    border-color: $primary;
-    background-color: $primary;
+    color: $secondary !important;
+    border-color: $primary !important;
+    background-color: $primary !important;
   
     &:hover {
-      border-color: $primary-hover;
-      background-color: $primary-hover;
+      color: $secondary-hover !important;
+      border-color: $primary-hover !important;
+      background-color: $primary-hover !important;
     }
   }
 
   &.btn-link {
-    color: $primary;
+    color: $primary !important;
+
+    &:hover {
+      color: $primary-hover !important;
+      border: none;
+    }
   }
 
   &.btn-default {
-    width: 100%;
-
     &:hover {
       color: $text0;
       background-color: rgb(230, 230, 230);
