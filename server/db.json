@@ -8,31 +8,34 @@
     "Avatar": "http://localhost:3000/assets/images/profilepic.png"
   },
   "register": {
+    "Id": 1,
     "Name": "Gabriel Lucena",
     "Email": "gnllucena@gmail.com",
     "RememberMe": true,
-    "Bearer": "",
-    "Avatar": "",
-    "Password": "asdfasdf",
-    "ConfirmPassword": "asdfasdf",
+    "Bearer": "AbCdEf123456",
+    "Avatar": "http://localhost:3000/assets/images/profilepic.png",
+    "Password": "gnllucena@gmail.com",
+    "ConfirmPassword": "gnllucena@gmail.com",
     "AgreeTermsAndCondition": true
   },
   "forgot-password": {
-    "Name": "",
+    "Id": 1,
+    "Name": "Gabriel Lucena",
     "Email": "gnllucena@gmail.com",
     "RememberMe": true,
-    "Bearer": "",
-    "Avatar": ""
+    "Bearer": "AbCdEf123456",
+    "Avatar": "http://localhost:3000/assets/images/profilepic.png"
   },
   "reset-password": {
-    "Name": "",
-    "Email": "",
+    "Id": 1,
+    "Name": "Gabriel Lucena",
+    "Email": "gnllucena@gmail.com",
     "RememberMe": true,
-    "Bearer": "",
-    "Avatar": "",
-    "Password": "asdfasdf",
-    "ConfirmPassword": "asdfasdf",
-    "Token": "asdfasfasdfasfasdfadsf"
+    "Bearer": "AbCdEf123456",
+    "Avatar": "http://localhost:3000/assets/images/profilepic.png",
+    "Password": "color: $text;",
+    "ConfirmPassword": "color: $text;",
+    "Token": ""
   },
   "companies": {
     "Items": [

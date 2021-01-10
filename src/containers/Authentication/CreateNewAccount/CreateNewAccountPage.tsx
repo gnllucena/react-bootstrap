@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import * as Yup from 'yup';
@@ -17,6 +17,7 @@ import '../../../assets/styles/Authentication.scss';
 
 const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const userState = useRecoilValue(UserState);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const schema = Yup.object().shape({
     Name: Yup.string()
@@ -41,7 +42,11 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
   });
 
   const submit = async (user: User): Promise<void> => {
+    setLoading(true);
+
     await axios.post<User>(`${process.env.URL_API_USER}/register`, user);
+
+    setLoading(false);
 
     navigate('/');
   };
@@ -98,7 +103,7 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
 
                 <Row>
                   <Col span={24} className="align-left">
-                    <Button text="Create new account" type="submit" design="primary" size="big" />
+                    <Button text="Create new account" type="submit" design="primary" size="big" loading={loading} />
                   </Col>
                 </Row>
               </Form>

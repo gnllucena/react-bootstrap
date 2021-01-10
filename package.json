@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "server": "cd server && json-server --watch .\\db.json --routes .\\routes.json --delay 500",
+    "server": "cd server && json-server --watch .\\db.json --routes .\\routes.json --delay 4500",
     "build": "cross-env NODE_ENV=production webpack --colors --config ./webpack.prod.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server --colors --open --config ./webpack.dev.js"
   },

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import { navigate, RouteComponentProps, Link } from '@reach/router';
@@ -17,6 +17,7 @@ import '../../../assets/styles/Authentication.scss';
 
 const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const [userState, setUserState] = useRecoilState(UserState);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const schema = Yup.object().shape({
     Email: Yup.string()
@@ -29,11 +30,15 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
   });
 
   const submit = async (user: User): Promise<void> => {
+    setLoading(true);
+
     const response = await axios.get<User>(`${process.env.URL_API_USER}/login`);
 
     response.data.RememberMe = user.RememberMe;
 
     setUserState(response.data);
+
+    setLoading(false);
 
     navigate(url());
   };
@@ -106,7 +111,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
 
                 <Row>
                   <Col span={24} className="align-left">
-                    <Button text="Log In" type="submit" design="primary" size="big" />  
+                    <Button text="Log In" type="submit" design="primary" size="big" loading={loading} />
                   </Col>
                 </Row>
               </Form>

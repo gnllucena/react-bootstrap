@@ -9,6 +9,7 @@ export interface ButtonProps {
   type: 'submit' | 'button' | 'reset',
   design: 'primary' | 'default' | 'link' | 'ghost' | 'dashed' | 'text',
   icon?: Component
+  loading?: boolean,
   disabled?: boolean,
   style?: CSSProperties,
   onClick?(): void
@@ -20,6 +21,7 @@ const Button: FunctionComponent<ButtonProps> = ({
   type,
   design,
   icon,
+  loading,
   disabled,
   style,
   onClick
@@ -31,8 +33,8 @@ const Button: FunctionComponent<ButtonProps> = ({
       style={style}
       htmlType={type}
       icon={icon}
-      loading={false}
-      disabled={disabled}
+      loading={loading}
+      disabled={loading ? true : disabled}
       onClick={() => {
         if (onClick) {
           onClick();

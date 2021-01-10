@@ -14,6 +14,7 @@ import '../../../assets/styles/Authentication.scss';
 
 const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const [token, setToken] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const userState = useRecoilValue(UserState);
 
   useEffect(() => {
@@ -49,10 +50,14 @@ const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteC
   });
 
   const submit = async (user: User): Promise<void> => {
+    setLoading(true);
+
     await axios.post<User>(`${process.env.URL_API_USER}/reset-password`, {
       ...user, Token: token
     });
-
+    
+    setLoading(false);
+    
     navigate('/');
   };
 
@@ -90,7 +95,7 @@ const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteC
 
                 <Row>
                   <Col span={24} className="align-left">
-                    <Button text="Reset password" type="submit" design="primary" size="big" />
+                    <Button text="Reset password" type="submit" design="primary" size="big" loading={loading} />
                   </Col>
                 </Row>
               </Form>
