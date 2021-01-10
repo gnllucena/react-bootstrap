@@ -15,8 +15,6 @@ import { UserState } from '../../../store/LoginPageState';
 
 import '../../../assets/styles/Authentication.scss';
 
-const logo = require('../../../assets/images/logo-alt.svg') as string;
-
 const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const userState = useRecoilValue(UserState);
 
@@ -49,77 +47,73 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
   };
 
   return (
-    <div className="authentication-wrapper">
-      <div className="form-wrapper">
-        <div className="logo-wrapper">
-          <Link to="/">
-            <h3>zro17</h3>
-          </Link>
+    <Row className="authentication-wrapper uncentered" gutter={24}>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+      <Col xs={20} sm={20} md={20} lg={12} xl={12}>
+        <div className="form-wrapper">
+          <div className="title-wrapper">
+            Welcome to <Link to="/">zro17</Link>
+          </div>
+
+          <div className="subtitle-wrapper">Please register for your new account</div>
+
+          <Formik
+            initialValues={{
+              ...userState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false
+            }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {(): JSX.Element => (
+              <Form>
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Input name="Name" label="Name" value={userState.Name} />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Password name="Password" label="Password" autoComplete="new-password" />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Password name="ConfirmPassword" label="Confirm password" autoComplete="new-password" />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Switch name="AgreeTermsAndCondition" label="I agree with terms and conditions" value={false} />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Button text="Create new account" type="submit" design="primary" size="big" />
+                  </Col>
+                </Row>
+              </Form>
+            )}
+          </Formik>
+
+          <Divider plain>or</Divider>
+          
+          <div className="align-center">
+            <Link to="/login">Log in with your existing account</Link>
+          </div>
         </div>
-
-        <div className="title-wrapper">Welcome to zro17</div>
-
-        <div className="title-info-wrapper">Please register for your new account</div>
-
-        <Formik
-          initialValues={{
-            ...userState, Password: '', ConfirmPassword: '', AgreeTermsAndCondition: false
-          }}
-          validationSchema={schema}
-          onSubmit={submit}
-        >
-          {(): JSX.Element => (
-            <Form>
-              <Row>
-                <Col span={24} className="align-left">
-                  <Input name="Name" label="Name" value={userState.Name} />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Password name="Password" label="Password" autoComplete="new-password" />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Password name="ConfirmPassword" label="Confirm password" autoComplete="new-password" />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Switch name="AgreeTermsAndCondition" label="I agree with terms and conditions" value={false} />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Button text="Create new account" type="submit" design="primary" size="big" />
-                </Col>
-              </Row>
-            </Form>
-          )}
-        </Formik>
-
-        <Divider />
-
-        <div className="align-center">
-          <Link to="/login">Log in with your existing account</Link>
-        </div>
-      </div>
-
-      <div className="banner-wrapper">
-        <div className="banner-wrapper-image" />
-      </div>
-    </div>
+      </Col>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+    </Row>
   );
 };
 

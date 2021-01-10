@@ -64,7 +64,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (props: RouteComponent
   }
 
   return (
-    <Row className="authentication-wrapper" gutter={24}>
+    <Row className="authentication-wrapper center" gutter={24}>
       <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
       <Col xs={20} sm={20} md={20} lg={12} xl={12}>
         <div className="form-wrapper">
