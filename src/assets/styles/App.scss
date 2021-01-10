@@ -4,6 +4,7 @@
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   &::before,
   &::after {
     box-sizing: inherit;
@@ -11,8 +12,8 @@
 }
 
 ::selection {
-  background: #008489;
-  color: #ffffff;
+  background: $primary;
+  color: $text;
 }
 
 html {
@@ -78,19 +79,19 @@ button {
 
 a {
   color: $text-anchor;
-}
 
-a:hover {
-  color: $text-anchor-hover;
+  &:hover {
+    color: $text-anchor-hover;
+  }
 }
 
 ul {
   margin: 0;
   padding: 0;
-}
 
-li {
-  list-style-type: none;
+  li {
+    list-style-type: none;
+  }
 }
 
 img {
