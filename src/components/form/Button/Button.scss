@@ -48,6 +48,10 @@
   }
 
   &.btn-default {
+    background-color: #525859;
+    border: 1px solid #525859;
+    color: $text;
+    
     &:hover {
       color: $text0;
       background-color: rgb(230, 230, 230);

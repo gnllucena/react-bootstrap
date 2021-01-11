@@ -2,18 +2,18 @@
   position: relative;
   width: 100%;
 
-  &.selected {
-    &:not(.active) {
-      .popup-handler {
-        button,
-        button.ant-btn {
-          &:hover {
-            color: $primary0 !important;
-          }
-        }
-      }
-    }
-  }
+  // &.selected {
+  //   &:not(.active) {
+  //     .popup-handler {
+  //       button,
+  //       button.ant-btn {
+  //         &:hover {
+  //           color: $primary0 !important;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   &.popup-wrapper {
     margin-right: 15px !important;
@@ -22,46 +22,46 @@
       margin-right: 0;
     }
 
-    .popup-handler {
-      button,
-      button.ant-btn {
-        height: 38px;
-        font-size: 15px;
-        border-radius: 3px;
-        color: $text0;
-        border: 1px solid $border3;
-        z-index: 10;
+    // .popup-handler {
+    //   button,
+    //   button.ant-btn {
+    //     height: 38px;
+    //     font-size: 15px;
+    //     border-radius: 3px;
+    //     color: $text0;
+    //     border: 1px solid $border3;
+    //     z-index: 10;
         
-        &:hover {
-          background-color: $border3;
-        }
-        &::after {
-          content: none;
-        }
-      }
-    }
+    //     &:hover {
+    //       background-color: $border3;
+    //     }
+    //     &::after {
+    //       content: none;
+    //     }
+    //   }
+    // }
 
-    &.selected {
-      button,
-      button.ant-btn {
-        color: $color1;
-        border-color: $primary0;
-        background-color: $primary0;
-      }
-    }
+    // &.selected {
+    //   button,
+    //   button.ant-btn {
+    //     color: $color1;
+    //     border-color: $primary0;
+    //     background-color: $primary0;
+    //   }
+    // }
     
     &.active {
       .popup-handler {
-        button,
-        button.ant-btn {
-          color: $color1;
-          border-color: $primary0;
-          background-color: $primary0;
-        }
+        // button,
+        // button.ant-btn {
+        //   color: $color1;
+        //   border-color: $primary0;
+        //   background-color: $primary0;
+        // }
 
         & + .popup-container {
           margin-top: 15px;
-          border: 1px solid $border3;
+          border: 1px solid $border;
         }
       }
 
@@ -106,9 +106,11 @@
             height: 38px;
             border-radius: 3px;
             border: 1px solid $border3;
+            
             &::after {
               content: none;
             }
+
             &:hover {
               color: $primary0;
               border-color: $primary0;

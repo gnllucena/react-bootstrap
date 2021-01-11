@@ -19,12 +19,11 @@
     "AgreeTermsAndCondition": true
   },
   "forgot-password": {
-    "Id": 1,
-    "Name": "Gabriel Lucena",
+    "Name": "",
     "Email": "gnllucena@gmail.com",
     "RememberMe": true,
-    "Bearer": "AbCdEf123456",
-    "Avatar": "http://localhost:3000/assets/images/profilepic.png"
+    "Bearer": "",
+    "Avatar": ""
   },
   "reset-password": {
     "Id": 1,

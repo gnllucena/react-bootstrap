@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.min.css';
+@import '~antd/dist/antd.dark.min.css';
 
 * {
   box-sizing: inherit;
@@ -134,6 +134,28 @@ img {
       button {
         border-color: $primary0;
         color: $primary0;
+      }
+    }
+  }
+
+  .ant-card {
+    border-color: $border;
+    
+    .ant-card-body {
+      background-color: $card;
+
+      .ant-card-meta-title, .ant-statistic-title {
+        color: $text-title;
+      }
+
+      .ant-card-meta-description {
+        color: $text-subtitle;
+      }
+
+      .ant-card-meta-avatar {
+        .ant-skeleton-image {
+          background-color: $avatar-background !important;
+        }
       }
     }
   }

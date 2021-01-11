@@ -19,10 +19,10 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
 
     switch (situation) {
       case Situation.Up:
-        color = { color: '#3f8600' };
+        color = { color: '#5BA37B' };
         break;
       case Situation.Down:
-        color = { color: '#cf1322' };
+        color = { color: '#F15759' };
         break;
     }
 

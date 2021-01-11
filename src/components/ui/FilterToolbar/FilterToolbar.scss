@@ -10,7 +10,8 @@
   .toolbar {
     padding-left: 30px;
     padding-right: 30px;
-    border-bottom: 1px solid $border3;
+    border-bottom: 1px solid $border;
+
     @media only screen and (min-width: 1441px) {
       min-height: 78px;
     }
@@ -20,7 +21,7 @@
     display: flex;
     align-items: center;
     min-height: 70px;
-    background: #ffffff;
+    background: $filter;
 
     .toolbar-container-wrapper {
       max-width: 1920px;
