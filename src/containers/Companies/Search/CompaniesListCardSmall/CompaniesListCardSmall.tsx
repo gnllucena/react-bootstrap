@@ -14,17 +14,14 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
   company
 }) => {
   const color = (situation: Situation) => {
-    let color = {};
+    let color = '';
 
     switch (situation) {
       case Situation.Up:
-        color = { color: '#3f8600', float: "right" };
-        break;
-      case Situation.Side:
-        color = { float: "right" };
+        color = 'success';
         break;
       case Situation.Down:
-        color = { color: '#cf1322', float: "right" };
+        color = 'danger';
         break;
     }
 
@@ -49,7 +46,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="ROE"
             value={company.ROE}
             precision={2}
-            valueStyle={color(company.ROESituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.ROESituation)}
             suffix="%"
           />
         </Col>
@@ -58,7 +56,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="ROIC"
             value={company.ROIC}
             precision={2}
-            valueStyle={color(company.ROICSituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.ROICSituation)}
             suffix="%"
           />
         </Col>
@@ -70,7 +69,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="ROA"
             value={company.ROA}
             precision={2}
-            valueStyle={color(company.ROASituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.ROASituation)}
             suffix="%"
           />
         </Col>
@@ -79,7 +79,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="NET Margin"
             value={company.NETMargin}
             precision={2}
-            valueStyle={color(company.NETMarginSituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.NETMarginSituation)}
             suffix="%"
           />
         </Col>
@@ -91,7 +92,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="NET Debt EBITDA"
             value={company.NETDebtEBITDA}
             precision={2}
-            valueStyle={color(company.NETDebtEBITDASituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.NETDebtEBITDASituation)}
             suffix="%"
           />
         </Col>
@@ -100,7 +102,8 @@ export const CompaniesListCardSmall: FunctionComponent<CompaniesListCardSmallPro
             title="CAGR Last Year"
             value={company.CompondAnnualGrowth1Years}
             precision={2}
-            valueStyle={color(company.CompondAnnualGrowth1YearsSituation)}
+            valueStyle={{ float: "right" }}
+            className={color(company.CompondAnnualGrowth1YearsSituation)}
             suffix="%"
           />
         </Col>

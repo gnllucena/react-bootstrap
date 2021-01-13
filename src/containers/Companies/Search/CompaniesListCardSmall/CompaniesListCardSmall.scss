@@ -1,6 +1,20 @@
 .companies-card-small {
   width: 100%;
 
+  .ant-statistic {
+    &.success {
+      .ant-statistic-content {
+        color: $success;
+      }
+    }
+
+    &.danger {
+      .ant-statistic-content {
+        color: $danger;
+      }
+    }
+  }
+
   .ant-card-meta {
     margin-bottom: 24px;
   }

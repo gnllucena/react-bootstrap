@@ -32,11 +32,11 @@
     .ant-slider-rail {
       height: 5px;
       border-radius: 3px;
-      background-color: $color13;
+      background-color: $filter;
     }
   
     .ant-slider-track {
-      background-color: $primary0;
+      background-color: $primary;
     }
   
     .ant-slider-step {
@@ -44,23 +44,26 @@
         width: 5px;
         height: 5px;
         top: 0;
-        border-color: $color13;
-        background-color: $color13;
+        border-color: $filter;
+        background-color: $filter;
+
         &:first-child {
           margin-left: -1px;
         }
+
         &.ant-slider-dot-active {
-          border-color: $primary0;
+          border-color: $primary;
         }
       }
     }
-  
+
     &:hover {
       .ant-slider-track {
-        background-color: $primary0;
+        background-color: $primary;
       }
+
       .ant-slider-handle:not(.ant-tooltip-open) {
-        border-color: $primary0;
+        border-color: $primary;
       }
     }
   
@@ -68,11 +71,16 @@
       margin-top: -8px;
       width: 20px;
       height: 20px;
-      border: 6px solid $primary0;
-      box-shadow: 0 2px 2px $color5;
+      border: 6px solid $primary;
+      box-shadow: 0 2px 2px $filter;
+
       &:focus {
         box-shadow: none;
       }
+    }
+
+    .ant-slider-handle {
+      background-color: $filter !important;
     }
   
     .ant-slider-mark {
@@ -88,7 +96,7 @@
   
       .ant-slider-mark-text {
         font-size: 15px;
-        color: $text0;
+        color: $text;
         position: absolute;
         display: inline-block;
         text-align: center;

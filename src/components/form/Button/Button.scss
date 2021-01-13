@@ -47,15 +47,16 @@
     }
   }
 
-  &.btn-default {
-    background-color: #44494A;
-    border: 1px solid #44494A;
-    color: $text;
+  &.btn-default, .ant-btn-default:active {
+    background-color: $button !important;
+    border: 1px solid $button !important;
+    color: $text !important;
+    font-weight: 500 !important;
     
     &:hover {
-      color: $text0;
-      background-color: rgb(230, 230, 230);
-      border-color: rgb(230, 230, 230);
+      color: $text !important;
+      background-color: transparent !important;
+      border: 1px solid $button !important;
     }
   }
 

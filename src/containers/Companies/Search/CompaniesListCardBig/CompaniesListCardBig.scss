@@ -1,5 +1,19 @@
 .companies-card-big {
   width: 100%;
+
+  .ant-statistic {
+    &.success {
+      .ant-statistic-content {
+        color: $success;
+      }
+    }
+
+    &.danger {
+      .ant-statistic-content {
+        color: $danger;
+      }
+    }
+  }
   
   .ant-skeleton-avatar {
     height: 64px;

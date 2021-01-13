@@ -15,14 +15,14 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
   company
 }) => {
   const color = (situation: Situation) => {
-    let color = {};
+    let color = '';
 
     switch (situation) {
       case Situation.Up:
-        color = { color: '#5BA37B' };
+        color = 'success';
         break;
       case Situation.Down:
-        color = { color: '#F15759' };
+        color = 'danger';
         break;
     }
 
@@ -59,7 +59,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="ROE"
             value={company.ROE}
             precision={2}
-            valueStyle={color(company.ROESituation)}
+            className={color(company.ROESituation)}
             prefix={arrow(company.ROESituation)}
             suffix="%"
           />
@@ -69,7 +69,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="ROIC"
             value={company.ROIC}
             precision={2}
-            valueStyle={color(company.ROICSituation)}
+            className={color(company.ROICSituation)}
             prefix={arrow(company.ROICSituation)}
             suffix="%"
           />
@@ -79,7 +79,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="ROA"
             value={company.ROA}
             precision={2}
-            valueStyle={color(company.ROASituation)}
+            className={color(company.ROASituation)}
             prefix={arrow(company.ROASituation)}
             suffix="%"
           />
@@ -89,7 +89,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="NET Margin"
             value={company.NETMargin}
             precision={2}
-            valueStyle={color(company.NETMarginSituation)}
+            className={color(company.NETMarginSituation)}
             prefix={arrow(company.NETMarginSituation)}
             suffix="%"
           />
@@ -99,7 +99,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="NET Debt EBITDA"
             value={company.NETDebtEBITDA}
             precision={2}
-            valueStyle={color(company.NETDebtEBITDASituation)}
+            className={color(company.NETDebtEBITDASituation)}
             prefix={arrow(company.NETDebtEBITDASituation)}
             suffix="%"
           />
@@ -109,7 +109,7 @@ export const CompaniesListCardBig: FunctionComponent<CompaniesListCardBigProps> 
             title="CAGR Last Year"
             value={company.CompondAnnualGrowth1Years}
             precision={2}
-            valueStyle={color(company.CompondAnnualGrowth1YearsSituation)}
+            className={color(company.CompondAnnualGrowth1YearsSituation)}
             prefix={arrow(company.CompondAnnualGrowth1YearsSituation)}
             suffix="%"
           />
