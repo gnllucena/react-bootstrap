@@ -13,6 +13,7 @@ import ScrollToTop from './components/behavior/ScrollToTop/ScrollToTop';
 import ProtectedRoute from './components/behavior/ProtectedRoute/ProtectedRoute';
 
 import './assets/styles/App.scss';
+import Loading from './components/ui/Loading/Loading';
 
 const HomePage = lazy(() => import('./containers/Home/HomePage'));
 const CreateNewAccountPage = lazy(() => import('./containers/Authentication/CreateNewAccount/CreateNewAccountPage'));
@@ -36,7 +37,7 @@ ReactDOM.render(
       <HttpErrorHandling />
       <StateManagement />
       <Layout>
-        <Suspense fallback={<div>splash screen</div>}>
+        <Suspense fallback={<Loading />}>
           <Router primary={false}>
             <ScrollToTop path="/">
               <HomePage default />

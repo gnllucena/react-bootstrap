@@ -1,10 +1,10 @@
 .header-wrapper {
   height: 84px;
-  border-bottom: 1px solid $border;
   padding: 0 30px;
   
   &.header-default {
     background-color: $header;
+    border-bottom: 1px solid $border;
 
     .logo-wrapper {
       h3 {
@@ -59,10 +59,12 @@
 
   &.header-detail {
     background-color: $header;
+    border-bottom: 1px solid $border;
 
     .logo-wrapper {
       h3 {
         color: $primary;
+        font-size: 30px;
       }
     }
 
@@ -80,7 +82,7 @@
     
             &.active {
               color: $text-menu-active;
-              border-bottom: 3px solid $text-menu-active;
+              border-bottom: 3px solid $primary;
             }
           }
         }
@@ -90,11 +92,7 @@
     .auth-wrapper {
       .avatar-dropdown {
         .ant-avatar {
-          background: $avatar-background;
-
-          svg {
-            color: $avatar-person; 
-          }
+          background: $avatar;
         }
         
         ul.ant-menu {

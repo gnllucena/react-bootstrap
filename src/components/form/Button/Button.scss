@@ -27,12 +27,12 @@
   }
 
   &.btn-primary {
-    color: $secondary !important;
+    color: $button-text !important;
     border-color: $primary !important;
     background-color: $primary !important;
   
     &:hover {
-      color: $secondary-hover !important;
+      color: $button-text-hover !important;
       border-color: $primary-hover !important;
       background-color: $primary-hover !important;
     }
@@ -48,15 +48,15 @@
   }
 
   &.btn-default, .ant-btn-default:active {
-    background-color: $button !important;
-    border: 1px solid $button !important;
+    background-color: $button-background !important;
+    border: 1px solid $button-background !important;
     color: $text !important;
     font-weight: 500 !important;
     
     &:hover {
       color: $text !important;
       background-color: transparent !important;
-      border: 1px solid $button !important;
+      border: 1px solid $button-background !important;
     }
   }
 

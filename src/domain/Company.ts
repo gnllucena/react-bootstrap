@@ -36,7 +36,7 @@ export default class Company {
     this.ProfitMarginSituation = params.ProfitMarginSituation;
     this.OperatingProfitMarginSituation = params.OperatingProfitMarginSituation;
     this.DebtEquitySituation = params.DebtEquitySituation;
-    this.ShareholderEquityRatioSituation = params.ShareholderEquityRatioSituation;
+    this.ShareholderEquitySituation = params.ShareholderEquitySituation;
     this.CompondAnnualGrowth3YearsSituation = params.CompondAnnualGrowth3YearsSituation;
     this.CompondAnnualGrowth5YearsSituation = params.CompondAnnualGrowth5YearsSituation;
     this.AvarageAnnualGrowth5YearsSituation = params.AvarageAnnualGrowth5YearsSituation;
@@ -76,7 +76,7 @@ export default class Company {
   ProfitMarginSituation: Situation | undefined;
   OperatingProfitMarginSituation: Situation | undefined;  
   DebtEquitySituation: Situation | undefined;
-  ShareholderEquityRatioSituation: Situation | undefined;
+  ShareholderEquitySituation: Situation | undefined;
   CompondAnnualGrowth3YearsSituation: Situation | undefined;
   CompondAnnualGrowth5YearsSituation: Situation | undefined;
   AvarageAnnualGrowth5YearsSituation: Situation | undefined;

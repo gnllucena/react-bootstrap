@@ -1,0 +1,81 @@
+.company-details-index-wrapper {
+  margin-bottom: 9px;
+
+  .company-details-index-paywall-wrapper {
+    height: 101px;
+
+    .company-details-index-paywall-text-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      margin: 0 !important;
+      text-align: center;
+    }
+  }
+
+  .ant-card-body {
+    padding: 6px 12px;
+
+    .ant-statistic {
+      .ant-statistic-title {
+        font-weight: 500;
+        font-size: 13px;
+        color: $text;
+      }
+      
+      &.success {
+        .ant-statistic-content {
+          color: $success;
+        }
+      }
+  
+      &.danger {
+        .ant-statistic-content {
+          color: $danger;
+        }
+      }
+  
+      .ant-statistic-content {
+        margin-top: 0px;
+    
+        .ant-statistic-content-value {
+          font-size: 30px;
+          height: 0px;
+        }
+    
+        .ant-statistic-content-value-decimal {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .ant-card-actions {
+    background-color: $filter;
+    height: 32px;
+
+    li {
+      margin: -1px 0;
+      height: 32px;
+
+      &:not(:last-child) {
+        border-right: 1px solid $border !important;
+      }
+    }
+
+    .anticon {
+      color: $text-subtitle;
+      margin-top: 3px;
+      
+      &:hover {
+        color: $primary;
+      }
+
+      svg {
+        margin-top: 5px;
+      }
+    }
+  }
+}
