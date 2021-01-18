@@ -1,3 +1,5 @@
+import { Plans } from "./Plans";
+
 export default class User {
   public constructor(params: Partial<User>) {
     this.Id = params.Id;
@@ -6,6 +8,7 @@ export default class User {
     this.RememberMe = params.RememberMe ?? false;
     this.Bearer = params.Bearer ?? "";
     this.Avatar = params.Avatar ?? "";
+    this.Plans = params.Plans ?? [];
   }
 
   Id: number | undefined;
@@ -14,4 +17,5 @@ export default class User {
   RememberMe: boolean;
   Bearer: string;
   Avatar: string;
+  Plans: Plans[];
 }

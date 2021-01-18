@@ -6,6 +6,7 @@ import CompanyDetails from './CompanyDetails/CompanyDetails';
 import { useRecoilValue } from 'recoil';
 import { CompanyState } from '../../../store/CompanyDetailPageState';
 import CompanyIndexes from './CompanyIndexes/CompanyIndexes';
+import Title from '../../../components/ui/Title/Title';
 
 const CompanyPage: FunctionComponent<RouteComponentProps> = () => {  
   const { companyId } = useParams();
@@ -17,7 +18,9 @@ const CompanyPage: FunctionComponent<RouteComponentProps> = () => {
       <Header fixed={false} background="detail" />
 
       <Content>
-        <CompanyDetails company={company} />    
+        <CompanyDetails company={company} />
+
+        <Title title="Indexes" subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
         <CompanyIndexes company={company} />
       </Content>
     </>

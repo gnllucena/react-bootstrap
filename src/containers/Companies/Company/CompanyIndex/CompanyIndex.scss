@@ -2,7 +2,7 @@
   margin-bottom: 9px;
 
   .company-details-index-paywall-wrapper {
-    height: 101px;
+    height: 65px;
 
     .company-details-index-paywall-text-wrapper {
       position: absolute;
@@ -15,66 +15,103 @@
     }
   }
 
-  .ant-card-body {
-    padding: 6px 12px;
-
-    .ant-statistic {
-      .ant-statistic-title {
-        font-weight: 500;
-        font-size: 13px;
-        color: $text;
-      }
+  .company-details-index-card-wrapper {
+    .ant-card-body {
+      padding: 6px 12px;
+  
+      .ant-statistic {
+        .ant-statistic-title {
+          font-weight: 500;
+          font-size: 13px;
+          color: $text;
+          font-weight: bold;
+        }
+        
+        &.success {
+          .ant-statistic-content {
+            color: $success;
+          }
+        }
+    
+        &.danger {
+          .ant-statistic-content {
+            color: $danger;
+          }
+        }
+    
+        .ant-statistic-content {
+          margin-top: 0px;
       
-      &.success {
-        .ant-statistic-content {
-          color: $success;
+          .ant-statistic-content-value {
+            font-size: 30px;
+            height: 0px;
+          }
+      
+          .ant-statistic-content-value-decimal {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  
+    .ant-card-actions {
+      background-color: $header;
+      height: 32px;
+  
+      li {
+        margin: -1px 0;
+        height: 32px;
+  
+        &:not(:last-child) {
+          border-right: 1px solid $border !important;
         }
       }
   
-      &.danger {
-        .ant-statistic-content {
-          color: $danger;
-        }
-      }
+      .anticon {
+        color: $text-subtitle;
+        height: 34px;
   
-      .ant-statistic-content {
-        margin-top: 0px;
-    
-        .ant-statistic-content-value {
-          font-size: 30px;
-          height: 0px;
+        &:hover {
+          color: $primary;
         }
-    
-        .ant-statistic-content-value-decimal {
-          font-size: 30px;
+  
+        svg {
+          margin-top: 8px;
         }
       }
     }
   }
 
-  .ant-card-actions {
-    background-color: $filter;
-    height: 32px;
-
-    li {
-      margin: -1px 0;
-      height: 32px;
-
-      &:not(:last-child) {
-        border-right: 1px solid $border !important;
+  .company-details-index-description-wrapper {
+    .company-details-index-description-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 12px 15px 12px;
+  
+      .anticon {
+        svg {
+          width: 20px;
+        }
       }
-    }
-
-    .anticon {
-      color: $text-subtitle;
-      margin-top: 3px;
       
-      &:hover {
-        color: $primary;
-      }
-
-      svg {
-        margin-top: 5px;
+      > button {
+        border: 0;
+        padding: 0;
+        background-color: transparent;
+        font-size: 38px;
+        line-height: 1;
+        height: auto;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: $text;
+        transition: all 0.3s ease;
+  
+        &:hover,
+        &:focus {
+          outline: 0;
+          color: $primary;
+        }
       }
     }
   }

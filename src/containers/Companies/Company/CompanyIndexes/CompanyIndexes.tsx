@@ -4,6 +4,7 @@ import { Row } from 'antd';
 import CompanyIndex from '../CompanyIndex/CompanyIndex';
 
 import './CompanyIndexes.scss';
+import { Index } from '../../../../domain/Index';
 
 
 interface CompanyIndexesProps {
@@ -15,23 +16,23 @@ const CompanyIndexes: FunctionComponent<CompanyIndexesProps> = ({
 }) => {
   return (
     <Row gutter={24} className="company-details-indexes-wrapper">
-      <CompanyIndex index={"ROE"} value={company.ROE} situation={company.ROESituation} />
-      <CompanyIndex index={"ROIC"} value={company.ROIC} situation={company.ROICSituation} />
-      <CompanyIndex index={"ROA"} value={company.ROA} situation={company.ROASituation} />
-      <CompanyIndex index={"NET Margin"} value={company.NETMargin} situation={company.NETMarginSituation} />
-      <CompanyIndex index={"NET Debt EBITDA"} value={company.NETDebtEBITDA} situation={company.NETDebtEBITDASituation} />
-      <CompanyIndex index={"NET Debt EBIT"} value={company.NETDebtEBIT} situation={company.NETDebtEBITSituation} />
-      <CompanyIndex index={"Debt Equity"} value={company.DebtEquity} situation={company.DebtEquitySituation} />
-      <CompanyIndex index={"EBIT Margin"} value={company.EBITMargin} situation={company.EBITMarginSituation} />
-      <CompanyIndex index={"EBITDA Margin"} value={company.EBITDAMargin} situation={company.EBITDAMarginSituation} />
-      <CompanyIndex index={"Gross Margin"} value={company.GrossMargin} situation={company.GrossMarginSituation} />
-      <CompanyIndex index={"Profit Margin"} value={company.ProfitMargin} situation={company.ProfitMarginSituation} />
-      <CompanyIndex index={"Operating Profit Margin"} value={company.OperatingProfitMargin} situation={company.OperatingProfitMarginSituation} />
-      <CompanyIndex index={"Shareholder Equity"} value={company.ShareholderEquity} situation={company.ShareholderEquitySituation} />
-      <CompanyIndex index={"CAGR 1 Year"} value={company.CompondAnnualGrowth1Years} situation={company.CompondAnnualGrowth1YearsSituation} />
-      <CompanyIndex index={"CAGR 3 Years"} value={company.CompondAnnualGrowth3Years} situation={company.CompondAnnualGrowth3YearsSituation} />
-      <CompanyIndex index={"CAGR 5 Years"} value={company.CompondAnnualGrowth5Years} situation={company.CompondAnnualGrowth5YearsSituation} />
-      <CompanyIndex index={"Average CAGR 5 Years"} value={company.AvarageAnnualGrowth5Years} situation={company.AvarageAnnualGrowth5YearsSituation} />
+      <CompanyIndex index={Index.ROE} value={company.ROE} situation={company.ROESituation} />
+      <CompanyIndex index={Index.ROIC} value={company.ROIC} situation={company.ROICSituation} />
+      <CompanyIndex index={Index.ROA} value={company.ROA} situation={company.ROASituation} />
+      <CompanyIndex index={Index.NETMargin} value={company.NETMargin} situation={company.NETMarginSituation} />
+      <CompanyIndex index={Index.NETDebtEBITDA} value={company.NETDebtEBITDA} situation={company.NETDebtEBITDASituation} />
+      <CompanyIndex index={Index.NETDebtEBIT} value={company.NETDebtEBIT} situation={company.NETDebtEBITSituation} />
+      <CompanyIndex index={Index.DebtEquity} value={company.DebtEquity} situation={company.DebtEquitySituation} />
+      <CompanyIndex index={Index.EBITMargin} value={company.EBITMargin} situation={company.EBITMarginSituation} />
+      <CompanyIndex index={Index.EBITDAMargin} value={company.EBITDAMargin} situation={company.EBITDAMarginSituation} />
+      <CompanyIndex index={Index.GrossMargin} value={company.GrossMargin} situation={company.GrossMarginSituation} />
+      <CompanyIndex index={Index.ProfitMargin} value={company.ProfitMargin} situation={company.ProfitMarginSituation} />
+      <CompanyIndex index={Index.OperatingProfitMargin} value={company.OperatingProfitMargin} situation={company.OperatingProfitMarginSituation} />
+      <CompanyIndex index={Index.ShareholderEquity} value={company.ShareholderEquity} situation={company.ShareholderEquitySituation} />
+      <CompanyIndex index={Index.CompondAnnualGrowth1Years} value={company.CompondAnnualGrowth1Years} situation={company.CompondAnnualGrowth1YearsSituation} />
+      <CompanyIndex index={Index.CompondAnnualGrowth3Years} value={company.CompondAnnualGrowth3Years} situation={company.CompondAnnualGrowth3YearsSituation} />
+      <CompanyIndex index={Index.CompondAnnualGrowth5Years} value={company.CompondAnnualGrowth5Years} situation={company.CompondAnnualGrowth5YearsSituation} />
+      <CompanyIndex index={Index.AvarageAnnualGrowth5Years} value={company.AvarageAnnualGrowth5Years} situation={company.AvarageAnnualGrowth5YearsSituation} />
     </Row>
   );
 };

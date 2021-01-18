@@ -9,6 +9,7 @@ export const UserState = atom<User>({
     Email: '',
     Bearer: '',
     Avatar: '',
-    RememberMe: true
+    RememberMe: true,
+    Plans: []
   })
 });

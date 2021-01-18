@@ -25,20 +25,11 @@ const MenuPages: FunctionComponent<MenuPagesProps> = ({
     </Menu.Item>
     <Menu.Item key="1">
       <Link
-        to="/valuation"
+        to="/pricing-plans"
         getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
         onClick={onNavigate}
       >
-        Valuation
-      </Link>
-    </Menu.Item>
-    <Menu.Item key="2">
-      <Link
-        to="/wallet"
-        getProps={({ isPartiallyCurrent }): Record<string, unknown> => (isPartiallyCurrent ? { className: 'active' } : {})}
-        onClick={onNavigate}
-      >
-        My Wallet
+        Pricing
       </Link>
     </Menu.Item>
   </Menu>

@@ -5,7 +5,8 @@
     "Email": "gnllucena@gmail.com",
     "RememberMe": false,
     "Bearer": "AbCdEf123456",
-    "Avatar": "http://localhost:3000/assets/images/profilepic.png"
+    "Avatar": "http://localhost:3000/assets/images/profilepic.png",
+    "Plans": []
   },
   "register": {
     "Id": 1,
