@@ -11,6 +11,7 @@ import CompanyIndexDescription from '../CompanyIndexDescription/CompanyIndexDesc
 import { useRecoilValue } from 'recoil';
 import { UserState } from '../../../../store/LoginPageState';
 import { Plans } from '../../../../domain/Plans';
+import CompanyIndexHistoric from '../CompanyIndexHistoric/CompanyIndexHistoric';
 
 interface CompanyIndexProps {
   index: Index,
@@ -24,10 +25,15 @@ const CompanyIndex: FunctionComponent<CompanyIndexProps> = ({
   situation
 }) => {
   const _user = useRecoilValue(UserState);
-  const [openedDrawer, setOpenedDrawer] = useState<boolean>(false);
+  const [openedDescriptionDrawer, setOpenedDescriptionDrawer] = useState<boolean>(false);
+  const [openedHistoricDrawer, setOpenedHistoricDrawer] = useState<boolean>(false);
 
-  const changeOpenedDrawer = () => {
-    setOpenedDrawer(!openedDrawer);
+  const changeOpenedDescriptionDrawer = () => {
+    setOpenedDescriptionDrawer(!openedDescriptionDrawer);
+  }
+
+  const changeOpenedHistoricDrawer = () => {
+    setOpenedHistoricDrawer(!openedDescriptionDrawer);
   }
 
   const color = (situation: Situation) => {
@@ -74,8 +80,8 @@ const CompanyIndex: FunctionComponent<CompanyIndexProps> = ({
         <Card
           className="company-details-index-card-wrapper"
           actions={[
-            <HistoryOutlined key="history" />,
-            <QuestionCircleOutlined key="question" onClick={changeOpenedDrawer} />
+            <HistoryOutlined key="history" onClick={changeOpenedHistoricDrawer} />,
+            <QuestionCircleOutlined key="question" onClick={changeOpenedDescriptionDrawer} />
           ]}>            
           <Statistic
             title={index}
@@ -90,12 +96,23 @@ const CompanyIndex: FunctionComponent<CompanyIndexProps> = ({
           <Drawer
             width={600}
             placement="right"
-            open={openedDrawer}
+            open={openedDescriptionDrawer}
             onClose={() => {
-              setOpenedDrawer(false);
+              setOpenedDescriptionDrawer(false);
             }}
           >
             <CompanyIndexDescription index={index} />
+          </Drawer>
+
+          <Drawer
+            height={400}
+            placement="bottom"
+            open={openedHistoricDrawer}
+            onClose={() => {
+              setOpenedHistoricDrawer(false);
+            }}
+          >
+            <CompanyIndexHistoric index={index} />
           </Drawer>
         </Card>
       </Col>

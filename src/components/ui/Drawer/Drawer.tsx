@@ -6,7 +6,8 @@ import './Drawer.scss';
 
 interface DrawerProps {
   placement: 'top' | 'right' | 'bottom' | 'left'
-  width: number,
+  width?: number,
+  height?: number,
   open: boolean,
   onClose(): void
 }
@@ -17,6 +18,7 @@ const Drawer: FunctionComponent<DrawerProps> = props => (
     closable={false}
     onClose={props.onClose}
     width={`${props.width}px`}
+    height={`${props.height}px`}
     className="drawer-wrapper"
     visible={props.open}
   >

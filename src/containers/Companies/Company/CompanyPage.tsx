@@ -22,6 +22,8 @@ const CompanyPage: FunctionComponent<RouteComponentProps> = () => {
 
         <Title title="Indexes" subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
         <CompanyIndexes company={company} />
+
+        <Title title="Stocks" subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
       </Content>
     </>
   );
