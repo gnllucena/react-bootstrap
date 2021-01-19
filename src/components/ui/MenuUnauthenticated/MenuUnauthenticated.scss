@@ -1,0 +1,11 @@
+.menu-unauthenticated-wrapper {
+  background-color: $header;
+  border-right: 0;
+
+  a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}

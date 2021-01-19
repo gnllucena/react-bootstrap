@@ -1,9 +1,9 @@
-class Pagination<T> {
-  public constructor(params: Pagination<T> = {} as Pagination<T>) {
-    this.Items = params.Items;
-    this.Offset = params.Offset;
-    this.Limit = params.Limit;
-    this.Total = params.Total;
+export default class Pagination<T> {
+  public constructor(params: Partial<Pagination<T>>) {
+    this.Items = params.Items ?? new Array<T>();
+    this.Offset = params.Offset ?? 0;
+    this.Limit = params.Limit ?? 0;
+    this.Total = params.Total ?? 0;
   }
 
   Items: Array<T>;
@@ -11,5 +11,3 @@ class Pagination<T> {
   Limit: number;
   Total: number;
 }
-
-export default Pagination;

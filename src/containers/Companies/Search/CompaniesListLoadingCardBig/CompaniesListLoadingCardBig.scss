@@ -1,0 +1,25 @@
+.companies-card-big {
+  width: 100%;
+  border-color: $border;
+
+  &.companies-card-big-loading {
+    .ant-card-meta-detail {
+      margin-top: 4px;
+
+      .ant-card-meta-description {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .ant-skeleton-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .companies-card-big-loading-column {
+    .ant-space {
+      display: inline-block;
+    }
+  }
+}

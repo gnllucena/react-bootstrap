@@ -13,6 +13,9 @@ module.exports = common({
     children: false,
     maxModules: 0
   },
+  output: {
+    publicPath: "/"
+  },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     historyApiFallback: true,

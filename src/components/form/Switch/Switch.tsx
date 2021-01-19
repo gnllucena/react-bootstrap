@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, { useState, FunctionComponent, CSSProperties } from 'react';
 import { Switch as SwitchAntd } from 'formik-antd';
 import { useField } from 'formik';
 
@@ -9,6 +9,7 @@ export interface SwitchProps {
   label: string,
   value: boolean,
   disabled?: boolean,
+  style?: CSSProperties,
   onChange?(checked: boolean): void
 }
 
@@ -17,6 +18,7 @@ const Switch: FunctionComponent<SwitchProps> = ({
   label,
   value,
   disabled,
+  style,
   onChange
 }) => {
   const [field, meta] = useField(name);
@@ -43,6 +45,7 @@ const Switch: FunctionComponent<SwitchProps> = ({
           checked={checked}
           disabled={disabled}
           onChange={changed}
+          style={style}
         />
 
         <span className="label-wrapper">{label}</span>

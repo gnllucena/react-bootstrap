@@ -50,7 +50,7 @@ module.exports = (args, environment) => merge({
           {
             loader: 'sass-loader',
             options: {
-              additionalData: `$urlimage: "${process.env.URL_IMAGES}";`
+              additionalData: `$urlimage: "${process.env.URL_IMAGES}/";`
             }
           },
           {

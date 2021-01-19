@@ -1,0 +1,27 @@
+.companies-card-small {
+  &.companies-card-loading-small {
+    .ant-skeleton-avatar {
+      height: 64px;
+      width: 64px;
+    }
+
+    .ant-card-meta-detail {
+      margin-top: 4px;
+    }
+
+    .companies-card-small-loading-column {
+      margin-bottom: 10px;
+
+      .ant-space {
+        display: inline-block;
+      }
+    }
+
+    .companies-card-small-row { 
+      &:not(:last-child) {
+        margin-bottom: 13px
+      }
+    }
+  }
+}
+

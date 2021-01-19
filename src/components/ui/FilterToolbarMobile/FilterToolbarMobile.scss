@@ -6,6 +6,11 @@
   position: relative;
   height: 100%;
 
+
+  .ant-collapse-content {
+    margin-bottom: 25px !important;
+  }
+
   .ant-collapse-content-box {
     padding-top: 2px !important;
   }
@@ -15,7 +20,7 @@
     bottom: 0;
     width: 87%;
     height: 70px;
-    background-color: $backgrond;
+    background-color: $background;
     padding: 16px 0px;
   }
 
@@ -25,7 +30,7 @@
 
   .ant-collapse {
     .ant-collapse-item {
-      border-bottom: 1px solid $border3;
+      border-bottom: 1px solid $border;
 
       &:last-child {
         border-bottom: 0;
@@ -33,7 +38,7 @@
 
       .ant-collapse-header {
         font-size: 15px;
-        color: $text0;
+        color: $text;
         text-transform: capitalize;
         font-weight: 700;
         padding: 29px 0;
@@ -44,7 +49,7 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
-            padding: 29px 0;
+            padding: 19px 0;
             &:hover,
             &:focus {
               outline: 0;
@@ -79,7 +84,7 @@
       .ant-drawer-content {
         ::-webkit-scrollbar {
           width: 0.1px !important;
-          background-color: #636363;
+          background-color: $submenu;
         }
       }
 

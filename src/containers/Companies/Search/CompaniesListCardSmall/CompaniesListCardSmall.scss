@@ -1,0 +1,40 @@
+.companies-card-small {
+  width: 100%;
+
+  .ant-statistic {
+    &.success {
+      .ant-statistic-content {
+        color: $success;
+      }
+    }
+
+    &.danger {
+      .ant-statistic-content {
+        color: $danger;
+      }
+    }
+  }
+
+  .ant-card-meta {
+    margin-bottom: 24px;
+  }
+
+  .ant-skeleton-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ant-card-meta-avatar {
+    margin-top: 4px;
+  }
+
+  .ant-card-meta-detail {
+    margin-top: 9px;
+  }
+
+  .companies-card-small-row { 
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -143,7 +143,7 @@ const FilterToolbar: FunctionComponent<FilterToolbarProps> = ({
             </div>
           </div>
         </div>
-      </Affix>
+        </Affix>
     </div>
   );
 };

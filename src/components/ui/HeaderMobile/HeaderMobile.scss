@@ -1,17 +1,12 @@
 .header-mobile-wrapper {
   display: flex;
-  padding: 0 25px;
   align-items: center;
   justify-content: space-between;
   min-height: 84px;
   width: 100%;
+  margin-top: -1px;
 
-  &.default {
-    border-bottom: 1px solid $border3;
-    background-color: $color1;
-  }
-
-  .hamburg-btn {
+  .hamburger {
     border: 0;
     padding: 0;
     width: auto;
@@ -24,7 +19,7 @@
       height: 2px;
       margin: 4px 0;
       border-radius: 5px;
-      background-color: $text0;
+      background-color: $text;
       transition: all 0.3s ease;
     }
 
@@ -34,7 +29,7 @@
 
       > span {
         width: 23px;
-        background-color: $primary0;
+        background-color: $primary;
       }
     }
 
@@ -43,32 +38,11 @@
     }
   }
 
-  &.transparent {
-    position: fixed;
-    z-index: 9999;
-
-    .hamburg-btn {
-      > span {
-        background-color: $color1;
-      }
-    }
-  }
-
   .logo-wrapper {
     display: flex;
     align-items: center;
-    
-    a {
-      display: flex;
-      align-items: center;
-    }
-  
-    img {
-      width: 20px;
-    }
-  
+      
     h3 {
-      color: #008489;
       font-size: 20px;
       font-weight: 700;
       margin: 0 0 0 10px;
@@ -76,131 +50,34 @@
   }
 }
 
-.header-mobile-drawer-wrapper {
-  &.ant-drawer {
-    z-index: 10000;
-  }
+.header-mobile-items-wrapper {
+  border: 0;
 
-  .ant-drawer-body {
+  li {
     padding: 0;
 
-    .auth-menu {
-      border: 0;
-      display: flex;
-      margin: 0 0 30px;
-      padding: 25px 20px;
-      align-items: center;
-      background-color: $color2;
-
-      li {
-        height: auto;
-        line-height: 1;
-        padding: 0;
-        margin: 0;
-        &.ant-menu-item-selected,
-        &.ant-menu-item-active {
-          background-color: transparent;
-        }
-
-        a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 15px;
-          border-radius: 3px;
-          font-size: 15px;
-          font-weight: 700;
-          color: $text0;
-        }
-
-        &:last-child {
-          a {
-            color: $color1;
-            background-color: $primary0;
-            transition: opacity 0.2s ease;
-            &:hover {
-              opacity: 0.9;
-            }
-          }
-        }
-      }
-    }
-
-    .main-menu {
-      border: 0;
-
-      li {
-        padding: 0;
-        &.ant-menu-item-selected,
-        &.ant-menu-item-active {
-          background-color: transparent;
-        }
-
-        a {
-          font-size: 15px;
-          padding: 0 31px;
-          border-left: 4px solid transparent;
-          color: $text0;
-          &.active {
-            font-weight: 700;
-            border-color: $primary0;
-            color: $primary0;
-            margin-left: 0;
-          }
-        }
-
-        button {
-          display: block;
-          text-align: left;
-          width: 100%;
-          border: 0;
-          padding: 0 32px;
-          cursor: pointer;
-          background-color: transparent;
-          color: $text0;
-          transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-          &:hover {
-            color: $primary0;
-          }
-
-
-          &focus {
-            outline: 0;
-          }
-        }
-
-        &:hover {
-          a {
-            color: $primary0;
-          }
-        }
-      }
-    }
-  }
-
-  .header-mobile-drawer-close {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px 15px 12px;
-
-    > button {
-      border: 0;
-      padding: 0;
+    &.ant-menu-item-selected,
+    &.ant-menu-item-active {
       background-color: transparent;
-      font-size: 38px;
-      line-height: 1;
-      height: auto;
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer;
-      color: $text1;
-      transition: all 0.3s ease;
+    }
 
-      &:hover,
-      &:focus {
-        outline: 0;
-        color: $text0;
+    a {
+      font-size: 15px;
+      padding: 0 31px;
+      border-left: 4px solid transparent;
+      color: $text-menu;
+      margin-left: -16px;
+
+      &.active {
+        font-weight: 700;
+        border-color: $text-menu-active;
+        color: $text-menu-active;
+      }
+    }
+
+    &:hover {
+      a {
+        color: $text-menu-active;
       }
     }
   }

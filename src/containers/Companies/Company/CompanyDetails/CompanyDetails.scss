@@ -1,0 +1,30 @@
+.company-details-header-wrapper {
+  padding: 10px 0 30px;
+
+  .company-details-header-title-wrapper {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+
+  ul.company-details-header-information-wrapper {
+    margin-top: -10px;
+
+    li {
+      display: inline-flex;
+      margin-right: 25px;
+      color: $text-subtitle;
+
+      span.anticon {
+        margin-right: 5px;
+
+        svg {
+          font-size: 20px;
+        }
+      }
+
+      label {
+        margin-top: -1px;
+      }
+    }
+  }
+}

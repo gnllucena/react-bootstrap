@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import axios from 'axios';
 import Divider from 'antd/lib/divider';
 import * as Yup from 'yup';
@@ -6,17 +6,16 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
-import Input from '../../../components/form/Input/Input';
 import Button from '../../../components/form/Button/Button';
-import UserState from '../../../store/atoms/domain/UserState';
 import User from '../../../domain/User';
+import { UserState } from '../../../store/LoginPageState';
+import Input from '../../../components/form/Input/Input';
 
 import '../../../assets/styles/Authentication.scss';
 
-const logo = require('../../../assets/images/logo-alt.svg') as string;
-
 const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const userState = useRecoilValue(UserState);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const schema = Yup.object().shape({
     Email: Yup.string()
@@ -26,60 +25,59 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
   });
 
   const submit = async (user: User): Promise<void> => {
-    await axios.post<User>(`${process.env.URL_API_STOCK}forgot-password`, user);
+    setLoading(true);
+
+    await axios.post<User>(`${process.env.URL_API_USER}/forgot-password`, user);
+
+    setLoading(false);
 
     navigate('/');
   };
 
   return (
-    <div className="authentication-wrapper">
-      <div className="form-wrapper">
-        <div className="logo-wrapper">
-          <Link to="/">
-            <img src={logo} alt="semnome017" />
-            <h3>semnome017</h3>
-          </Link>
+    <Row className="authentication-wrapper center" gutter={24}>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+      <Col xs={20} sm={20} md={20} lg={12} xl={12}>
+        <div className="form-wrapper">
+          <div className="title-wrapper">
+            Welcome back to <Link to="/">zro17</Link>
+          </div>
+
+          <div className="subtitle-wrapper">Enter your email to recover your account</div>
+
+          <Formik
+            initialValues={{
+              ...userState
+            }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {(): JSX.Element => (
+              <Form>
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Button text="Send password recovery email" type="submit" design="primary" size="big" loading={loading} />
+                  </Col>
+                </Row>
+              </Form>
+            )}
+          </Formik>
+
+          <Divider plain>or</Divider>
+          
+          <div className="align-center">
+            <Link to="/login">Log in with your existing account</Link>
+          </div>
         </div>
-
-        <div className="title-wrapper">Welcome Back</div>
-
-        <div className="title-info-wrapper">Enter your email to recover your account</div>
-
-        <Formik
-          initialValues={{
-            ...userState
-          }}
-          validationSchema={schema}
-          onSubmit={submit}
-        >
-          {(): JSX.Element => (
-            <Form>
-              <Row>
-                <Col span={24} className="align-left">
-                  <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Button text="Send password recovery email" type="submit" design="primary" size="big" />
-                </Col>
-              </Row>
-            </Form>
-          )}
-        </Formik>
-
-        <Divider />
-
-        <div className="align-center">
-          <Link to="/login">Log in with your existing account</Link>
-        </div>
-      </div>
-
-      <div className="banner-wrapper">
-        <div className="banner-wrapper-image" />
-      </div>
-    </div>
+      </Col>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+    </Row>
   );
 };
 

@@ -1,0 +1,34 @@
+.companies-card-big {
+  width: 100%;
+
+  .ant-statistic {
+    &.success {
+      .ant-statistic-content {
+        color: $success;
+      }
+    }
+
+    &.danger {
+      .ant-statistic-content {
+        color: $danger;
+      }
+    }
+  }
+  
+  .ant-skeleton-avatar {
+    height: 64px;
+    width: 64px;
+  }
+
+  .ant-card-meta-avatar {
+    margin-top: 4px;
+  }
+
+  .ant-card-meta-detail {
+    margin-top: 10px;
+
+    .ant-card-meta-description {
+      margin-top: -3px;
+    }
+  }
+}

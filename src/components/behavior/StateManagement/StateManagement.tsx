@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import UserState from '../../../store/atoms/domain/UserState';
+import { UserState } from '../../../store/LoginPageState';
 
 const StateManagement: FunctionComponent = () => {
   const userState = useRecoilValue(UserState);

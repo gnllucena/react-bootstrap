@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import useWindowSize from "./UseWindowSize";
 
 function useIsFullscreen(): boolean {

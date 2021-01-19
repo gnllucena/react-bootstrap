@@ -1,133 +1,110 @@
 .header-wrapper {
-  width: 100%;
+  height: 84px;
+  padding: 0 30px;
+  
+  &.header-default {
+    background-color: $header;
+    border-bottom: 1px solid $border;
 
-  .sticky-outer-wrapper {
-    nav {
-      &.is_transparent {
-        > div > div {
-          > svg {
-            width: 20px;
-            position: absolute;
-          }
+    .logo-wrapper {
+      h3 {
+        color: $primary;
+        font-size: 30px;
 
-          a {
-            img {
-              opacity: 0;
-            }
-
-            h3 {
-              color: $color1;
-            }
-          }
-        }
-
-        .ant-menu:not(.active) {
-          li {
-            a {
-              &.active {
-                color: $color1;
-              }
-              &:hover {
-                color: $color1;
-              }
-            }
-          }
+        &:hover {
+          color: $primary-hover;
         }
       }
+    }
 
-      &.transparent {
-        > div > div {
-          > svg {
-            width: 20px;
-            position: absolute;
-          }
-
+    .links-wrapper {
+      ul.ant-menu {
+        background-color: $header;
+        
+        li {
           a {
-            img {
-              opacity: 0;
-            }
+            color: $text-menu;
 
-            h3 {
-              color: $color1;
+            &:hover {
+              color: $text-menu-hover;
+            }
+    
+            &.active {
+              color: $text-menu-active;
+              border-bottom: 3px solid $text-menu-active;
             }
           }
         }
       }
     }
 
-    &.sticky-header {
-      nav {
-        &.is_transparent {
-          background-color: $color1;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    .auth-wrapper {
+      .avatar-dropdown {
+        ul.ant-menu {
+          background: $submenu !important;
 
-          > div > div {
-            > svg {
-              display: none;
-            }
+          li {
+            a, button {
+              color: $text-menu;
 
-            a {
-              img {
-                opacity: 1;
-              }
-
-              h3 {
-                color: $primary0;
-              }
-            }
-          }
-
-          .ant-menu {
-            li {
-              a {
-                color: $text0;
-                &:hover {
-                  color: $primary0;
-                }
-                &.active {
-                  color: $primary0;
-                  border-bottom: 3px solid $primary0;
-                }
-              }
-            }
-          }
-
-          .auth_menu {
-            .ant-menu {
-              li {
-                &:last-child {
-                  a {
-                    color: $color1;
-                  }
-                }
+              &:hover {
+                color: $text-menu-hover;
               }
             }
           }
         }
+      }
+    }
+  }
 
-        &.transparent {
-          background-color: $color1;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  &.header-detail {
+    background-color: $header;
+    border-bottom: 1px solid $border;
 
-          > div > div {
-            > svg {
-              display: none;
+    .logo-wrapper {
+      h3 {
+        color: $primary;
+        font-size: 30px;
+      }
+    }
+
+    .links-wrapper {    
+      ul.ant-menu {    
+        background-color: $header;
+
+        li {
+          a {
+            color: $text-menu;
+
+            &:hover {
+              color: $text-menu-hover;
             }
-
-            a {
-              img {
-                opacity: 1;
-              }
-
-              h3 {
-                color: $primary0;
-              }
+    
+            &.active {
+              color: $text-menu-active;
+              border-bottom: 3px solid $primary;
             }
           }
+        }
+      }
+    }
 
-          .hamburg-btn {
-            > span {
-              background-color: $text0;
+    .auth-wrapper {
+      .avatar-dropdown {
+        .ant-avatar {
+          background: $avatar;
+        }
+        
+        ul.ant-menu {
+          background: $submenu !important;
+
+          li {
+            a, button {
+              color: $text-menu;
+
+              &:hover {
+                color: $text-menu-hover;
+              }
             }
           }
         }

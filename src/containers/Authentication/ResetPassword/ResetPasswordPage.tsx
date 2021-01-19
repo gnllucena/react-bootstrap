@@ -6,16 +6,15 @@ import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
 import Button from '../../../components/form/Button/Button';
-import UserState from '../../../store/atoms/domain/UserState';
 import User from '../../../domain/User';
+import { UserState } from '../../../store/LoginPageState';
 import Password from '../../../components/form/Password/Password';
 
 import '../../../assets/styles/Authentication.scss';
 
-const logo = require('../../../assets/images/logo-alt.svg') as string;
-
 const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteComponentProps) => {
   const [token, setToken] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const userState = useRecoilValue(UserState);
 
   useEffect(() => {
@@ -51,62 +50,61 @@ const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteC
   });
 
   const submit = async (user: User): Promise<void> => {
-    await axios.post<User>(`${process.env.URL_API_STOCK}reset-password`, {
+    setLoading(true);
+
+    await axios.post<User>(`${process.env.URL_API_USER}/reset-password`, {
       ...user, Token: token
     });
-
+    
+    setLoading(false);
+    
     navigate('/');
   };
 
   return (
-    <div className="authentication-wrapper">
-      <div className="form-wrapper">
-        <div className="logo-wrapper">
-          <Link to="/">
-            <img src={logo} alt="semnome017" />
-            <h3>semnome017</h3>
-          </Link>
+    <Row className="authentication-wrapper center" gutter={24}>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+      <Col xs={20} sm={20} md={20} lg={12} xl={12}>
+        <div className="form-wrapper">
+          <div className="title-wrapper">
+            Welcome back to <Link to="/">zro17</Link>
+          </div>
+
+          <div className="subtitle-wrapper">Enter your email to recover your account</div>
+
+          <Formik
+            initialValues={{
+              ...userState, Password: '', ConfirmPassword: ''
+            }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {(): JSX.Element => (
+              <Form>
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Password name="Password" label="New password" autoComplete="new-password" />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Password name="ConfirmPassword" label="Confirme new password" autoComplete="new-password" />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col span={24} className="align-left">
+                    <Button text="Reset password" type="submit" design="primary" size="big" loading={loading} />
+                  </Col>
+                </Row>
+              </Form>
+            )}
+          </Formik>
         </div>
-
-        <div className="title-wrapper">Welcome Back</div>
-
-        <div className="title-info-wrapper">Enter your email to recover your account</div>
-
-        <Formik
-          initialValues={{
-            ...userState, Password: '', ConfirmPassword: ''
-          }}
-          validationSchema={schema}
-          onSubmit={submit}
-        >
-          {(): JSX.Element => (
-            <Form>
-              <Row>
-                <Col span={24} className="align-left">
-                  <Password name="Password" label="New password" autoComplete="new-password" />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Password name="ConfirmPassword" label="Confirme new password" autoComplete="new-password" />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col span={24} className="align-left">
-                  <Button text="Reset password" type="submit" design="primary" size="big" />
-                </Col>
-              </Row>
-            </Form>
-          )}
-        </Formik>
-      </div>
-
-      <div className="banner-wrapper">
-        <div className="banner-wrapper-image" />
-      </div>
-    </div>
+      </Col>
+      <Col xs={2} sm={2} md={2} lg={6} xl={6}></Col>
+    </Row>
   );
 };
 

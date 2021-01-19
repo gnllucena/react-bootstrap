@@ -1,0 +1,15 @@
+.menu-links {
+  background-color: $header;
+  border-right: 0;
+  
+  li {
+    line-height: 84px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
