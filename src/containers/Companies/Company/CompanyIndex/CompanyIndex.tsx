@@ -105,7 +105,7 @@ const CompanyIndex: FunctionComponent<CompanyIndexProps> = ({
           </Drawer>
 
           <Drawer
-            height={400}
+            height={450}
             placement="bottom"
             open={openedHistoricDrawer}
             onClose={() => {
