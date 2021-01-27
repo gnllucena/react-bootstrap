@@ -6,10 +6,10 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
-import Button from '../../../components/form/Button/Button';
+import { Button } from '../../../components/form/Button/Button';
+import { Input } from '../../../components/form/Input/Input';
 import User from '../../../domain/User';
 import { UserState } from '../../../store/LoginPageState';
-import Input from '../../../components/form/Input/Input';
 
 import '../../../assets/styles/Authentication.scss';
 
@@ -56,7 +56,7 @@ const ForgotPasswordPage: FunctionComponent<RouteComponentProps> = (props: Route
               <Form>
                 <Row>
                   <Col span={24} className="align-left">
-                    <Input name="Email" label="Email" autoComplete="username" value={userState.Email} />
+                    <Input name="Email" label="Email" autoComplete="username" value={userState.Email} focus />
                   </Col>
                 </Row>
 

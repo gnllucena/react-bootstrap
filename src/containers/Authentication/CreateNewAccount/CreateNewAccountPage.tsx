@@ -6,10 +6,10 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
-import Input from '../../../components/form/Input/Input';
-import Password from '../../../components/form/Password/Password';
-import Switch from '../../../components/form/Switch/Switch';
-import Button from '../../../components/form/Button/Button';
+import { Input } from '../../../components/form/Input/Input';
+import { Password } from '../../../components/form/Password/Password';
+import { Switch } from '../../../components/form/Switch/Switch';
+import { Button } from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
 import { UserState } from '../../../store/LoginPageState';
 
@@ -73,7 +73,7 @@ const CreateNewAccountPage: FunctionComponent<RouteComponentProps> = (props: Rou
               <Form>
                 <Row>
                   <Col span={24} className="align-left">
-                    <Input name="Name" label="Name" value={userState.Name} />
+                    <Input name="Name" label="Name" value={userState.Name} focus />
                   </Col>
                 </Row>
 

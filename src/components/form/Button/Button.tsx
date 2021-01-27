@@ -15,7 +15,7 @@ export interface ButtonProps {
   onClick?(): void
 }
 
-const Button: FunctionComponent<ButtonProps> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   text,
   size,
   type,

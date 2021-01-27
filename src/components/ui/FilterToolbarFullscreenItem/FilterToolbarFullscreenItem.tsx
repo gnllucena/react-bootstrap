@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, useRef } from 'react';
-import Button from '../../form/Button/Button';
+import { Button } from '../../form/Button/Button';
 import useOnClickOutside from '../../hooks/UseOnClickOutside';
 import FilterGroup from '../../models/FilterGroup';
 import Filter from '../../models/Filter';

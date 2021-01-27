@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Col, Menu, Row } from 'antd';
 import { Link, navigate } from '@reach/router';
 import useIsFullscreen from '../../hooks/UseIsFullscreen';
-import Button from '../../form/Button/Button';
+import { Button } from '../../form/Button/Button';
 
 import './MenuUnauthenticated.scss';
 

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import Slider from '../../form/Slider/Slider';
+import { Slider } from '../../form/Slider/Slider';
 import useDebounce from '../../hooks/UseDebounce';
 import FilterSlider from '../../models/FilterSlider';
 

@@ -1,6 +1,6 @@
 import { Collapse, Drawer } from 'antd';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import Button from '../../form/Button/Button';
+import { Button } from '../../form/Button/Button';
 import Filter from '../../models/Filter';
 import FilterGroup from '../../models/FilterGroup';
 import FilterToolbarMobileItem from '../FilterToolbarMobileItem/FilterToolbarMobileItem';

@@ -14,7 +14,7 @@ export interface CheckboxProps {
   onChange?(value: boolean): void
 }
 
-const Checkbox: FunctionComponent<CheckboxProps> = ({
+export const Checkbox: FunctionComponent<CheckboxProps> = ({
   name,
   label,
   value,
@@ -49,5 +49,3 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
     </div>
   );
 };
-
-export default Checkbox;

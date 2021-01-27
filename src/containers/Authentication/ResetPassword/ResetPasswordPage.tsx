@@ -5,10 +5,10 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'antd';
 import { useRecoilValue } from 'recoil';
-import Button from '../../../components/form/Button/Button';
+import { Button } from '../../../components/form/Button/Button';
 import User from '../../../domain/User';
 import { UserState } from '../../../store/LoginPageState';
-import Password from '../../../components/form/Password/Password';
+import { Password } from '../../../components/form/Password/Password';
 
 import '../../../assets/styles/Authentication.scss';
 
@@ -83,7 +83,7 @@ const ResetPasswordPage: FunctionComponent<RouteComponentProps> = (props: RouteC
               <Form>
                 <Row>
                   <Col span={24} className="align-left">
-                    <Password name="Password" label="New password" autoComplete="new-password" />
+                    <Password name="Password" label="New password" autoComplete="new-password" focus />
                   </Col>
                 </Row>
 
