@@ -2,9 +2,9 @@ import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { Content } from '../../../../components/ui/Content/Content';
 import { Index } from '../../../../domain/Index';
 import { Line } from '@ant-design/charts';
+import { LineConfig } from '@ant-design/charts/es/line';
 
 import './CompanyIndexHistoric.scss';
-import { LineConfig } from '@ant-design/charts/es/line';
 
 interface CompanyIndexHistoricProps {
   index: Index,
