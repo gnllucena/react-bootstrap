@@ -18,3 +18,7 @@ steps:
 - script: |
     yarn install
   displayName: 'Dependencies'
+
+- script: |
+    yarn run test
+  displayName: 'Tests'
