@@ -9,14 +9,5 @@ const environement = new DotenvPlugin({
 });
 
 module.exports = common({
-  mode: 'production',
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        sourceMap: true
-      })],
-    splitChunks: {
-      chunks: 'all'
-    }
-  }
+  mode: 'production'
 }, environement);

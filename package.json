@@ -6,7 +6,8 @@
     "server": "cd server && json-server --watch .\\db.json --routes .\\routes.json --delay 500",
     "build": "cross-env NODE_ENV=production webpack --colors --config ./webpack.prod.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server --colors --open --config ./webpack.dev.js",
-    "test": "yarn jest --collect-coverage"
+    "test": "yarn jest --collect-coverage",
+    "analyze": "source-map-explorer .\\dist\\main.bundle.js --no-border-checks"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,6 +69,7 @@
     "react-test-renderer": "^17.0.1",
     "sass-loader": "^9.0.2",
     "sass-resources-loader": "^2.0.3",
+    "source-map-explorer": "^2.5.2",
     "style-loader": "^1.2.1",
     "svg-url-loader": "^6.0.0",
     "ts-jest": "^26.5.0",
