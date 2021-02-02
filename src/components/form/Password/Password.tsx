@@ -8,16 +8,18 @@ export interface PasswordProps {
   name: string,
   label: string,
   placeholder?: string,
+  focus?: boolean,
   disabled?: boolean,
   autoComplete?: string,
   style?: CSSProperties,
   onChange?(value: string): void
 }
 
-const Password: FunctionComponent<PasswordProps> = ({
+export const Password: FunctionComponent<PasswordProps> = ({
   name,
   label,
   placeholder,
+  focus,
   disabled,
   autoComplete,
   style,
@@ -40,6 +42,7 @@ const Password: FunctionComponent<PasswordProps> = ({
       <InputAntd.Password
         size="large"
         name={name}
+        autoFocus={focus ?? false}
         placeholder={placeholder}
         autoComplete={autoComplete}
         disabled={disabled}
@@ -51,5 +54,3 @@ const Password: FunctionComponent<PasswordProps> = ({
     </div>
   );
 };
-
-export default Password;

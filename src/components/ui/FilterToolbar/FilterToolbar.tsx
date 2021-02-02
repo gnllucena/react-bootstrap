@@ -1,6 +1,6 @@
 import { Affix } from 'antd';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import Button from '../../form/Button/Button';
+import { Button } from '../../form/Button/Button';
 import useIsFullscreen from '../../hooks/UseIsFullscreen';
 import Filter from '../../models/Filter';
 import FilterGroup from '../../models/FilterGroup';

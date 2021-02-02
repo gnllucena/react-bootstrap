@@ -11,18 +11,20 @@ export interface SliderProps {
   minValue: number,
   range: boolean,
   value: number | [number, number]
+  focus?: boolean,
   disabled?: boolean
   style?: CSSProperties,
   onChange?(value: number | [number, number]): void
 }
 
-const Slider: FunctionComponent<SliderProps> = ({
+export const Slider: FunctionComponent<SliderProps> = ({
   name,
   label,
   maxValue,
   minValue,
   range,
   value,
+  focus,
   disabled,
   style,
   onChange
@@ -47,6 +49,7 @@ const Slider: FunctionComponent<SliderProps> = ({
 
       <SliderAntd
         name={name}
+        autoFocus={focus ?? false}
         max={maxValue}
         min={minValue}
         range={range}
@@ -62,5 +65,3 @@ const Slider: FunctionComponent<SliderProps> = ({
     </div>
   );
 };
-
-export default Slider;

@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import Checkbox from '../../form/Checkbox/Checkbox';
+import { Checkbox } from '../../form/Checkbox/Checkbox';
 import FilterCheckbox from '../../models/FilterCheckbox';
-
 export interface FilterToolbarItemCheckboxProps {
   filter: FilterCheckbox
   onChange(filter: FilterCheckbox): void

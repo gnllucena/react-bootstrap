@@ -1,7 +1,7 @@
 import React, { ErrorInfo, Component } from 'react';
 import { globalHistory, HistoryUnsubscribe, Link } from '@reach/router';
 import { Result } from 'antd';
-import Button from '../../form/Button/Button';
+import { Button } from '../../form/Button/Button';
 
 class ErrorBoundary extends Component {
   public state = {

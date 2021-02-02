@@ -8,15 +8,17 @@ export interface SwitchProps {
   name: string,
   label: string,
   value: boolean,
+  focus?: boolean,
   disabled?: boolean,
   style?: CSSProperties,
   onChange?(checked: boolean): void
 }
 
-const Switch: FunctionComponent<SwitchProps> = ({
+export const Switch: FunctionComponent<SwitchProps> = ({
   name,
   label,
   value,
+  focus,
   disabled,
   style,
   onChange
@@ -43,6 +45,7 @@ const Switch: FunctionComponent<SwitchProps> = ({
           name={field.name}
           defaultChecked={checked}
           checked={checked}
+          autoFocus={focus ?? false}
           disabled={disabled}
           onChange={changed}
           style={style}
@@ -55,5 +58,3 @@ const Switch: FunctionComponent<SwitchProps> = ({
     </div>
   );
 };
-
-export default Switch;

@@ -4,14 +4,13 @@ import { QuestionCircleOutlined, RiseOutlined, HistoryOutlined, FallOutlined } f
 import { Situation } from '../../../../domain/Situation';
 import { Link } from '@reach/router';
 import { Index } from '../../../../domain/Index';
-
-import './CompanyIndex.scss';
 import Drawer from '../../../../components/ui/Drawer/Drawer';
 import CompanyIndexDescription from '../CompanyIndexDescription/CompanyIndexDescription';
 import { useRecoilValue } from 'recoil';
 import { UserState } from '../../../../store/LoginPageState';
 import { Plans } from '../../../../domain/Plans';
 import CompanyIndexHistoric from '../CompanyIndexHistoric/CompanyIndexHistoric';
+import './CompanyIndex.scss';
 
 interface CompanyIndexProps {
   index: Index,
@@ -105,7 +104,7 @@ const CompanyIndex: FunctionComponent<CompanyIndexProps> = ({
           </Drawer>
 
           <Drawer
-            height={400}
+            height={450}
             placement="bottom"
             open={openedHistoricDrawer}
             onClose={() => {

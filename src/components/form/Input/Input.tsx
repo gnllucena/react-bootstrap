@@ -8,22 +8,26 @@ export interface InputProps {
   name: string,
   label: string,
   placeholder?: string,
-  value?: string,
+  value?: string | number,
+  focus?: boolean,
   disabled?: boolean,
   autoComplete?: string,
   style?: CSSProperties,
-  onChange?(value: string): void
+  onChange?(value: string): void,
+  onBlur?(value: string): void
 }
 
-const Input: FunctionComponent<InputProps> = ({
+export const Input: FunctionComponent<InputProps> = ({
   name,
   label,
   placeholder,
   value,
+  focus,
   disabled,
   autoComplete,
   style,
-  onChange
+  onChange,
+  onBlur
 }) => {
   const [field, meta, helpers] = useField(name);
 
@@ -35,18 +39,26 @@ const Input: FunctionComponent<InputProps> = ({
     }
   }
 
+  const blurred = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(event.target.defaultValue);
+    }
+  }
+
   return (
     <div className={`input-wrapper ${triggered() ? 'has-error' : ''}`}>
       <div className="label-wrapper">{label}</div>
 
       <InputAntd
         size="large"
+        autoFocus={focus ?? false}
         name={name}
         placeholder={placeholder}
         defaultValue={value}
         autoComplete={autoComplete}
         disabled={disabled}
         onChange={changed}
+        onBlur={blurred}
         style={style}
       />
 
@@ -54,5 +66,3 @@ const Input: FunctionComponent<InputProps> = ({
     </div>
   );
 };
-
-export default Input;

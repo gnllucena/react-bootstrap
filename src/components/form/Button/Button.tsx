@@ -15,7 +15,7 @@ export interface ButtonProps {
   onClick?(): void
 }
 
-const Button: FunctionComponent<ButtonProps> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   text,
   size,
   type,
@@ -25,25 +25,23 @@ const Button: FunctionComponent<ButtonProps> = ({
   disabled,
   style,
   onClick
-}) => {
-  return (
-    <ButtonAntd
-      className={`btn btn-${size} btn-${design}`}
-      type={design}
-      style={style}
-      htmlType={type}
-      icon={icon}
-      loading={loading}
-      disabled={loading ? true : disabled}
-      onClick={() => {
-        if (onClick) {
-          onClick();
-        }
-      }}
-    >
-      {text}
-    </ButtonAntd>
-  );
-};
+}) => (
+  <ButtonAntd
+    className={`btn btn-${size} btn-${design}`}
+    type={design}
+    style={style}
+    htmlType={type}
+    icon={icon}
+    loading={loading}
+    disabled={loading ? true : disabled}
+    onClick={() => {
+      if (onClick) {
+        onClick();
+      }
+    }}
+  >
+    {text}
+  </ButtonAntd>
+);
 
 export default Button;

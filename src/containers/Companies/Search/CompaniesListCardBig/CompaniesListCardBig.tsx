@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Meta from 'antd/lib/card/Meta';
 import { Avatar, Card, Col, Row, Skeleton, Statistic } from 'antd';
-import { RiseOutlined, FallOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { RiseOutlined, FallOutlined } from '@ant-design/icons';
 import CompanyPartial from '../../../../domain/CompanyPartial';
 
 import './CompaniesListCardBig.scss';
