@@ -10,7 +10,7 @@ variables:
   registry: 'kubreg.azurecr.io'
 
 stages:
-- stage: build
+- stage: Build
   jobs:
   - job: 'BuildAndTest'
     pool:
@@ -31,27 +31,24 @@ stages:
         displayName: 'Creating package'
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: WebApp
-
-
-- stage: staging
+- stage: Staging
   jobs:
-  - deployment: 'DeployToK8S'
+  - job: 'BuildAndTest'
     pool:
       vmImage: 'ubuntu-latest'
-    environment: dev
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-            - task: DownloadPipelineArtifact@1
-              inputs:
-                buildType: 'current'
-                artifactName: 'manifests'
-                targetPath: '$(System.ArtifactsDirectory)/manifests'
-            - task: KubernetesManifest@0
-              inputs:
-                action: 'deploy'
-                kubernetesServiceConnection: 'dev-kub-gosample-1558821689026'
-                namespace: 'gosample'
-                manifests: '$(System.ArtifactsDirectory)/manifests/deploy.yaml'
-                containers: '$(registry)/$(imageName):$(Build.BuildId)'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Installing Node.js'
+      - script: |
+          yarn install
+        displayName: 'Restoring dependencies'
+      - script: |
+          yarn run test
+        displayName: 'Running tests'
+      - script: |
+          yarn run build
+        displayName: 'Creating package'
+      - publish: $(System.DefaultWorkingDirectory)/dist
+        artifact: WebApp
