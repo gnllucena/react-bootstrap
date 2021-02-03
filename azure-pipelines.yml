@@ -31,12 +31,14 @@ stages:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: 'coverage/cobertura-coverage.xml'
         displayName: 'Publishing code coverage'
-      - task: BuildQualityCheck@7
-          inputs:
-            coverageUpperThreshold: '5'
-          displayName: 'Checking build quality'
+      # - task: BuildQualityCheck@7
+      #     inputs:
+      #       coverageUpperThreshold: '5'
+      #     displayName: 'Checking build quality'
       - script: |
           yarn run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=16384
         displayName: 'Creating artifact'
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: WebApp
