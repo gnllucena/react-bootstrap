@@ -8,5 +8,8 @@ module.exports = {
   coverageReporters: [
     "text",
     "cobertura"
+  ],
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
   ]
 };
