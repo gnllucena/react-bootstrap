@@ -26,6 +26,11 @@ stages:
       - script: |
           yarn run test
         displayName: 'Running tests'
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: 'Cobertura'
+          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+        displayName: 'Publishing code coverage'
       - script: |
           yarn run build
         displayName: 'Creating package'
