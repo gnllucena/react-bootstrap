@@ -31,11 +31,16 @@ stages:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: 'coverage/cobertura-coverage.xml'
         displayName: 'Publishing code coverage'
+      - task: BuildQualityChecks@7
+          displayName: 'Checking build quality'
+          inputs:
+            coverageUpperThreshold: '5'
       - script: |
           yarn run build
-        displayName: 'Creating package'
+        displayName: 'Creating artifact'
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: WebApp
+        displayName: 'Publishing app artifact'
 - stage: Staging
   jobs:
   - job: 'BuildAndTest'
