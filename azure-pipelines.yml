@@ -2,23 +2,56 @@
 # Build a Node.js project that uses React.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
+variables:
+  imageName: 'gosample'
+  registry: 'kubreg.azurecr.io'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+stages:
+- stage: build
+  jobs:
+  - job: 'BuildAndTest'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Installing Node.js'
+      - script: |
+          yarn install
+        displayName: 'Restoring dependencies'
+      - script: |
+          yarn run test
+        displayName: 'Running tests'
+      - script: |
+          yarn run build
+        displayName: 'Creating package'
+      - publish: $(System.DefaultWorkingDirectory)/dist
+        artifact: WebApp
 
-- script: |
-    yarn install
-  displayName: 'Dependencies'
 
-- script: |
-    yarn run test
-  displayName: 'Tests'
+- stage: staging
+  jobs:
+  - deployment: 'DeployToK8S'
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: DownloadPipelineArtifact@1
+              inputs:
+                buildType: 'current'
+                artifactName: 'manifests'
+                targetPath: '$(System.ArtifactsDirectory)/manifests'
+            - task: KubernetesManifest@0
+              inputs:
+                action: 'deploy'
+                kubernetesServiceConnection: 'dev-kub-gosample-1558821689026'
+                namespace: 'gosample'
+                manifests: '$(System.ArtifactsDirectory)/manifests/deploy.yaml'
+                containers: '$(registry)/$(imageName):$(Build.BuildId)'
