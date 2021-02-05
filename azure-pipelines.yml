@@ -12,7 +12,7 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: 'Build, Test and Quality Gates'
+  - job: 'BuildAndTest'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -31,7 +31,7 @@ stages:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: 'coverage/cobertura-coverage.xml'
         displayName: 'Publishing code coverage'
-      - task: BuildQualityCheck@7
+      - task: BuildQualityCheck@8
         inputs:
           coverageUpperThreshold: '5'
         displayName: 'Checking build quality'
@@ -42,10 +42,9 @@ stages:
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: app
         displayName: 'Publishing app artifact'
-        
 - stage: Staging
   jobs:
-  - job: 'Deploy to Staging'
+  - job: 'Deploy'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
