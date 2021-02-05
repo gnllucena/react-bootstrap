@@ -12,7 +12,7 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: 'BuildAndTest'
+  - job: 'Build, Test and Quality Gates'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -40,11 +40,12 @@ stages:
           NODE_OPTIONS: --max_old_space_size=16384
         displayName: 'Creating artifact'
       - publish: $(System.DefaultWorkingDirectory)/dist
-        artifact: WebApp
+        artifact: app
         displayName: 'Publishing app artifact'
+        
 - stage: Staging
   jobs:
-  - job: 'BuildAndTest'
+  - job: 'Deploy to Staging'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
