@@ -9,7 +9,7 @@ stages:
 - stage: Build
   jobs:
   - deployment: 'BuildAndTest'
-    environment: 'Staging'
+    environment: 'Build'
     pool:
       vmImage: 'ubuntu-latest'
     strategy:
