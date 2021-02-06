@@ -33,6 +33,7 @@ stages:
         displayName: 'Publishing code coverage'
       - task: BuildQualityChecks@8
         inputs:
+          coverageType: lines
           checkCoverage: true
           coverageThreshold: '5'
         displayName: 'Checking build quality'
