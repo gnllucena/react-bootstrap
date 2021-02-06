@@ -21,6 +21,9 @@ stages:
                 versionSpec: '10.x'
               displayName: 'Installing Node.js'
             - script: |
+                ls -la
+              displayName: 'ls -la'
+            - script: |
                 yarn install
               displayName: 'Restoring dependencies'
             - script: |
