@@ -2,13 +2,13 @@ trigger:
 - main
 
 variables:
-  imageName: 'gosample'
+  environment: 'gosample'
   registry: 'kubreg.azurecr.io'
 
 stages:
 - stage: Build
   jobs:
-  - job: 'BuildAndTest'
+  - deployment: 'BuildAndTest'
     environment: 'Build'
     pool:
       vmImage: 'ubuntu-latest'
@@ -46,8 +46,7 @@ stages:
         displayName: 'Publishing app artifact'
 
 - stage: Staging
-  jobs:
-  - job: 'Deploy'
+  - deployment: 'Deploy'
     environment: 'Staging'
     pool:
       vmImage: 'ubuntu-latest'
