@@ -35,7 +35,7 @@ stages:
         inputs:
           allowCoverageVariance: 'true'
           coverageVariance: 0;
-          coverageType: lines
+          coverageType: branch
           checkCoverage: true
           coverageUpperThreshold: '1'
         displayName: 'Checking build quality'
