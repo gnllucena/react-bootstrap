@@ -30,11 +30,12 @@ stages:
       - task: BuildQualityChecks@8
         inputs:
           allowCoverageVariance: 'true'
-          coverageVariance: 0;
+          coverageVariance: 5;
           coverageType: branch
           checkCoverage: true
-          coverageThreshold: '1'
-          coverageUpperThreshold: '1'
+          coverageThreshold: 1
+          coverageUpperThreshold: 1
+          coverageDeltaType: percentage
         displayName: 'Checking build quality'
       - script: yarn run build
         env:
