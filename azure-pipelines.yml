@@ -1,7 +1,3 @@
-# Node.js with React
-# Build a Node.js project that uses React.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 trigger:
 - main
 
@@ -13,6 +9,7 @@ stages:
 - stage: Build
   jobs:
   - job: 'BuildAndTest'
+    environment: 'Build'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -37,6 +34,7 @@ stages:
           coverageVariance: 0;
           coverageType: branch
           checkCoverage: true
+          coverageThreshold: '1'
           coverageUpperThreshold: '1'
         displayName: 'Checking build quality'
       - script: yarn run build
@@ -46,9 +44,11 @@ stages:
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: app
         displayName: 'Publishing app artifact'
+
 - stage: Staging
   jobs:
   - job: 'Deploy'
+    environment: 'Staging'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
