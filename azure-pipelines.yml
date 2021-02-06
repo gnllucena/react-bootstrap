@@ -33,7 +33,8 @@ stages:
         displayName: 'Publishing code coverage'
       - task: BuildQualityChecks@8
         inputs:
-          coverageUpperThreshold: '5'
+          checkCoverage: true
+          coverageThreshold: '5'
         displayName: 'Checking build quality'
       - script: yarn run build
         env:
