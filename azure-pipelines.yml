@@ -8,61 +8,69 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: 'BuildAndTest'
+  - DeployStaging: 'BuildAndTest'
+    environment: 'Staging'
     pool:
       vmImage: 'ubuntu-latest'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-        displayName: 'Installing Node.js'
-      - script: |
-          yarn install
-        displayName: 'Restoring dependencies'
-      - script: |
-          yarn run test
-        displayName: 'Running tests'
-      - task: PublishCodeCoverageResults@1
-        inputs:
-          codeCoverageTool: 'Cobertura'
-          summaryFileLocation: 'coverage/cobertura-coverage.xml'
-        displayName: 'Publishing code coverage'
-      - task: BuildQualityChecks@8
-        inputs:
-          allowCoverageVariance: 'true'
-          coverageVariance: 5;
-          coverageType: branch
-          checkCoverage: true
-          coverageThreshold: 1
-          coverageUpperThreshold: 1
-          coverageDeltaType: percentage
-        displayName: 'Checking build quality'
-      - script: yarn run build
-        env:
-          NODE_OPTIONS: --max_old_space_size=16384
-        displayName: 'Creating artifact'
-      - publish: $(System.DefaultWorkingDirectory)/dist
-        artifact: app
-        displayName: 'Publishing app artifact'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: NodeTool@0
+              inputs:
+                versionSpec: '10.x'
+              displayName: 'Installing Node.js'
+            - script: |
+                yarn install
+              displayName: 'Restoring dependencies'
+            - script: |
+                yarn run test
+              displayName: 'Running tests'
+            - task: PublishCodeCoverageResults@1
+              inputs:
+                codeCoverageTool: 'Cobertura'
+                summaryFileLocation: 'coverage/cobertura-coverage.xml'
+              displayName: 'Publishing code coverage'
+            - task: BuildQualityChecks@8
+              inputs:
+                allowCoverageVariance: true
+                coverageVariance: 5
+                coverageType: branch
+                checkCoverage: true
+                coverageThreshold: 1
+                coverageUpperThreshold: 1
+                coverageDeltaType: percentage
+              displayName: 'Checking build quality'
+            - script: yarn run build
+              env:
+                NODE_OPTIONS: --max_old_space_size=16384
+              displayName: 'Creating artifact'
+            - publish: $(System.DefaultWorkingDirectory)/dist
+              artifact: app
+              displayName: 'Publishing app artifact'
 
 - stage: Staging
   jobs:
-  - job: 'Deploy'
+  - deployment: 'DeployStaging'
+    environment: 'Staging'
     pool:
       vmImage: 'ubuntu-latest'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-        displayName: 'Installing Node.js'
-      - script: |
-          yarn install
-        displayName: 'Restoring dependencies'
-      - script: |
-          yarn run test
-        displayName: 'Running tests'
-      - script: |
-          yarn run build
-        displayName: 'Creating package'
-      - publish: $(System.DefaultWorkingDirectory)/dist
-        artifact: WebApp
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: NodeTool@0
+              inputs:
+                versionSpec: '10.x'
+              displayName: 'Installing Node.js'
+            - script: |
+                yarn install
+              displayName: 'Restoring dependencies'
+            - script: |
+                yarn run test
+              displayName: 'Running tests'
+            - script: |
+                yarn run build
+              displayName: 'Creating package'
+            - publish: $(System.DefaultWorkingDirectory)/dist
+              artifact: WebApp
