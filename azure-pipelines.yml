@@ -8,7 +8,7 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - deployment: 'BuildAndTest'
+  - job: 'BuildAndTest'
     environment: 'Build'
     pool:
       vmImage: 'ubuntu-latest'
@@ -47,8 +47,7 @@ stages:
 
 - stage: Staging
   jobs:
-  - deployment: 'Deploy'
-    environment: 'Staging'
+  - job: 'Deploy'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
