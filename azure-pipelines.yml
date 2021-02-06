@@ -31,7 +31,7 @@ stages:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: 'coverage/cobertura-coverage.xml'
         displayName: 'Publishing code coverage'
-      - task: BuildQualityCheck@8.0.2
+      - task: BuildQualityChecks@7
         inputs:
           coverageUpperThreshold: '5'
         displayName: 'Checking build quality'
