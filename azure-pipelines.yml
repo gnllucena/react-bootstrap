@@ -5,6 +5,7 @@ variables:
   environment: 'gosample'
   registry: 'kubreg.azurecr.io'
 
+stages:
 - stage: Approval
   jobs:
   - deployment: 'WaitBuildApproval'
