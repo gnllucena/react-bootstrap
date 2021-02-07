@@ -6,18 +6,25 @@ variables:
   registry: 'kubreg.azurecr.io'
 
 stages:
+- stage: Validation
+  jobs:
+  - job: waitForValidation
+    displayName: Wait for external validation  
+    pool: server    
+    timeoutInMinutes: 1440 
+    steps:   
+    - task: ManualValidation@0
+      timeoutInMinutes: 1440 
+      inputs:
+        instructions: 'Please validate the build configuration and resume'
+        onTimeout: 'reject'
+
 - stage: Build
   jobs:
   - job: 'BuildAndTest'
     pool:
       vmImage: 'ubuntu-latest'
-    timeoutInMinutes: 1440
     steps:
-      - task: ManualValidation@0
-        timeoutInMinutes: 1440
-        inputs:
-          instructions: 'Validate the build configuration and resume'
-          onTimeout: 'reject '
       - task: NodeTool@0
         inputs:
           versionSpec: '10.x'
