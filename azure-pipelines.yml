@@ -38,7 +38,7 @@ stages:
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+          summaryFileLocation: 'coverage/clover.xml'
         displayName: 'Publishing code coverage'
       - task: BuildQualityChecks@8
         inputs:

@@ -1,3 +1,6 @@
+https://docs.aws.amazon.com/cdk/api/latest/dotnet/api/Amazon.CDK.AWS.CloudFront.html
+https://stackoverflow.com/questions/60726869/how-do-you-assign-a-vpc-and-security-group-to-a-lambda-in-aws-cdk
+
 https://www.nngroup.com/articles/top-10-application-design-mistakes/
 https://screenlane.com/?ref=uimovement
 https://dribbble.com/
