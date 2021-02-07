@@ -35,7 +35,7 @@ stages:
               displayName: 'Creating artifact'
               env:
                 NODE_OPTIONS: --max_old_space_size=16384
-            - publish: $(System.DefaultWorkingDirectory)
+            - publish: $(System.DefaultWorkingDirectory)/dist
               displayName: 'Publishing app artifact'
               artifact: app
 
