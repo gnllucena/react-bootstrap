@@ -8,7 +8,7 @@ module.exports = {
   reporters: [ 
     "default", 
     [ 
-      "jest-junit", { 
+      "jest-junit", {
         suiteNameTemplate: "{filepath}",
         outputName: "junit.xml",
         outputDirectory: "./coverage",

@@ -37,12 +37,13 @@ stages:
         displayName: 'Running tests'
       - task: PublishTestResults@2
         inputs:
+          testRunner: JUnit
           testResultsFiles: 'coverage/junit.xml'
         displayName: 'Publishing test results'
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: 'coverage/clover.xml'
+          summaryFileLocation: 'coverage/cobertura-coverage.xml'
         displayName: 'Publishing code coverage'
       - task: BuildQualityChecks@8
         inputs:
