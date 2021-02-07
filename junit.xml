@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" errors="0" time="8.885">
-  <testsuite name="Button" errors="0" failures="0" skipped="0" timestamp="2021-02-07T05:20:43" time="2.699" tests="1">
-    <testcase classname="Button Rendering" name="Button Rendering" time="0.014">
-    </testcase>
-  </testsuite>
-</testsuites>

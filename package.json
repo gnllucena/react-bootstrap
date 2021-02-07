@@ -12,6 +12,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest-junit": {
+    "suiteNameTemplate": "{filepath}",
+    "outputDirectory": "./coverage",
+    "outputName": "junit.xml"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
