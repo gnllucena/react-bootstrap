@@ -54,5 +54,6 @@ stages:
             - task: DownloadPipelineArtifact@2
               inputs:
                 source: 'current'
+                path: $(System.ArtifactsDirectory)
             - script: cd $(System.ArtifactsDirectory) && ls -la
               displayName: 'Testing environment variable'
