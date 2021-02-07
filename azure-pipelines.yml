@@ -35,11 +35,16 @@ stages:
       - script: |
           yarn run test
         displayName: 'Running tests'
-      - task: PublishCodeCoverageResults@1
-        inputs:
-          codeCoverageTool: 'Cobertura'
-          summaryFileLocation: 'coverage/clover.xml'
-        displayName: 'Publishing code coverage'
+      # - task: PublishCodeCoverageResults@1
+      #   inputs:
+      #     codeCoverageTool: 'Cobertura'
+      #     summaryFileLocation: 'coverage/clover.xml'
+      #   displayName: 'Publishing code coverage'
+      - task: PublishTestResults@2
+          condition: succeededOrFailed()
+          inputs:
+            testResultsFiles: 'src/client-app/junit.xml'
+          displayName: 'Publishing test results'
       - task: BuildQualityChecks@8
         inputs:
           allowCoverageVariance: true
