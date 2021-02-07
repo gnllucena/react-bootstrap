@@ -9,14 +9,6 @@
     "test": "yarn jest --collect-coverage",
     "analyze": "source-map-explorer .\\dist\\main.bundle.js --no-border-checks"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "jest-junit": {
-    "suiteNameTemplate": "{filepath}",
-    "outputDirectory": "./coverage",
-    "outputName": "junit.xml"
-  },
   "browserslist": {
     "production": [
       ">0.2%",

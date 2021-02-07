@@ -35,25 +35,25 @@ stages:
       - script: |
           yarn run test
         displayName: 'Running tests'
-      # - task: PublishCodeCoverageResults@1
-      #   inputs:
-      #     codeCoverageTool: 'Cobertura'
-      #     summaryFileLocation: 'coverage/clover.xml'
-      #   displayName: 'Publishing code coverage'
       - task: PublishTestResults@2
         inputs:
           testResultsFiles: 'coverage/junit.xml'
         displayName: 'Publishing test results'
-      # - task: BuildQualityChecks@8
-      #   inputs:
-      #     allowCoverageVariance: true
-      #     coverageVariance: 5
-      #     coverageType: branch
-      #     checkCoverage: true
-      #     coverageThreshold: 1
-      #     coverageUpperThreshold: 1
-      #     coverageDeltaType: percentage
-      #   displayName: 'Checking build quality'
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: 'Cobertura'
+          summaryFileLocation: 'coverage/clover.xml'
+        displayName: 'Publishing code coverage'
+      - task: BuildQualityChecks@8
+        inputs:
+          allowCoverageVariance: true
+          coverageVariance: 5
+          coverageType: branch
+          checkCoverage: true
+          coverageThreshold: 1
+          coverageUpperThreshold: 1
+          coverageDeltaType: percentage
+        displayName: 'Checking build quality'
       - script: yarn run build
         env:
           NODE_OPTIONS: --max_old_space_size=16384
