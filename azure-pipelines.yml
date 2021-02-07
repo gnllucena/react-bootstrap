@@ -41,9 +41,9 @@ stages:
       #     summaryFileLocation: 'coverage/clover.xml'
       #   displayName: 'Publishing code coverage'
       - task: PublishTestResults@2
-          inputs:
-            testResultsFiles: 'coverage/clover.xml'
-          displayName: 'Publishing test results'
+        inputs:
+          testResultsFiles: 'coverage/clover.xml'
+        displayName: 'Publishing test results'
       - task: BuildQualityChecks@8
         inputs:
           allowCoverageVariance: true
