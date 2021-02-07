@@ -31,16 +31,6 @@ stages:
               inputs:
                 codeCoverageTool: 'Cobertura'
                 summaryFileLocation: 'coverage/cobertura-coverage.xml'
-            # - task: BuildQualityChecks@8
-            #   displayName: 'Checking build quality'
-            #   inputs:
-            #     allowCoverageVariance: true
-            #     coverageVariance: 5
-            #     coverageType: branch
-            #     checkCoverage: true
-            #     coverageThreshold: 1
-            #     coverageUpperThreshold: 1
-            #     coverageDeltaType: percentage
             - script: yarn run build
               displayName: 'Creating artifact'
               env:
@@ -61,13 +51,13 @@ stages:
       runOnce:
         deploy:
           steps:
-            - script: echo $(BUCKET_COMPANIES)
+            - script: ls -la
               displayName: 'Testing environment variable'
 
 - stage: Production
   jobs:
   - deployment: 'DeployProduction'
-    environment: 'Staging'
+    environment: 'Production'
     pool:
       vmImage: 'ubuntu-20.04'
     variables:
