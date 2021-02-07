@@ -21,5 +21,6 @@ module.exports = common({
     historyApiFallback: true,
     compress: true,
     port: 9000
-  }
+  },
+  devtool: 'source-map'
 }, environement);

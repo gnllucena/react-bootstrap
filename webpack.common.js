@@ -91,6 +91,5 @@ module.exports = (args, environment) => merge({
         }
       ]
     })
-  ],
-  devtool: 'source-map'
+  ]
 }, args);
