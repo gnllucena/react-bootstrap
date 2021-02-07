@@ -8,50 +8,48 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - deployment: 'BuildAndTest'
-    environment: 'Build'
+  - job: 'BuildAndTest'
     pool:
       vmImage: 'ubuntu-latest'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-            - checkout: self
-            - task: NodeTool@0
-              inputs:
-                versionSpec: '10.x'
-              displayName: 'Installing Node.js'
-            - script: |
-                ls -la
-              displayName: 'ls -la'
-            - script: |
-                yarn install
-              displayName: 'Restoring dependencies'
-            - script: |
-                yarn run test
-              displayName: 'Running tests'
-            - task: PublishCodeCoverageResults@1
-              inputs:
-                codeCoverageTool: 'Cobertura'
-                summaryFileLocation: 'coverage/cobertura-coverage.xml'
-              displayName: 'Publishing code coverage'
-            - task: BuildQualityChecks@8
-              inputs:
-                allowCoverageVariance: true
-                coverageVariance: 5
-                coverageType: branch
-                checkCoverage: true
-                coverageThreshold: 1
-                coverageUpperThreshold: 1
-                coverageDeltaType: percentage
-              displayName: 'Checking build quality'
-            - script: yarn run build
-              env:
-                NODE_OPTIONS: --max_old_space_size=16384
-              displayName: 'Creating artifact'
-            - publish: $(System.DefaultWorkingDirectory)/dist
-              artifact: app
-              displayName: 'Publishing app artifact'
+    timeoutInMinutes: 1440
+    steps:
+      - task: ManualValidation@0
+        timeoutInMinutes: 1440
+        inputs:
+          instructions: 'Validate the build configuration and resume'
+          onTimeout: 'reject '
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Installing Node.js'
+      - script: |
+          yarn install
+        displayName: 'Restoring dependencies'
+      - script: |
+          yarn run test
+        displayName: 'Running tests'
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: 'Cobertura'
+          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+        displayName: 'Publishing code coverage'
+      - task: BuildQualityChecks@8
+        inputs:
+          allowCoverageVariance: true
+          coverageVariance: 5
+          coverageType: branch
+          checkCoverage: true
+          coverageThreshold: 1
+          coverageUpperThreshold: 1
+          coverageDeltaType: percentage
+        displayName: 'Checking build quality'
+      - script: yarn run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=16384
+        displayName: 'Creating artifact'
+      - publish: $(System.DefaultWorkingDirectory)/dist
+        artifact: app
+        displayName: 'Publishing app artifact'
 
 - stage: Staging
   jobs:
