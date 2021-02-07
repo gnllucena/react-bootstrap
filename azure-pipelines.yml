@@ -1,9 +1,9 @@
 trigger:
 - main
 
-variables:
-- group: Staging
-- group: Production
+# variables:
+# - group: Staging
+# - group: Production
 
 stages:
 - stage: Approval
@@ -25,11 +25,13 @@ stages:
     environment: 'Staging'
     pool:
       vmImage: 'ubuntu-20.04'
+    variables:
+      - group: Staging
     strategy:
       runOnce:
         deploy:
           steps:
-            - script: echo $(Production.BUCKET_COMPANIES)
+            - script: echo $(BUCKET_COMPANIES)
               displayName: 'Testing environment variable'
 
 - stage: Build
