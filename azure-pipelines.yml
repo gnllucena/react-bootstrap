@@ -19,6 +19,19 @@ stages:
             - script: echo Approved
               displayName: 'Waiting build approval'
 
+- stage: Staging
+  jobs:
+  - deployment: 'DeployStaging'
+    environment: 'Staging'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: echo $(Production.BUCKET_COMPANIES)
+              displayName: 'Testing environment variable'
+
 - stage: Build
   jobs:
   - job: 'BuildAndTest'
@@ -60,16 +73,3 @@ stages:
       - publish: $(System.DefaultWorkingDirectory)/dist
         displayName: 'Publishing app artifact'
         artifact: app
-
-- stage: Staging
-  jobs:
-  - deployment: 'DeployStaging'
-    environment: 'Staging'
-    pool:
-      vmImage: 'ubuntu-20.04'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-            - script: echo $(BUCKET_COMPANIES)
-              displayName: 'Testing environment variable'
