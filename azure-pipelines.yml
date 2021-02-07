@@ -5,25 +5,24 @@ variables:
   environment: 'gosample'
   registry: 'kubreg.azurecr.io'
 
-stages:
-- stage: Validation
+- stage: Approval
   jobs:
-  - job: waitForValidation
-    displayName: Wait for external validation  
-    pool: server    
-    timeoutInMinutes: 1440 
-    steps:   
-    - task: ManualValidation@0
-      timeoutInMinutes: 1440 
-      inputs:
-        instructions: 'Please validate the build configuration and resume'
-        onTimeout: 'reject'
+  - deployment: 'WaitBuildApproval'
+    environment: 'Build'
+    pool:
+      vmImage: 'ubuntu-20.04'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: echo Approved
+              displayName: 'Waiting build approval'
 
 - stage: Build
   jobs:
   - job: 'BuildAndTest'
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'ubuntu-20.04'
     steps:
       - task: NodeTool@0
         inputs:
@@ -63,7 +62,7 @@ stages:
   - deployment: 'DeployStaging'
     environment: 'Staging'
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'ubuntu-20.04'
     strategy:
       runOnce:
         deploy:
