@@ -26,26 +26,25 @@ stages:
       vmImage: 'ubuntu-20.04'
     steps:
       - task: NodeTool@0
+        displayName: 'Installing Node.js'
         inputs:
           versionSpec: '10.x'
-        displayName: 'Installing Node.js'
-      - script: |
-          yarn install
+      - script: yarn install
         displayName: 'Restoring dependencies'
-      - script: |
-          yarn run test
+      - script: yarn run test
         displayName: 'Running tests'
       - task: PublishTestResults@2
+        displayName: 'Publishing test results'
         inputs:
           testRunner: JUnit
           testResultsFiles: 'coverage/junit.xml'
-        displayName: 'Publishing test results'
       - task: PublishCodeCoverageResults@1
+        displayName: 'Publishing code coverage'
         inputs:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: 'coverage/cobertura-coverage.xml'
-        displayName: 'Publishing code coverage'
       # - task: BuildQualityChecks@8
+      #   displayName: 'Checking build quality'
       #   inputs:
       #     allowCoverageVariance: true
       #     coverageVariance: 5
@@ -54,14 +53,13 @@ stages:
       #     coverageThreshold: 1
       #     coverageUpperThreshold: 1
       #     coverageDeltaType: percentage
-      #   displayName: 'Checking build quality'
       - script: yarn run build
+        displayName: 'Creating artifact'
         env:
           NODE_OPTIONS: --max_old_space_size=16384
-        displayName: 'Creating artifact'
       - publish: $(System.DefaultWorkingDirectory)/dist
-        artifact: app
         displayName: 'Publishing app artifact'
+        artifact: app
 
 - stage: Staging
   jobs:
@@ -73,18 +71,5 @@ stages:
       runOnce:
         deploy:
           steps:
-            - task: NodeTool@0
-              inputs:
-                versionSpec: '10.x'
-              displayName: 'Installing Node.js'
-            - script: |
-                yarn install
-              displayName: 'Restoring dependencies'
-            - script: |
-                yarn run test
-              displayName: 'Running tests'
-            - script: |
-                yarn run build
-              displayName: 'Creating package'
-            - publish: $(System.DefaultWorkingDirectory)/dist
-              artifact: WebApp
+            - script: echo $(BUCKET_COMPANIES)
+              displayName: 'Testing environment variable'
