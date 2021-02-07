@@ -35,7 +35,7 @@ stages:
               displayName: 'Creating artifact'
               env:
                 NODE_OPTIONS: --max_old_space_size=16384
-            - publish: $(System.DefaultWorkingDirectory)/dist
+            - publish: $(System.DefaultWorkingDirectory)
               displayName: 'Publishing app artifact'
               artifact: app
 
@@ -51,7 +51,13 @@ stages:
       runOnce:
         deploy:
           steps:
-            - script: ls -la
+            - task: DownloadBuildArtifacts@0
+              inputs:
+                buildType: 'current'
+                downloadType: 'single'
+                artifactName: 'app'
+                downloadPath: '$(System.ArtifactsDirectory)'
+            - script: cd $(System.ArtifactsDirectory) && ls -la
               displayName: 'Testing environment variable'
 
 - stage: Production
