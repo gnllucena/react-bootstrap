@@ -54,6 +54,14 @@ stages:
             - task: DownloadPipelineArtifact@2
               inputs:
                 source: 'current'
-                path: $(System.ArtifactsDirectory)
-            - script: cd $(System.ArtifactsDirectory) && ls -la
+            - script: cd $(Agent.BuildDirectory) && ls -la
               displayName: 'Testing environment variable'
+            - task: AmazonWebServices.aws-vsts-tools.AWSCLI.AWSCLI@1
+              displayName: 'AWS CLI: coisas'
+              inputs:
+                awsCredentials: STAGING
+                regionName: 'us-east-1'
+                awsCommand: s3
+                awsSubCommand: rm
+                awsArguments: 's3://$(BUCKET_COMPANIES)/ --recursive'
+                failOnStandardError: false
