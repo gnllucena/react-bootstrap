@@ -51,19 +51,10 @@ stages:
       runOnce:
         deploy:
           steps:
-            # - task: DownloadPipelineArtifact@2
-            #   displayName: 'Downloading artifact'
-            #   inputs:
-            #     source: 'current'
-            - task: DownloadBuildArtifacts@0
+            - task: DownloadPipelineArtifact@2
               displayName: 'Downloading artifact'
               inputs:
-                buildType: 'current'
-                downloadType: 'single'
-                artifactName: 'app'
-                downloadPath: '$(System.ArtifactsDirectory)' 
-            - script: ls $(System.ArtifactsDirectory)
-              displayName: 'LS'
+                source: 'current'
             - task: AmazonWebServices.aws-vsts-tools.AWSCLI.AWSCLI@1
               displayName: 'Removing old package'
               inputs:
@@ -80,5 +71,5 @@ stages:
                 regionName: 'us-east-1'
                 awsCommand: s3
                 awsSubCommand: sync
-                awsArguments: '$(System.ArtifactsDirectory)/app s3://$(BUCKET_COMPANIES)/'
+                awsArguments: '$(Agent.BuildDirectory)/app s3://$(BUCKET_COMPANIES)/'
                 failOnStandardError: false
