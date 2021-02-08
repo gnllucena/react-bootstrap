@@ -73,3 +73,12 @@ stages:
                 awsSubCommand: sync
                 awsArguments: '$(Agent.BuildDirectory)/app s3://$(BUCKET_COMPANIES)/'
                 failOnStandardError: false
+            - task: AmazonWebServices.aws-vsts-tools.AWSCLI.AWSCLI@1
+              displayName: 'Removing old cache'
+              inputs:
+                awsCredentials: STAGING
+                regionName: 'us-east-1'
+                awsCommand: s3cloudfront
+                awsSubCommand: create-invalidation
+                awsArguments: '--distribution-id $(CLOUDFRONT_COMPANIES) --paths "/*"'
+                failOnStandardError: false
