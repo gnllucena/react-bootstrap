@@ -7,13 +7,12 @@ import { UserState } from './store/LoginPageState';
 import HttpErrorHandling from './components/behavior/HttpErrorHandling/HttpErrorHandling';
 import StateManagement from './components/behavior/StateManagement/StateManagement';
 import ErrorBoundary from './components/behavior/ErrorBoundary/ErrorBoundary';
-
 import User from './domain/User';
 import ScrollToTop from './components/behavior/ScrollToTop/ScrollToTop';
 import ProtectedRoute from './components/behavior/ProtectedRoute/ProtectedRoute';
+import Loading from './components/ui/Loading/Loading';
 
 import './assets/styles/App.scss';
-import Loading from './components/ui/Loading/Loading';
 
 const HomePage = lazy(() => import('./containers/Home/HomePage'));
 const CreateNewAccountPage = lazy(() => import('./containers/Authentication/CreateNewAccount/CreateNewAccountPage'));
