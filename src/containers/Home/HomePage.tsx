@@ -8,7 +8,7 @@ const HomePage: FunctionComponent<RouteComponentProps> = (props: RouteComponentP
     <Header fixed />
 
     <Content>
-      <p>home page</p>
+      <p>zuzu pipineles</p>
       <p>home page</p>
       <p>home page</p>
       <p>home page</p>
